@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wedding RSVP</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #fdf6f0;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    a.map-link {
+      display: inline-block;
+      margin: 20px 0;
+      color: #0077cc;
+      text-decoration: none;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>You're Invited!</h1>
+    <p>Please RSVP below and find directions to our wedding venue.</p>
+
+    <h2>RSVP</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required><br><br>
+      <input type="email" name="email" placeholder="Your Email" required><br><br>
+      <label>Will you attend?</label><br>
+      <input type="radio" name="attendance" value="Yes" required> Yes
+      <input type="radio" name="attendance" value="No"> No<br><br>
+      <textarea name="message" placeholder="Any message for us?" rows="4" cols="40"></textarea><br><br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <a class="map-link" href="https://goo.gl/maps/YOUR_GOOGLE_MAPS_LINK" target="_blank">
+      📍 View Venue on Google Maps
+    </a>
+  </div>
+</body>
+</html>
