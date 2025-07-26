@@ -180,7 +180,7 @@ TkinterGUI/
 
 **Developer**: Xenofon Psychis - Filis  
 **Contact**: p.xenophon@gmail.com  
-**GitHub**: [View on GitHub](https://github.com/psycxeno/XenophonPsychisFilis/tree/main/TkinterGUI)
+**GitHub**: [View on GitHub](https://github.com/psycxeno/XenophonPsychisFilis/tree/main/CSV%20Analyzer)
 
 ## 📄 License
 
