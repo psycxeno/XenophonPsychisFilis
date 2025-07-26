@@ -68,3 +68,773 @@
 2025-07-26 16:33:27,816 INFO: Status updated: Results exported to extra_del.csv
 2025-07-26 16:33:27,816 INFO: Extra delimiter results exported to extra_del.csv
 2025-07-26 16:34:34,382 INFO: Application started
+2025-07-26 17:03:05,892 INFO: Application started
+2025-07-26 17:03:28,621 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 17:03:28,621 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 17:03:49,451 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:03:49,451 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:04:32,902 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 17:04:32,902 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 17:04:32,909 INFO: Progress popup closed safely.
+2025-07-26 17:04:32,910 INFO: Progress popup closed.
+2025-07-26 17:06:11,168 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:06:11,168 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:06:11,183 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 17:06:11,183 INFO: Progress popup closed safely.
+2025-07-26 17:06:11,183 WARNING: Column index 5 out of range.
+2025-07-26 17:06:11,184 INFO: Progress popup closed.
+2025-07-26 17:06:13,206 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:06:13,206 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:06:13,218 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 17:06:13,218 INFO: Progress popup closed safely.
+2025-07-26 17:06:13,218 WARNING: Column index 5 out of range.
+2025-07-26 17:06:13,219 INFO: Progress popup closed.
+2025-07-26 17:06:16,894 INFO: Status updated: No file selected.
+2025-07-26 17:06:16,894 WARNING: User cancelled file selection.
+2025-07-26 17:06:21,938 WARNING: User attempted to run duplicate check with empty column name.
+2025-07-26 17:06:25,609 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:06:25,609 INFO: User initiated duplicate check for column '0'.
+2025-07-26 17:07:09,480 INFO: Duplicate status updated: Found 4 duplicate values in column '0'.
+2025-07-26 17:07:09,480 INFO: Duplicate check for column '0' completed. Found 4 duplicates.
+2025-07-26 17:07:09,482 INFO: Progress popup closed safely.
+2025-07-26 17:07:09,510 INFO: Progress popup closed.
+2025-07-26 17:11:48,111 INFO: Application started
+2025-07-26 17:11:53,808 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 17:11:53,808 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 17:12:03,891 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:12:03,891 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:12:03,903 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 17:12:03,903 INFO: Progress popup closed safely.
+2025-07-26 17:12:03,903 WARNING: Column index 5 out of range.
+2025-07-26 17:12:03,904 INFO: Progress popup closed.
+2025-07-26 17:12:08,664 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:12:08,664 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:12:08,676 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 17:12:08,677 INFO: Progress popup closed safely.
+2025-07-26 17:12:08,677 WARNING: Column index 5 out of range.
+2025-07-26 17:12:08,678 INFO: Progress popup closed.
+2025-07-26 17:12:12,927 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:12:12,927 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:12:51,578 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 17:12:51,578 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 17:12:51,586 INFO: Progress popup closed safely.
+2025-07-26 17:12:51,587 INFO: Progress popup closed.
+2025-07-26 17:13:23,997 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:13:23,997 INFO: User initiated duplicate check for column '0'.
+2025-07-26 17:14:21,923 INFO: Duplicate status updated: Found 3 duplicate values in column '0'.
+2025-07-26 17:14:21,923 INFO: Duplicate check for column '0' completed. Found 3 duplicates.
+2025-07-26 17:14:21,924 INFO: Progress popup closed safely.
+2025-07-26 17:14:22,157 INFO: Progress popup closed.
+2025-07-26 17:14:54,938 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:14:54,939 INFO: User initiated extra delimiter check.
+2025-07-26 17:15:55,826 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 17:15:55,827 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 17:15:55,829 INFO: Progress popup closed safely.
+2025-07-26 17:15:55,836 INFO: Progress popup closed.
+2025-07-26 17:16:02,633 INFO: Status updated: Ready
+2025-07-26 17:16:02,633 INFO: User cleared all results and status.
+2025-07-26 17:19:54,812 INFO: Application started
+2025-07-26 17:20:21,979 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 17:20:21,979 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 17:20:31,418 INFO: Refreshed delimiter to: ','
+2025-07-26 17:20:31,420 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:20:31,420 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:20:31,420 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 17:20:31,420 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 17:20:31,435 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 17:20:31,435 INFO: Progress popup closed safely.
+2025-07-26 17:20:31,435 WARNING: Column index 5 out of range.
+2025-07-26 17:20:31,436 INFO: Progress popup closed.
+2025-07-26 17:20:41,113 INFO: Refreshed delimiter to: ','
+2025-07-26 17:20:41,115 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:20:41,115 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:20:41,115 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 17:20:41,115 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 17:20:41,132 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 17:20:41,132 INFO: Progress popup closed safely.
+2025-07-26 17:20:41,132 WARNING: Column index 5 out of range.
+2025-07-26 17:20:41,134 INFO: Progress popup closed.
+2025-07-26 17:20:43,517 INFO: Refreshed delimiter to: ','
+2025-07-26 17:20:43,519 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:20:43,519 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:20:43,519 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 17:20:43,519 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 17:20:43,532 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 17:20:43,532 INFO: Progress popup closed safely.
+2025-07-26 17:20:43,532 WARNING: Column index 5 out of range.
+2025-07-26 17:20:43,533 INFO: Progress popup closed.
+2025-07-26 17:20:46,160 INFO: Refreshed delimiter to: '	'
+2025-07-26 17:20:46,162 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:20:46,162 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:20:46,163 INFO: Getting delimiter: '	' (type: <class 'str'>)
+2025-07-26 17:20:46,163 INFO: Converted delimiter to: '	' (type: <class 'str'>)
+2025-07-26 17:21:26,655 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 17:21:26,655 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 17:21:26,662 INFO: Progress popup closed safely.
+2025-07-26 17:21:26,663 INFO: Progress popup closed.
+2025-07-26 17:21:52,677 INFO: Refreshed delimiter to: ','
+2025-07-26 17:21:52,679 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:21:52,679 INFO: User initiated duplicate check for column '0'.
+2025-07-26 17:21:52,679 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 17:21:52,679 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 17:22:27,055 INFO: Duplicate status updated: Found 3 duplicate values in column '0'.
+2025-07-26 17:22:27,055 INFO: Duplicate check for column '0' completed. Found 3 duplicates.
+2025-07-26 17:22:27,056 INFO: Progress popup closed safely.
+2025-07-26 17:22:27,297 INFO: Progress popup closed.
+2025-07-26 17:24:55,190 INFO: Application started
+2025-07-26 17:25:18,964 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 17:25:18,964 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 17:25:30,168 INFO: File structure analysis completed. Recommended delimiter: ,
+2025-07-26 17:25:35,538 INFO: File structure analysis completed. Recommended delimiter: ,
+2025-07-26 17:25:50,222 INFO: Status updated: Ready
+2025-07-26 17:25:50,222 INFO: User cleared all results and status.
+2025-07-26 17:25:55,775 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 17:25:55,775 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 17:26:07,032 INFO: File structure analysis completed. Recommended delimiter: ,
+2025-07-26 17:28:46,501 INFO: Application started
+2025-07-26 17:28:52,758 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 17:28:52,758 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 17:29:30,379 INFO: File structure analysis completed. Recommended delimiter: ,
+2025-07-26 17:32:20,862 INFO: Application started
+2025-07-26 17:32:30,884 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 17:32:30,884 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 17:32:31,908 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:32:31,909 INFO: Delimiter 'Tab' (	): [1, 150, 150, 150, 150] columns per row, avg: 120.2, consistent: False
+2025-07-26 17:32:31,909 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:32:31,909 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:32:48,364 INFO: File structure analysis completed. Recommended delimiter: ,
+2025-07-26 17:32:48,364 INFO: Raw first line delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0}
+2025-07-26 17:34:00,123 INFO: Application started
+2025-07-26 17:34:06,543 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 17:34:06,543 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 17:34:07,147 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:34:07,148 INFO: Delimiter 'Tab' (	): [1, 150, 150, 150, 150] columns per row, avg: 120.2, consistent: False
+2025-07-26 17:34:07,148 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:34:07,148 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:34:13,512 INFO: File structure analysis completed. Recommended delimiter: 	
+2025-07-26 17:34:13,512 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0}
+2025-07-26 17:34:25,907 INFO: Refreshed delimiter to: '	'
+2025-07-26 17:34:25,909 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:34:25,909 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:34:25,910 INFO: Getting delimiter: '	' (type: <class 'str'>)
+2025-07-26 17:34:25,910 INFO: Converted delimiter to: '	' (type: <class 'str'>)
+2025-07-26 17:34:25,910 INFO: File structure with delimiter '	':
+2025-07-26 17:34:25,910 INFO:   Row 1: 1 columns - ['filename_yyyymmdd_txt']...
+2025-07-26 17:34:25,910 INFO:   Row 2: 150 columns - ['Name1', '32', 'Other', 'Canada', 'Sydney']...
+2025-07-26 17:34:25,910 INFO:   Row 3: 150 columns - ['Name2', '', '', 'Germany', 'London']...
+2025-07-26 17:35:09,536 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 17:35:09,537 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 17:35:09,543 INFO: Progress popup closed safely.
+2025-07-26 17:35:09,545 INFO: Progress popup closed.
+2025-07-26 17:35:19,592 INFO: Refreshed delimiter to: ','
+2025-07-26 17:35:19,594 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:35:19,594 INFO: User initiated duplicate check for column '0'.
+2025-07-26 17:35:19,595 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 17:35:19,595 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 17:35:56,215 INFO: Duplicate status updated: Found 3 duplicate values in column '0'.
+2025-07-26 17:35:56,215 INFO: Duplicate check for column '0' completed. Found 3 duplicates.
+2025-07-26 17:35:56,217 INFO: Progress popup closed safely.
+2025-07-26 17:35:56,476 INFO: Progress popup closed.
+2025-07-26 17:38:35,923 INFO: Application started
+2025-07-26 17:38:44,586 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 17:38:44,587 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 17:38:44,620 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Detected: Tab)
+2025-07-26 17:38:44,620 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-26 17:38:46,658 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:38:46,658 INFO: Delimiter 'Tab' (	): [1, 150, 150, 150, 150] columns per row, avg: 120.2, consistent: False
+2025-07-26 17:38:46,659 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:38:46,659 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:39:06,044 INFO: File structure analysis completed. Recommended delimiter: 	
+2025-07-26 17:39:06,045 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0}
+2025-07-26 17:39:10,672 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:39:10,672 INFO: Delimiter 'Tab' (	): [1, 150, 150, 150, 150] columns per row, avg: 120.2, consistent: False
+2025-07-26 17:39:10,673 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:39:10,673 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:39:24,291 INFO: File structure analysis completed. Recommended delimiter: 	
+2025-07-26 17:39:24,291 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0}
+2025-07-26 17:39:38,481 INFO: Status updated: Ready
+2025-07-26 17:39:38,481 INFO: User cleared all results and status.
+2025-07-26 17:43:07,913 INFO: Status updated: Ready
+2025-07-26 17:43:07,913 INFO: User cleared all results and status.
+2025-07-26 17:43:18,647 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt
+2025-07-26 17:43:18,647 INFO: User selected file: large_file_500rows_150cols_backslash.txt
+2025-07-26 17:43:18,679 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt (Delimiter unknown)
+2025-07-26 17:43:18,679 WARNING: Could not auto-detect delimiter
+2025-07-26 17:43:22,414 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:43:22,414 INFO: Delimiter 'Tab' (	): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:43:22,414 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:43:22,414 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:43:26,184 INFO: File structure analysis completed. Recommended delimiter: ,
+2025-07-26 17:43:26,185 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0}
+2025-07-26 17:43:34,175 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:43:34,175 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:43:34,175 INFO: Getting delimiter: '	' (type: <class 'str'>)
+2025-07-26 17:43:34,175 INFO: Converted delimiter to: '	' (type: <class 'str'>)
+2025-07-26 17:43:34,176 INFO: File structure with delimiter '	':
+2025-07-26 17:43:34,176 INFO:   Row 1: 1 columns - ['Col1\\Col2\\Col3\\Col4\\Col5\\Col6\\Col7\\Col8\\Col9\\Col10\\Col11\\Col12\\Col13\\Col14\\Col15\\Col16\\Col17\\Col18\\Col19\\Col20\\Col21\\Col22\\Col23\\Col24\\Col25\\Col26\\Col27\\Col28\\Col29\\Col30\\Col31\\Col32\\Col33\\Col34\\Col35\\Col36\\Col37\\Col38\\Col39\\Col40\\Col41\\Col42\\Col43\\Col44\\Col45\\Col46\\Col47\\Col48\\Col49\\Col50\\Col51\\Col52\\Col53\\Col54\\Col55\\Col56\\Col57\\Col58\\Col59\\Col60\\Col61\\Col62\\Col63\\Col64\\Col65\\Col66\\Col67\\Col68\\Col69\\Col70\\Col71\\Col72\\Col73\\Col74\\Col75\\Col76\\Col77\\Col78\\Col79\\Col80\\Col81\\Col82\\Col83\\Col84\\Col85\\Col86\\Col87\\Col88\\Col89\\Col90\\Col91\\Col92\\Col93\\Col94\\Col95\\Col96\\Col97\\Col98\\Col99\\Col100\\Col101\\Col102\\Col103\\Col104\\Col105\\Col106\\Col107\\Col108\\Col109\\Col110\\Col111\\Col112\\Col113\\Col114\\Col115\\Col116\\Col117\\Col118\\Col119\\Col120\\Col121\\Col122\\Col123\\Col124\\Col125\\Col126\\Col127\\Col128\\Col129\\Col130\\Col131\\Col132\\Col133\\Col134\\Col135\\Col136\\Col137\\Col138\\Col139\\Col140\\Col141\\Col142\\Col143\\Col144\\Col145\\Col146\\Col147\\Col148\\Col149\\Col150']...
+2025-07-26 17:43:34,176 INFO:   Row 2: 1 columns - ['Name1\\47\\Female\\UK\\Toronto\\user1@example.com\\+1-555-1287\\Analyst\\Globex\\54575\\Marketing\\\\2001-06-18\\Active\\912 Main St\\99070\\UK\\Note 1\\6.42\\10\\33\\Project 28\\Beta\\9981\\Name1\\63\\Male\\USA\\New York\\user1@example.com\\+1-555-8610\\Analyst\\Acme Corp\\102746\\Sales\\Charlie\\2006-03-25\\On Leave\\842 Main St\\87494\\UK\\Note 1\\57.38\\\\24\\Project 6\\Beta\\6293\\Name1\\26\\Other\\USA\\\\user1@example.com\\+1-555-4705\\Analyst\\Globex\\49400\\Sales\\Charlie\\\\Inactive\\773 Main St\\20278\\Australia\\Note 1\\30.2\\2\\11\\Project 87\\Delta\\8986\\Name1\\58\\Male\\USA\\Sydney\\user1@example.com\\+1-555-7159\\Engineer\\Acme Corp\\62744\\HR\\Charlie\\2016-09-18\\Active\\190 Main St\\86430\\USA\\Note 1\\38.81\\1\\35\\Project 18\\Delta\\6428\\Name1\\44\\Other\\UK\\Sydney\\user1@example.com\\+1-555-5617\\Analyst\\Globex\\47261\\Sales\\Diana\\2004-05-06\\Active\\760 Main St\\55220\\USA\\Note 1\\88.09\\4\\4\\Project 62\\Delta\\4360\\Name1\\59\\Other\\Canada\\Toronto\\user1@example.com\\+1-555-6216\\Analyst\\\\\\Sales\\Diana\\2008-11-10\\Inactive\\567 Main St\\42513\\UK\\Note 1\\19.09\\\\12\\Project 85\\\\7620\\Name1\\65\\Other\\USA\\New York\\user1@example.com']...
+2025-07-26 17:43:34,176 INFO:   Row 3: 1 columns - ['Name2\\26\\Other\\Australia\\Sydney\\user2@example.com\\+1-555-7302\\Engineer\\Globex\\95046\\Sales\\\\2011-02-03\\Inactive\\540 Main St\\34904\\Germany\\Note 2\\35.73\\4\\30\\Project 57\\Gamma\\\\Name2\\53\\Other\\Canada\\New York\\user2@example.com\\+1-555-3436\\Clerk\\Umbrella\\45598\\Engineering\\Bob\\2011-09-27\\Active\\971 Main St\\65335\\\\Note 2\\59.45\\4\\30\\Project 34\\Alpha\\912\\Name2\\49\\Other\\\\London\\\\+1-555-5246\\\\Acme Corp\\46916\\Marketing\\Alice\\2008-03-23\\Active\\973 Main St\\45543\\Australia\\\\19.36\\3\\21\\Project 82\\Alpha\\\\Name2\\54\\Female\\Australia\\Toronto\\\\+1-555-1138\\Clerk\\Globex\\57171\\Engineering\\Diana\\2014-01-30\\On Leave\\706 Main St\\37330\\Canada\\Note 2\\10.03\\2\\26\\Project 85\\Gamma\\\\Name2\\24\\Female\\USA\\\\user2@example.com\\+1-555-4460\\Engineer\\Acme Corp\\62303\\Sales\\Charlie\\\\\\299 Main St\\93386\\UK\\Note 2\\90.12\\8\\\\Project 32\\Alpha\\7166\\Name2\\62\\Other\\UK\\Sydney\\user2@example.com\\+1-555-7604\\Analyst\\\\105250\\Marketing\\Diana\\2016-12-23\\Active\\392 Main St\\69144\\USA\\Note 2\\84.26\\9\\11\\Project 45\\Beta\\8940\\Name2\\23\\Female\\Australia\\Sydney\\user2@example.com']...
+2025-07-26 17:43:34,187 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 17:43:34,187 INFO: Progress popup closed safely.
+2025-07-26 17:43:34,187 WARNING: Column index 5 out of range.
+2025-07-26 17:43:34,188 INFO: Progress popup closed.
+2025-07-26 17:43:35,952 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:43:35,952 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:43:35,952 INFO: Getting delimiter: '	' (type: <class 'str'>)
+2025-07-26 17:43:35,952 INFO: Converted delimiter to: '	' (type: <class 'str'>)
+2025-07-26 17:43:35,953 INFO: File structure with delimiter '	':
+2025-07-26 17:43:35,953 INFO:   Row 1: 1 columns - ['Col1\\Col2\\Col3\\Col4\\Col5\\Col6\\Col7\\Col8\\Col9\\Col10\\Col11\\Col12\\Col13\\Col14\\Col15\\Col16\\Col17\\Col18\\Col19\\Col20\\Col21\\Col22\\Col23\\Col24\\Col25\\Col26\\Col27\\Col28\\Col29\\Col30\\Col31\\Col32\\Col33\\Col34\\Col35\\Col36\\Col37\\Col38\\Col39\\Col40\\Col41\\Col42\\Col43\\Col44\\Col45\\Col46\\Col47\\Col48\\Col49\\Col50\\Col51\\Col52\\Col53\\Col54\\Col55\\Col56\\Col57\\Col58\\Col59\\Col60\\Col61\\Col62\\Col63\\Col64\\Col65\\Col66\\Col67\\Col68\\Col69\\Col70\\Col71\\Col72\\Col73\\Col74\\Col75\\Col76\\Col77\\Col78\\Col79\\Col80\\Col81\\Col82\\Col83\\Col84\\Col85\\Col86\\Col87\\Col88\\Col89\\Col90\\Col91\\Col92\\Col93\\Col94\\Col95\\Col96\\Col97\\Col98\\Col99\\Col100\\Col101\\Col102\\Col103\\Col104\\Col105\\Col106\\Col107\\Col108\\Col109\\Col110\\Col111\\Col112\\Col113\\Col114\\Col115\\Col116\\Col117\\Col118\\Col119\\Col120\\Col121\\Col122\\Col123\\Col124\\Col125\\Col126\\Col127\\Col128\\Col129\\Col130\\Col131\\Col132\\Col133\\Col134\\Col135\\Col136\\Col137\\Col138\\Col139\\Col140\\Col141\\Col142\\Col143\\Col144\\Col145\\Col146\\Col147\\Col148\\Col149\\Col150']...
+2025-07-26 17:43:35,953 INFO:   Row 2: 1 columns - ['Name1\\47\\Female\\UK\\Toronto\\user1@example.com\\+1-555-1287\\Analyst\\Globex\\54575\\Marketing\\\\2001-06-18\\Active\\912 Main St\\99070\\UK\\Note 1\\6.42\\10\\33\\Project 28\\Beta\\9981\\Name1\\63\\Male\\USA\\New York\\user1@example.com\\+1-555-8610\\Analyst\\Acme Corp\\102746\\Sales\\Charlie\\2006-03-25\\On Leave\\842 Main St\\87494\\UK\\Note 1\\57.38\\\\24\\Project 6\\Beta\\6293\\Name1\\26\\Other\\USA\\\\user1@example.com\\+1-555-4705\\Analyst\\Globex\\49400\\Sales\\Charlie\\\\Inactive\\773 Main St\\20278\\Australia\\Note 1\\30.2\\2\\11\\Project 87\\Delta\\8986\\Name1\\58\\Male\\USA\\Sydney\\user1@example.com\\+1-555-7159\\Engineer\\Acme Corp\\62744\\HR\\Charlie\\2016-09-18\\Active\\190 Main St\\86430\\USA\\Note 1\\38.81\\1\\35\\Project 18\\Delta\\6428\\Name1\\44\\Other\\UK\\Sydney\\user1@example.com\\+1-555-5617\\Analyst\\Globex\\47261\\Sales\\Diana\\2004-05-06\\Active\\760 Main St\\55220\\USA\\Note 1\\88.09\\4\\4\\Project 62\\Delta\\4360\\Name1\\59\\Other\\Canada\\Toronto\\user1@example.com\\+1-555-6216\\Analyst\\\\\\Sales\\Diana\\2008-11-10\\Inactive\\567 Main St\\42513\\UK\\Note 1\\19.09\\\\12\\Project 85\\\\7620\\Name1\\65\\Other\\USA\\New York\\user1@example.com']...
+2025-07-26 17:43:35,953 INFO:   Row 3: 1 columns - ['Name2\\26\\Other\\Australia\\Sydney\\user2@example.com\\+1-555-7302\\Engineer\\Globex\\95046\\Sales\\\\2011-02-03\\Inactive\\540 Main St\\34904\\Germany\\Note 2\\35.73\\4\\30\\Project 57\\Gamma\\\\Name2\\53\\Other\\Canada\\New York\\user2@example.com\\+1-555-3436\\Clerk\\Umbrella\\45598\\Engineering\\Bob\\2011-09-27\\Active\\971 Main St\\65335\\\\Note 2\\59.45\\4\\30\\Project 34\\Alpha\\912\\Name2\\49\\Other\\\\London\\\\+1-555-5246\\\\Acme Corp\\46916\\Marketing\\Alice\\2008-03-23\\Active\\973 Main St\\45543\\Australia\\\\19.36\\3\\21\\Project 82\\Alpha\\\\Name2\\54\\Female\\Australia\\Toronto\\\\+1-555-1138\\Clerk\\Globex\\57171\\Engineering\\Diana\\2014-01-30\\On Leave\\706 Main St\\37330\\Canada\\Note 2\\10.03\\2\\26\\Project 85\\Gamma\\\\Name2\\24\\Female\\USA\\\\user2@example.com\\+1-555-4460\\Engineer\\Acme Corp\\62303\\Sales\\Charlie\\\\\\299 Main St\\93386\\UK\\Note 2\\90.12\\8\\\\Project 32\\Alpha\\7166\\Name2\\62\\Other\\UK\\Sydney\\user2@example.com\\+1-555-7604\\Analyst\\\\105250\\Marketing\\Diana\\2016-12-23\\Active\\392 Main St\\69144\\USA\\Note 2\\84.26\\9\\11\\Project 45\\Beta\\8940\\Name2\\23\\Female\\Australia\\Sydney\\user2@example.com']...
+2025-07-26 17:43:35,964 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 17:43:35,964 INFO: Progress popup closed safely.
+2025-07-26 17:43:35,964 WARNING: Column index 5 out of range.
+2025-07-26 17:43:35,965 INFO: Progress popup closed.
+2025-07-26 17:43:39,257 INFO: Status updated: Ready
+2025-07-26 17:43:39,257 INFO: User cleared all results and status.
+2025-07-26 17:43:44,963 INFO: Status updated: File loaded: large_file_500rows_150cols_comma.txt
+2025-07-26 17:43:44,963 INFO: User selected file: large_file_500rows_150cols_comma.txt
+2025-07-26 17:43:44,999 INFO: Status updated: File loaded: large_file_500rows_150cols_comma.txt (Detected: Comma)
+2025-07-26 17:43:44,999 INFO: Auto-detected delimiter: , (Comma)
+2025-07-26 17:43:47,126 INFO: Status updated: Ready
+2025-07-26 17:43:47,126 INFO: User cleared all results and status.
+2025-07-26 17:43:51,977 INFO: Status updated: File loaded: large_file_500rows_150cols_pipe.txt
+2025-07-26 17:43:51,977 INFO: User selected file: large_file_500rows_150cols_pipe.txt
+2025-07-26 17:43:52,010 INFO: Status updated: File loaded: large_file_500rows_150cols_pipe.txt (Detected: Pipe)
+2025-07-26 17:43:52,010 INFO: Auto-detected delimiter: | (Pipe)
+2025-07-26 17:43:54,040 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:43:54,040 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 17:43:54,040 INFO: Getting delimiter: '|' (type: <class 'str'>)
+2025-07-26 17:43:54,040 INFO: Converted delimiter to: '|' (type: <class 'str'>)
+2025-07-26 17:43:54,041 INFO: File structure with delimiter '|':
+2025-07-26 17:43:54,041 INFO:   Row 1: 150 columns - ['Col1', 'Col2', 'Col3', 'Col4', 'Col5']...
+2025-07-26 17:43:54,041 INFO:   Row 2: 150 columns - ['Name1', '46', 'Other', 'Canada', 'Berlin']...
+2025-07-26 17:43:54,041 INFO:   Row 3: 150 columns - ['Name2', '', 'Other', 'UK', 'Sydney']...
+2025-07-26 17:43:54,077 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 17:43:54,077 INFO: Length check for column '5' with threshold 25 completed. Found 0 matches.
+2025-07-26 17:43:54,078 INFO: Progress popup closed safely.
+2025-07-26 17:43:54,080 INFO: Progress popup closed.
+2025-07-26 17:44:03,942 INFO: Status updated: File loaded: large_file_500rows_150cols_semicolon.txt
+2025-07-26 17:44:03,942 INFO: User selected file: large_file_500rows_150cols_semicolon.txt
+2025-07-26 17:44:03,975 INFO: Status updated: File loaded: large_file_500rows_150cols_semicolon.txt (Detected: Semicolon)
+2025-07-26 17:44:03,975 INFO: Auto-detected delimiter: ; (Semicolon)
+2025-07-26 17:44:07,198 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:44:07,198 INFO: Delimiter 'Tab' (	): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:44:07,198 INFO: Delimiter 'Semicolon' (;): [150, 150, 150, 150, 150] columns per row, avg: 150.0, consistent: True
+2025-07-26 17:44:07,198 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:44:12,793 INFO: File structure analysis completed. Recommended delimiter: ;
+2025-07-26 17:44:12,793 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 149, '|': 0}
+2025-07-26 17:44:12,793 INFO: Manual analysis suggests delimiter: ; (149 occurrences)
+2025-07-26 17:55:53,186 INFO: Application started
+2025-07-26 17:56:02,147 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt
+2025-07-26 17:56:02,147 INFO: User selected file: large_file_500rows_150cols_backslash.txt
+2025-07-26 17:56:02,180 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt (Detected: Backslash)
+2025-07-26 17:56:02,180 INFO: Auto-detected delimiter: \ (Backslash)
+2025-07-26 17:56:04,864 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:56:04,864 INFO: Delimiter 'Tab' (	): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:56:04,864 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:56:04,864 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:56:10,410 ERROR: File structure analysis failed: '\\'
+2025-07-26 17:56:13,277 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:56:13,277 INFO: Delimiter 'Tab' (	): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:56:13,277 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:56:13,277 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:56:14,525 ERROR: File structure analysis failed: '\\'
+2025-07-26 17:58:55,024 INFO: Application started
+2025-07-26 17:59:03,147 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt
+2025-07-26 17:59:03,147 INFO: User selected file: large_file_500rows_150cols_backslash.txt
+2025-07-26 17:59:03,180 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt (Detected: Backslash)
+2025-07-26 17:59:03,180 INFO: Auto-detected delimiter: \ (Backslash)
+2025-07-26 17:59:05,311 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:59:05,312 INFO: Delimiter 'Tab' (	): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:59:05,312 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:59:05,312 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 17:59:05,312 INFO: Delimiter 'Backslash' (\): [150, 150, 150, 150, 150] columns per row, avg: 150.0, consistent: True
+2025-07-26 17:59:08,937 INFO: File structure analysis completed. Recommended delimiter: \
+2025-07-26 17:59:08,937 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0, '\\': 149}
+2025-07-26 17:59:08,937 INFO: Manual analysis suggests delimiter: \ (149 occurrences)
+2025-07-26 17:59:19,336 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:59:19,337 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 17:59:19,337 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 17:59:19,337 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 17:59:19,364 INFO: Length status updated: Error: cannot access local variable 'reader' where it is not associated with a value
+2025-07-26 17:59:19,364 ERROR: Error during length check worker: cannot access local variable 'reader' where it is not associated with a value
+2025-07-26 17:59:19,364 INFO: Progress popup closed safely.
+2025-07-26 17:59:19,366 INFO: Progress popup closed.
+2025-07-26 17:59:28,430 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 17:59:28,430 INFO: User initiated length check for column '2' with threshold 25.
+2025-07-26 17:59:28,431 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 17:59:28,431 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 17:59:28,459 INFO: Length status updated: Error: cannot access local variable 'reader' where it is not associated with a value
+2025-07-26 17:59:28,459 ERROR: Error during length check worker: cannot access local variable 'reader' where it is not associated with a value
+2025-07-26 17:59:28,460 INFO: Progress popup closed safely.
+2025-07-26 17:59:28,461 INFO: Progress popup closed.
+2025-07-26 18:00:30,583 INFO: Status updated: File loaded: large_file_500rows_150cols_comma.txt
+2025-07-26 18:00:30,583 INFO: User selected file: large_file_500rows_150cols_comma.txt
+2025-07-26 18:00:30,615 INFO: Status updated: File loaded: large_file_500rows_150cols_comma.txt (Detected: Comma)
+2025-07-26 18:00:30,615 INFO: Auto-detected delimiter: , (Comma)
+2025-07-26 18:00:32,013 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:00:32,014 INFO: User initiated length check for column '2' with threshold 25.
+2025-07-26 18:00:32,014 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 18:00:32,014 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 18:00:32,014 INFO: File structure with delimiter ',':
+2025-07-26 18:00:32,014 INFO:   Row 1: 150 columns - ['Col1', 'Col2', 'Col3', 'Col4', 'Col5']...
+2025-07-26 18:00:32,014 INFO:   Row 2: 150 columns - ['Name1', '22', 'Female', 'USA', 'Toronto']...
+2025-07-26 18:00:32,015 INFO:   Row 3: 150 columns - ['Name2', '20', 'Other', 'Canada', 'Toronto']...
+2025-07-26 18:00:32,049 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:00:32,050 INFO: Length check for column '2' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:00:32,051 INFO: Progress popup closed safely.
+2025-07-26 18:00:32,053 INFO: Progress popup closed.
+2025-07-26 18:00:38,206 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:00:38,207 INFO: User initiated duplicate check for column '1'.
+2025-07-26 18:00:38,207 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 18:00:38,207 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 18:00:39,009 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-26 18:00:39,703 INFO: Duplicate status updated: Found 200 duplicates so far...
+2025-07-26 18:00:39,960 INFO: Duplicate status updated: Found 300 duplicates so far...
+2025-07-26 18:00:40,751 INFO: Duplicate status updated: Found 400 duplicates so far...
+2025-07-26 18:00:40,895 INFO: Duplicate status updated: Found 453 duplicate values in column '1'.
+2025-07-26 18:00:40,895 INFO: Duplicate check for column '1' completed. Found 453 duplicates.
+2025-07-26 18:00:40,910 INFO: Progress popup closed safely.
+2025-07-26 18:00:40,911 INFO: Progress popup closed.
+2025-07-26 18:00:43,438 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:00:43,438 INFO: User initiated extra delimiter check.
+2025-07-26 18:00:43,438 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 18:00:43,438 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 18:00:43,471 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 18:00:43,471 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 18:00:43,472 INFO: Progress popup closed safely.
+2025-07-26 18:00:43,474 INFO: Progress popup closed.
+2025-07-26 18:00:53,292 INFO: Delimiter 'Comma' (,): [150, 150, 150, 150, 150] columns per row, avg: 150.0, consistent: True
+2025-07-26 18:00:53,292 INFO: Delimiter 'Tab' (	): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:00:53,292 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:00:53,292 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:00:53,293 INFO: Delimiter 'Backslash' (\): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:00:54,641 INFO: File structure analysis completed. Recommended delimiter: ,
+2025-07-26 18:00:54,641 INFO: Raw line 1 delimiter counts: {',': 149, '\t': 0, ';': 0, '|': 0, '\\': 0}
+2025-07-26 18:00:54,641 INFO: Manual analysis suggests delimiter: , (149 occurrences)
+2025-07-26 18:00:55,804 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:00:55,804 INFO: User initiated length check for column '2' with threshold 25.
+2025-07-26 18:00:55,805 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 18:00:55,805 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 18:00:55,805 INFO: File structure with delimiter ',':
+2025-07-26 18:00:55,805 INFO:   Row 1: 150 columns - ['Col1', 'Col2', 'Col3', 'Col4', 'Col5']...
+2025-07-26 18:00:55,805 INFO:   Row 2: 150 columns - ['Name1', '22', 'Female', 'USA', 'Toronto']...
+2025-07-26 18:00:55,805 INFO:   Row 3: 150 columns - ['Name2', '20', 'Other', 'Canada', 'Toronto']...
+2025-07-26 18:00:55,818 INFO: Length status updated: Error: '<' not supported between instances of 'NoneType' and 'int'
+2025-07-26 18:00:55,818 ERROR: Error during length check worker: '<' not supported between instances of 'NoneType' and 'int'
+2025-07-26 18:00:55,818 INFO: Progress popup closed safely.
+2025-07-26 18:00:55,819 INFO: Progress popup closed.
+2025-07-26 18:01:02,833 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:01:02,833 INFO: User initiated length check for column '2' with threshold 25.
+2025-07-26 18:01:02,834 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 18:01:02,834 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 18:01:02,834 INFO: File structure with delimiter ',':
+2025-07-26 18:01:02,834 INFO:   Row 1: 150 columns - ['Col1', 'Col2', 'Col3', 'Col4', 'Col5']...
+2025-07-26 18:01:02,834 INFO:   Row 2: 150 columns - ['Name1', '22', 'Female', 'USA', 'Toronto']...
+2025-07-26 18:01:02,834 INFO:   Row 3: 150 columns - ['Name2', '20', 'Other', 'Canada', 'Toronto']...
+2025-07-26 18:01:02,868 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:01:02,868 INFO: Length check for column '2' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:01:02,869 INFO: Progress popup closed safely.
+2025-07-26 18:01:02,871 INFO: Progress popup closed.
+2025-07-26 18:01:06,738 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:01:06,738 INFO: User initiated length check for column '2' with threshold 25.
+2025-07-26 18:01:06,738 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 18:01:06,738 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 18:01:06,738 INFO: File structure with delimiter ',':
+2025-07-26 18:01:06,738 INFO:   Row 1: 150 columns - ['Col1', 'Col2', 'Col3', 'Col4', 'Col5']...
+2025-07-26 18:01:06,739 INFO:   Row 2: 150 columns - ['Name1', '22', 'Female', 'USA', 'Toronto']...
+2025-07-26 18:01:06,739 INFO:   Row 3: 150 columns - ['Name2', '20', 'Other', 'Canada', 'Toronto']...
+2025-07-26 18:01:06,752 INFO: Length status updated: Error: '<' not supported between instances of 'NoneType' and 'int'
+2025-07-26 18:01:06,752 ERROR: Error during length check worker: '<' not supported between instances of 'NoneType' and 'int'
+2025-07-26 18:01:06,752 INFO: Progress popup closed safely.
+2025-07-26 18:01:06,754 INFO: Progress popup closed.
+2025-07-26 18:01:18,025 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:01:18,025 INFO: User initiated length check for column '2' with threshold 25.
+2025-07-26 18:01:18,025 INFO: Getting delimiter: ',' (type: <class 'str'>)
+2025-07-26 18:01:18,025 INFO: Converted delimiter to: ',' (type: <class 'str'>)
+2025-07-26 18:01:18,026 INFO: File structure with delimiter ',':
+2025-07-26 18:01:18,026 INFO:   Row 1: 150 columns - ['Col1', 'Col2', 'Col3', 'Col4', 'Col5']...
+2025-07-26 18:01:18,026 INFO:   Row 2: 150 columns - ['Name1', '22', 'Female', 'USA', 'Toronto']...
+2025-07-26 18:01:18,026 INFO:   Row 3: 150 columns - ['Name2', '20', 'Other', 'Canada', 'Toronto']...
+2025-07-26 18:01:18,060 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:01:18,060 INFO: Length check for column '2' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:01:18,062 INFO: Progress popup closed safely.
+2025-07-26 18:01:18,064 INFO: Progress popup closed.
+2025-07-26 18:02:37,008 INFO: Application started
+2025-07-26 18:02:42,601 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt
+2025-07-26 18:02:42,601 INFO: User selected file: large_file_500rows_150cols_backslash.txt
+2025-07-26 18:02:42,632 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt (Detected: Backslash)
+2025-07-26 18:02:42,632 INFO: Auto-detected delimiter: \ (Backslash)
+2025-07-26 18:02:44,063 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:02:44,064 INFO: Delimiter 'Tab' (	): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:02:44,064 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:02:44,064 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:02:44,064 INFO: Delimiter 'Backslash' (\): [150, 150, 150, 150, 150] columns per row, avg: 150.0, consistent: True
+2025-07-26 18:02:45,353 INFO: File structure analysis completed. Recommended delimiter: \
+2025-07-26 18:02:45,353 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0, '\\': 149}
+2025-07-26 18:02:45,354 INFO: Manual analysis suggests delimiter: \ (149 occurrences)
+2025-07-26 18:02:49,281 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:02:49,281 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 18:02:49,282 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:02:49,282 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:02:49,312 INFO: Length status updated: Analysis complete. Found 0 values exceeding 25 characters.
+2025-07-26 18:02:49,312 INFO: Progress popup closed safely.
+2025-07-26 18:02:49,312 INFO: Length check completed. Found 0 matches.
+2025-07-26 18:02:49,314 INFO: Progress popup closed.
+2025-07-26 18:02:55,541 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:02:55,541 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 18:02:55,541 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:02:55,541 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:02:55,555 INFO: Length status updated: Error: '<' not supported between instances of 'NoneType' and 'int'
+2025-07-26 18:02:55,555 INFO: Progress popup closed safely.
+2025-07-26 18:02:55,555 ERROR: Error during length check worker: '<' not supported between instances of 'NoneType' and 'int'
+2025-07-26 18:02:55,556 INFO: Progress popup closed.
+2025-07-26 18:02:57,788 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:02:57,788 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 18:02:57,789 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:02:57,789 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:02:57,816 INFO: Length status updated: Analysis complete. Found 0 values exceeding 25 characters.
+2025-07-26 18:02:57,816 INFO: Progress popup closed safely.
+2025-07-26 18:02:57,816 INFO: Length check completed. Found 0 matches.
+2025-07-26 18:02:57,818 INFO: Progress popup closed.
+2025-07-26 18:03:00,420 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:03:00,421 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 18:03:00,421 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:03:00,421 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:03:00,449 INFO: Length status updated: Analysis complete. Found 0 values exceeding 25 characters.
+2025-07-26 18:03:00,449 INFO: Progress popup closed safely.
+2025-07-26 18:03:00,449 INFO: Length check completed. Found 0 matches.
+2025-07-26 18:03:00,451 INFO: Progress popup closed.
+2025-07-26 18:03:07,240 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:03:07,240 INFO: User initiated duplicate check for column '1'.
+2025-07-26 18:03:07,241 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:03:07,241 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:03:07,904 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-26 18:03:08,656 INFO: Duplicate status updated: Found 200 duplicates so far...
+2025-07-26 18:03:09,380 INFO: Duplicate status updated: Found 300 duplicates so far...
+2025-07-26 18:03:10,091 INFO: Duplicate status updated: Found 400 duplicates so far...
+2025-07-26 18:03:10,403 INFO: Duplicate status updated: Found 453 duplicate values in column '1'.
+2025-07-26 18:03:10,403 INFO: Duplicate check for column '1' completed. Found 453 duplicates.
+2025-07-26 18:03:10,418 INFO: Progress popup closed safely.
+2025-07-26 18:03:10,420 INFO: Progress popup closed.
+2025-07-26 18:03:14,224 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:03:14,224 INFO: User initiated duplicate check for column '1'.
+2025-07-26 18:03:14,225 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:03:14,225 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:03:14,240 INFO: Duplicate status updated: Error: '<' not supported between instances of 'NoneType' and 'int'
+2025-07-26 18:03:14,240 ERROR: Error during duplicate check worker: '<' not supported between instances of 'NoneType' and 'int'
+2025-07-26 18:03:14,241 INFO: Progress popup closed safely.
+2025-07-26 18:03:14,242 INFO: Progress popup closed.
+2025-07-26 18:03:16,135 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:03:16,135 INFO: User initiated duplicate check for column '1'.
+2025-07-26 18:03:16,136 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:03:16,136 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:03:16,829 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-26 18:03:17,045 INFO: Duplicate status updated: Found 200 duplicates so far...
+2025-07-26 18:03:17,312 INFO: Duplicate status updated: Found 300 duplicates so far...
+2025-07-26 18:03:17,675 INFO: Duplicate status updated: Found 400 duplicates so far...
+2025-07-26 18:03:18,280 INFO: Duplicate status updated: Found 453 duplicate values in column '1'.
+2025-07-26 18:03:18,281 INFO: Duplicate check for column '1' completed. Found 453 duplicates.
+2025-07-26 18:03:18,296 INFO: Progress popup closed safely.
+2025-07-26 18:03:18,297 INFO: Progress popup closed.
+2025-07-26 18:03:21,552 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:03:21,552 INFO: User initiated extra delimiter check.
+2025-07-26 18:03:21,553 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:03:21,553 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:03:21,594 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 18:03:21,594 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 18:03:21,596 INFO: Progress popup closed safely.
+2025-07-26 18:03:21,597 INFO: Progress popup closed.
+2025-07-26 18:03:23,984 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:03:23,984 INFO: User initiated extra delimiter check.
+2025-07-26 18:03:23,985 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:03:23,985 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:03:24,018 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 18:03:24,018 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 18:03:24,019 INFO: Progress popup closed safely.
+2025-07-26 18:03:24,020 INFO: Progress popup closed.
+2025-07-26 18:03:24,836 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:03:24,836 INFO: User initiated extra delimiter check.
+2025-07-26 18:03:24,837 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:03:24,837 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:03:24,871 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 18:03:24,871 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 18:03:24,872 INFO: Progress popup closed safely.
+2025-07-26 18:03:24,873 INFO: Progress popup closed.
+2025-07-26 18:03:26,557 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:03:26,558 INFO: User initiated extra delimiter check.
+2025-07-26 18:03:26,558 INFO: Getting delimiter: '\' (type: <class 'str'>)
+2025-07-26 18:03:26,558 INFO: Converted delimiter to: '\' (type: <class 'str'>)
+2025-07-26 18:03:26,592 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 18:03:26,592 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 18:03:26,593 INFO: Progress popup closed safely.
+2025-07-26 18:03:26,595 INFO: Progress popup closed.
+2025-07-26 18:03:28,450 INFO: Status updated: Ready
+2025-07-26 18:03:28,450 INFO: User cleared all results and status.
+2025-07-26 18:37:52,722 INFO: Application started
+2025-07-26 18:38:00,237 INFO: Status updated: No file selected.
+2025-07-26 18:38:00,237 WARNING: User cancelled file selection.
+2025-07-26 18:38:13,329 INFO: Application started
+2025-07-26 18:38:27,559 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt
+2025-07-26 18:38:27,559 INFO: User selected file: large_file_500rows_150cols_backslash.txt
+2025-07-26 18:38:34,255 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:38:34,255 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 18:38:34,296 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:38:34,296 INFO: Length check for column '1' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:38:34,298 INFO: Progress popup closed safely.
+2025-07-26 18:38:34,299 INFO: Progress popup closed.
+2025-07-26 18:38:36,401 INFO: Status updated: Ready
+2025-07-26 18:38:36,401 INFO: User cleared all results and status.
+2025-07-26 18:41:12,892 INFO: Application started
+2025-07-26 18:41:20,150 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt (Detected: Backslash)
+2025-07-26 18:41:20,151 INFO: Auto-detected delimiter: \ (Backslash)
+2025-07-26 18:41:20,151 INFO: User selected file: large_file_500rows_150cols_backslash.txt
+2025-07-26 18:41:22,284 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:41:22,285 INFO: Delimiter 'Tab' (	): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:41:22,285 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:41:22,285 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:41:22,285 INFO: Delimiter 'Backslash' (\): [150, 150, 150, 150, 150] columns per row, avg: 150.0, consistent: True
+2025-07-26 18:41:22,286 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0, '\\': 149}
+2025-07-26 18:41:22,286 INFO: Manual analysis suggests delimiter: \ (149 occurrences)
+2025-07-26 18:41:31,322 INFO: File structure analysis completed. Recommended delimiter: \
+2025-07-26 18:41:38,786 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:41:38,786 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 18:41:38,820 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:41:38,820 INFO: Length check for column '1' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:41:38,822 INFO: Progress popup closed safely.
+2025-07-26 18:41:38,824 INFO: Progress popup closed.
+2025-07-26 18:42:25,142 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:42:25,143 INFO: Delimiter 'Tab' (	): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:42:25,143 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:42:25,143 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:42:25,143 INFO: Delimiter 'Backslash' (\): [150, 150, 150, 150, 150] columns per row, avg: 150.0, consistent: True
+2025-07-26 18:42:25,144 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0, '\\': 149}
+2025-07-26 18:42:25,144 INFO: Manual analysis suggests delimiter: \ (149 occurrences)
+2025-07-26 18:42:27,625 INFO: File structure analysis completed. Recommended delimiter: \
+2025-07-26 18:42:38,679 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Detected: Tab)
+2025-07-26 18:42:38,679 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-26 18:42:38,679 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 18:42:44,786 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:42:44,786 INFO: Delimiter 'Tab' (	): [1, 150, 150, 150, 150] columns per row, avg: 120.2, consistent: False
+2025-07-26 18:42:44,786 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:42:44,786 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:42:44,787 INFO: Delimiter 'Backslash' (\): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:42:44,787 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0, '\\': 0}
+2025-07-26 18:42:44,787 INFO: Manual analysis suggests delimiter: , (0 occurrences)
+2025-07-26 18:42:51,646 INFO: File structure analysis completed. Recommended delimiter: ,
+2025-07-26 18:42:56,682 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:42:56,683 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 18:42:56,699 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 18:42:56,699 INFO: Progress popup closed safely.
+2025-07-26 18:42:56,699 WARNING: Column index 5 out of range.
+2025-07-26 18:42:56,701 INFO: Progress popup closed.
+2025-07-26 18:43:02,622 INFO: Status updated: Ready
+2025-07-26 18:43:02,623 INFO: User cleared all results and status.
+2025-07-26 18:43:08,696 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Detected: Tab)
+2025-07-26 18:43:08,696 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-26 18:43:08,697 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 18:43:11,544 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:43:11,544 INFO: Delimiter 'Tab' (	): [1, 150, 150, 150, 150] columns per row, avg: 120.2, consistent: False
+2025-07-26 18:43:11,544 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:43:11,545 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:43:11,545 INFO: Delimiter 'Backslash' (\): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:43:11,545 INFO: Raw line 1 delimiter counts: {',': 0, '\t': 0, ';': 0, '|': 0, '\\': 0}
+2025-07-26 18:43:11,545 INFO: Manual analysis suggests delimiter: , (0 occurrences)
+2025-07-26 18:43:13,751 INFO: File structure analysis completed. Recommended delimiter: ,
+2025-07-26 18:43:20,269 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Detected: Tab)
+2025-07-26 18:43:20,269 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-26 18:43:20,269 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 18:43:23,033 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:43:23,033 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 18:44:04,728 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 18:44:04,728 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 18:44:04,734 INFO: Progress popup closed safely.
+2025-07-26 18:44:04,736 INFO: Progress popup closed.
+2025-07-26 18:45:12,660 INFO: Status updated: Ready
+2025-07-26 18:45:12,660 INFO: User cleared all results and status.
+2025-07-26 18:46:16,211 INFO: Application started
+2025-07-26 18:46:23,025 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Detected: Tab)
+2025-07-26 18:46:23,025 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-26 18:46:23,025 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 18:46:26,470 INFO: Delimiter 'Comma' (,): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:46:26,470 INFO: Delimiter 'Tab' (	): [1, 150, 150, 150, 150] columns per row, avg: 120.2, consistent: False
+2025-07-26 18:46:26,471 INFO: Delimiter 'Semicolon' (;): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:46:26,471 INFO: Delimiter 'Pipe' (|): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:46:26,471 INFO: Delimiter 'Backslash' (\): [1, 1, 1, 1, 1] columns per row, avg: 1.0, consistent: True
+2025-07-26 18:46:47,586 INFO: File structure analysis completed. Delimiter: ,, Columns: 1, Rows: 1000005
+2025-07-26 18:48:50,584 INFO: Application started
+2025-07-26 18:49:02,570 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Detected: Tab)
+2025-07-26 18:49:02,570 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-26 18:49:02,570 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 18:49:27,442 INFO: File structure analysis completed. Delimiter: 	, Columns: 1, Rows: 1000005
+2025-07-26 18:49:59,929 INFO: File structure analysis completed. Delimiter: 	, Columns: 1, Rows: 1000005
+2025-07-26 18:50:02,782 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:50:02,782 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 18:50:42,571 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 18:50:42,571 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 18:50:42,579 INFO: Progress popup closed safely.
+2025-07-26 18:50:42,581 INFO: Progress popup closed.
+2025-07-26 18:51:56,669 INFO: Application started
+2025-07-26 18:52:01,039 INFO: Status updated: File loaded: large_file_500K_50cols.csv (Detected: Comma)
+2025-07-26 18:52:01,039 INFO: Auto-detected delimiter: , (Comma)
+2025-07-26 18:52:01,039 INFO: User selected file: large_file_500K_50cols.csv
+2025-07-26 18:52:13,923 INFO: File structure analysis completed. Delimiter: ,, Columns: 50, Rows: 500004
+2025-07-26 18:52:17,046 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:52:17,047 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 18:52:29,282 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:52:29,282 INFO: Length check for column '1' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:52:29,284 INFO: Progress popup closed safely.
+2025-07-26 18:52:29,289 INFO: Progress popup closed.
+2025-07-26 18:52:32,381 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:52:32,381 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 18:52:44,508 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:52:44,508 INFO: Length check for column '5' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:52:44,510 INFO: Progress popup closed safely.
+2025-07-26 18:52:44,511 INFO: Progress popup closed.
+2025-07-26 18:52:48,488 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:52:48,488 INFO: User initiated length check for column '6' with threshold 25.
+2025-07-26 18:53:00,622 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 18:53:00,622 INFO: Length check for column '6' with threshold 25 completed. Found 3 matches.
+2025-07-26 18:53:00,629 INFO: Progress popup closed safely.
+2025-07-26 18:53:00,630 INFO: Progress popup closed.
+2025-07-26 18:53:14,602 INFO: File structure analysis completed. Delimiter: ,, Columns: 50, Rows: 500004
+2025-07-26 18:53:19,390 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:53:19,390 INFO: User initiated duplicate check for column '0'.
+2025-07-26 18:53:31,424 INFO: Duplicate status updated: Found 3 duplicate values in column '0'.
+2025-07-26 18:53:31,424 INFO: Duplicate check for column '0' completed. Found 3 duplicates.
+2025-07-26 18:53:31,426 INFO: Progress popup closed safely.
+2025-07-26 18:53:31,439 INFO: Progress popup closed.
+2025-07-26 18:53:57,419 INFO: Status updated: Ready
+2025-07-26 18:53:57,419 INFO: User cleared all results and status.
+2025-07-26 18:54:00,443 INFO: Status updated: File loaded: large_file_500K_50cols.csv (Detected: Comma)
+2025-07-26 18:54:00,443 INFO: Auto-detected delimiter: , (Comma)
+2025-07-26 18:54:00,443 INFO: User selected file: large_file_500K_50cols.csv
+2025-07-26 18:54:04,446 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:54:04,447 INFO: User initiated duplicate check for column '0'.
+2025-07-26 18:54:18,511 INFO: Duplicate status updated: Found 4 duplicate values in column '0'.
+2025-07-26 18:54:18,511 INFO: Duplicate check for column '0' completed. Found 4 duplicates.
+2025-07-26 18:54:18,513 INFO: Progress popup closed safely.
+2025-07-26 18:54:18,530 INFO: Progress popup closed.
+2025-07-26 18:54:29,148 INFO: File structure analysis completed. Delimiter: ,, Columns: 50, Rows: 500005
+2025-07-26 18:54:29,990 INFO: Status updated: Ready
+2025-07-26 18:54:29,990 INFO: User cleared all results and status.
+2025-07-26 18:54:55,868 INFO: Status updated: File loaded: large_file_500rows_150cols_semicolon.txt (Detected: Semicolon)
+2025-07-26 18:54:55,869 INFO: Auto-detected delimiter: ; (Semicolon)
+2025-07-26 18:54:55,869 INFO: User selected file: large_file_500rows_150cols_semicolon.txt
+2025-07-26 18:55:12,102 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:55:12,102 INFO: User initiated duplicate check for column '0'.
+2025-07-26 18:55:12,137 INFO: Duplicate status updated: No duplicates found in column '0'.
+2025-07-26 18:55:12,137 INFO: Duplicate check for column '0' completed. Found 0 duplicates.
+2025-07-26 18:55:12,139 INFO: Progress popup closed safely.
+2025-07-26 18:55:12,140 INFO: Progress popup closed.
+2025-07-26 18:55:24,409 INFO: File structure analysis completed. Delimiter: ;, Columns: 150, Rows: 501
+2025-07-26 18:55:31,276 INFO: Status updated: File loaded: large_file_500rows_150cols_pipe.txt (Detected: Pipe)
+2025-07-26 18:55:31,276 INFO: Auto-detected delimiter: | (Pipe)
+2025-07-26 18:55:31,276 INFO: User selected file: large_file_500rows_150cols_pipe.txt
+2025-07-26 18:55:39,913 INFO: File structure analysis completed. Delimiter: |, Columns: 150, Rows: 501
+2025-07-26 18:55:41,085 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:55:41,085 INFO: User initiated duplicate check for column '0'.
+2025-07-26 18:55:41,118 INFO: Duplicate status updated: No duplicates found in column '0'.
+2025-07-26 18:55:41,118 INFO: Duplicate check for column '0' completed. Found 0 duplicates.
+2025-07-26 18:55:41,120 INFO: Progress popup closed safely.
+2025-07-26 18:55:41,121 INFO: Progress popup closed.
+2025-07-26 18:55:44,110 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:55:44,110 INFO: User initiated length check for column '6' with threshold 25.
+2025-07-26 18:55:44,141 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:55:44,142 INFO: Length check for column '6' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:55:44,143 INFO: Progress popup closed safely.
+2025-07-26 18:55:44,144 INFO: Progress popup closed.
+2025-07-26 18:55:46,960 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:55:46,960 INFO: User initiated extra delimiter check.
+2025-07-26 18:55:46,993 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 18:55:46,993 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 18:55:46,995 INFO: Progress popup closed safely.
+2025-07-26 18:55:46,996 INFO: Progress popup closed.
+2025-07-26 18:55:56,854 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt (Detected: Backslash)
+2025-07-26 18:55:56,854 INFO: Auto-detected delimiter: \ (Backslash)
+2025-07-26 18:55:56,854 INFO: User selected file: large_file_500rows_150cols_backslash.txt
+2025-07-26 18:56:02,422 INFO: File structure analysis completed. Delimiter: \, Columns: 150, Rows: 501
+2025-07-26 18:56:04,048 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:56:04,049 INFO: User initiated extra delimiter check.
+2025-07-26 18:56:04,081 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 18:56:04,081 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 18:56:04,083 INFO: Progress popup closed safely.
+2025-07-26 18:56:04,084 INFO: Progress popup closed.
+2025-07-26 18:56:05,798 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:56:05,798 INFO: User initiated duplicate check for column '0'.
+2025-07-26 18:56:05,831 INFO: Duplicate status updated: No duplicates found in column '0'.
+2025-07-26 18:56:05,831 INFO: Duplicate check for column '0' completed. Found 0 duplicates.
+2025-07-26 18:56:05,833 INFO: Progress popup closed safely.
+2025-07-26 18:56:05,834 INFO: Progress popup closed.
+2025-07-26 18:56:07,536 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:56:07,536 INFO: User initiated length check for column '6' with threshold 25.
+2025-07-26 18:56:07,570 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:56:07,570 INFO: Length check for column '6' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:56:07,571 INFO: Progress popup closed safely.
+2025-07-26 18:56:07,573 INFO: Progress popup closed.
+2025-07-26 18:56:13,652 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:56:13,652 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 18:56:13,685 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:56:13,686 INFO: Length check for column '1' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:56:13,687 INFO: Progress popup closed safely.
+2025-07-26 18:56:13,688 INFO: Progress popup closed.
+2025-07-26 18:56:16,527 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:56:16,527 INFO: User initiated length check for column '2' with threshold 25.
+2025-07-26 18:56:16,559 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:56:16,559 INFO: Length check for column '2' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:56:16,561 INFO: Progress popup closed safely.
+2025-07-26 18:56:16,562 INFO: Progress popup closed.
+2025-07-26 18:56:18,516 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:56:18,516 INFO: User initiated duplicate check for column '0'.
+2025-07-26 18:56:18,549 INFO: Duplicate status updated: No duplicates found in column '0'.
+2025-07-26 18:56:18,549 INFO: Duplicate check for column '0' completed. Found 0 duplicates.
+2025-07-26 18:56:18,550 INFO: Progress popup closed safely.
+2025-07-26 18:56:18,552 INFO: Progress popup closed.
+2025-07-26 18:56:22,192 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:56:22,192 INFO: User initiated duplicate check for column '3'.
+2025-07-26 18:56:23,180 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-26 18:56:23,428 INFO: Duplicate status updated: Found 200 duplicates so far...
+2025-07-26 18:56:23,617 INFO: Duplicate status updated: Found 300 duplicates so far...
+2025-07-26 18:56:24,069 INFO: Duplicate status updated: Found 400 duplicates so far...
+2025-07-26 18:56:24,104 INFO: Duplicate status updated: Found 494 duplicate values in column '3'.
+2025-07-26 18:56:24,104 INFO: Duplicate check for column '3' completed. Found 494 duplicates.
+2025-07-26 18:56:24,120 INFO: Progress popup closed safely.
+2025-07-26 18:56:24,121 INFO: Progress popup closed.
+2025-07-26 18:56:30,317 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:56:30,317 INFO: User initiated extra delimiter check.
+2025-07-26 18:56:30,350 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 18:56:30,350 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 18:56:30,352 INFO: Progress popup closed safely.
+2025-07-26 18:56:30,353 INFO: Progress popup closed.
+2025-07-26 18:56:52,379 INFO: Application started
+2025-07-26 18:56:58,277 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt (Detected: Backslash)
+2025-07-26 18:56:58,277 INFO: Auto-detected delimiter: \ (Backslash)
+2025-07-26 18:56:58,277 INFO: User selected file: large_file_500rows_150cols_backslash.txt
+2025-07-26 18:57:27,044 INFO: Application started
+2025-07-26 18:57:32,541 INFO: Status updated: File loaded: large_file_500rows_150cols_backslash.txt (Delimiter: Backslash)
+2025-07-26 18:57:32,541 INFO: Auto-detected delimiter: \ (Backslash)
+2025-07-26 18:57:32,541 INFO: User selected file: large_file_500rows_150cols_backslash.txt
+2025-07-26 18:57:38,267 INFO: File structure analysis completed. Delimiter: \, Columns: 150, Rows: 501
+2025-07-26 18:57:40,765 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:57:40,766 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-26 18:57:40,802 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-26 18:57:40,802 INFO: Length check for column '1' with threshold 25 completed. Found 0 matches.
+2025-07-26 18:57:40,804 INFO: Progress popup closed safely.
+2025-07-26 18:57:40,805 INFO: Progress popup closed.
+2025-07-26 18:57:43,055 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:57:43,055 INFO: User initiated duplicate check for column '1'.
+2025-07-26 18:57:44,337 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-26 18:57:45,525 INFO: Duplicate status updated: Found 200 duplicates so far...
+2025-07-26 18:57:46,622 INFO: Duplicate status updated: Found 300 duplicates so far...
+2025-07-26 18:57:47,746 INFO: Duplicate status updated: Found 400 duplicates so far...
+2025-07-26 18:57:48,345 INFO: Duplicate status updated: Found 453 duplicate values in column '1'.
+2025-07-26 18:57:48,346 INFO: Duplicate check for column '1' completed. Found 453 duplicates.
+2025-07-26 18:57:48,361 INFO: Progress popup closed safely.
+2025-07-26 18:57:48,363 INFO: Progress popup closed.
+2025-07-26 18:57:50,465 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 18:57:50,465 INFO: User initiated extra delimiter check.
+2025-07-26 18:57:50,501 INFO: Extra delimiter status updated: No rows with extra delimiters found.
+2025-07-26 18:57:50,502 INFO: Extra delimiter check completed. Found 0 problematic rows.
+2025-07-26 18:57:50,503 INFO: Progress popup closed safely.
+2025-07-26 18:57:50,505 INFO: Progress popup closed.

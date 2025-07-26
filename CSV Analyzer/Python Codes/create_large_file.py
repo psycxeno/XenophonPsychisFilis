@@ -3,7 +3,7 @@ import random
 from datetime import datetime, timedelta
 
 num_columns = 150
-num_rows = 1_000_000
+num_rows = 500#1_000_000
 
 # Generate generic column names
 column_names = [f"Col{i+1}" for i in range(num_columns)]
@@ -49,8 +49,8 @@ random_types = [
 def maybe_null(value, null_prob=0.1):
     return value if random.random() > null_prob else ""
 
-with open('large_file_1M_150cols.txt', 'w', newline='', encoding='utf-8') as f:
-    writer = csv.writer(f, delimiter='\t')
+with open('large_file_500rows_150cols_backslash.txt', 'w', newline='', encoding='utf-8') as f:
+    writer = csv.writer(f, delimiter='\\')
     writer.writerow(column_names)
     for i in range(num_rows):
         row = []

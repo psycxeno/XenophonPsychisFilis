@@ -71,6 +71,7 @@ class CSVAnalyzerApp:
         self.filename = None
         self.delimiter = tk.StringVar(value=',')
         self.has_header = tk.BooleanVar(value=True)
+        self.ignore_first_row = tk.BooleanVar(value=False)
         self.processing_thread = None
         self.length_results = []  # Store all matches for export
         self.length_max_display = 1000  # Max rows to display in Treeview
@@ -109,12 +110,14 @@ class CSVAnalyzerApp:
         self.clear_btn = ttk.Button(shared_frame, text="Clear", command=self.clear_all, width=10)
         self.clear_btn.grid(row=0, column=2, sticky="w", padx=(0, 10))
         ttk.Label(shared_frame, text="Delimiter:", style="TLabel").grid(row=0, column=3, sticky="e", padx=5)
-        self.delim_combo = ttk.Combobox(shared_frame, textvariable=self.delimiter, width=8, state="readonly")
-        self.delim_combo['values'] = (',', '\t', ';', '|', ' ', '\\t', '\\n', '\\r')
-        self.delim_combo.current(0)  # Default to comma
-        self.delim_combo.grid(row=0, column=4, sticky="w", padx=5)
+        self.delimiter_label = ttk.Label(shared_frame, text="Auto-detecting...", style="TLabel")
+        self.delimiter_label.grid(row=0, column=4, sticky="w", padx=5)
         self.header_check = ttk.Checkbutton(shared_frame, text="File has header", variable=self.has_header)
         self.header_check.grid(row=0, column=5, sticky="w", padx=10)
+        self.ignore_first_check = ttk.Checkbutton(shared_frame, text="Ignore first row", variable=self.ignore_first_row)
+        self.ignore_first_check.grid(row=0, column=6, sticky="w", padx=10)
+        self.analyze_btn = ttk.Button(shared_frame, text="Analyze File", command=self.analyze_file_structure, width=12)
+        self.analyze_btn.grid(row=0, column=7, sticky="w", padx=10)
 
         # --- Tabs ---
         self.notebook = ttk.Notebook(self.root)
@@ -155,7 +158,7 @@ class CSVAnalyzerApp:
                              "- Find Extra Delimiters\n",
                  justify="left").pack(padx=20, pady=(10, 0))
         tk.Label(about, text="Developed by Xenofon Psychis - Filis.", font=("Segoe UI", 10, "italic")).pack(pady=(5, 0))
-        tk.Label(about, text="Contact: [Your Contact Email/Info Here]", font=("Segoe UI", 10)).pack(pady=(0, 10))
+        tk.Label(about, text="Contact: [p.xenophon@gmail.com]", font=("Segoe UI", 10)).pack(pady=(0, 10))
 
         def open_github(event=None):
             webbrowser.open("https://github.com/psycxeno/XenophonPsychisFilis/tree/main/TkinterGUI")
@@ -173,6 +176,8 @@ class CSVAnalyzerApp:
             return '\n'
         elif delim == '\\r':
             return '\r'
+        elif delim == '\\':  # Backslash delimiter
+            return '\\'
         elif delim == '\t':  # Already a tab character from dropdown
             return '\t'
         elif delim == '\n':  # Already a newline character from dropdown
@@ -182,6 +187,151 @@ class CSVAnalyzerApp:
         else:
             return delim
 
+    def auto_detect_delimiter(self):
+        """Auto-detect the delimiter by testing different delimiters on the file."""
+        if not self.filename:
+            return None
+            
+        try:
+            delimiters = [',', '\t', ';', '|', '\\']
+            results = {}
+            
+            for delim in delimiters:
+                with open(self.filename, 'r', encoding='utf-8', errors='ignore') as f:
+                    try:
+                        # Handle backslash delimiter specially
+                        if delim == '\\':
+                            # For backslash, we need to read the file as text and split manually
+                            f.seek(0)
+                            lines = []
+                            for i, line in enumerate(f):
+                                if i < 5:  # Sample first 5 lines
+                                    lines.append(line.strip())
+                                else:
+                                    break
+                            
+                            if lines:
+                                # Split by backslash manually
+                                rows = [line.split('\\') for line in lines if line]
+                                col_counts = [len(row) for row in rows]
+                                avg_cols = sum(col_counts) / len(col_counts) if col_counts else 0
+                                consistency = len(set(col_counts)) == 1 if col_counts else False
+                                
+                                # Only consider delimiters that give reasonable column counts (>1)
+                                if avg_cols > 1:
+                                    results[delim] = (avg_cols, consistency, max(col_counts))
+                        else:
+                            # Use CSV reader for other delimiters
+                            reader = csv.reader(f, delimiter=delim)
+                            # Read first few rows to get a better sample
+                            rows = []
+                            for i, row in enumerate(reader):
+                                if i < 5:  # Sample first 5 rows
+                                    rows.append(row)
+                                else:
+                                    break
+                            
+                            if rows:
+                                # Calculate average columns and consistency
+                                col_counts = [len(row) for row in rows]
+                                avg_cols = sum(col_counts) / len(col_counts)
+                                consistency = len(set(col_counts)) == 1  # All rows have same column count
+                                
+                                # Only consider delimiters that give reasonable column counts (>1)
+                                if avg_cols > 1:
+                                    results[delim] = (avg_cols, consistency, max(col_counts))
+                            
+                    except StopIteration:
+                        continue
+                    except Exception as e:
+                        logging.error(f"Error processing delimiter {delim}: {e}")
+                        continue
+            
+            if not results:
+                return None
+            
+            # Find the best delimiter (prefer highest column count, then consistency)
+            best_delim = None
+            best_score = (0, False, 0)
+            
+            for delim, (avg_cols, consistent, max_cols) in results.items():
+                if consistent and avg_cols > best_score[0]:
+                    best_delim = delim
+                    best_score = (avg_cols, consistent, max_cols)
+                elif not best_delim and avg_cols > best_score[0]:
+                    # If no consistent delimiter found, take the one with most columns
+                    best_delim = delim
+                    best_score = (avg_cols, consistent, max_cols)
+            
+            # If still no good delimiter found, use the one with most columns
+            if best_delim is None:
+                best_delim = max(results, key=lambda k: results[k][0])
+            
+            return best_delim
+            
+        except Exception as e:
+            logging.error(f"Auto-delimiter detection failed: {e}")
+            return None
+
+    def analyze_file_structure(self):
+        """Analyze the file structure to help determine the correct delimiter."""
+        if not self.filename:
+            messagebox.showerror("Error", "Please select a CSV file first.")
+            return
+            
+        try:
+            # Use the same auto-detection logic as browse_file
+            best_delim = self.auto_detect_delimiter()
+            
+            if not best_delim:
+                messagebox.showwarning("File Analysis", "Could not determine the delimiter. Please try manual selection.")
+                logging.warning("File structure analysis could not determine delimiter")
+                return
+            
+            # Count rows and determine column count
+            row_count = 0
+            column_count = 0
+            
+            with open(self.filename, 'r', encoding='utf-8', errors='ignore') as f:
+                if best_delim == '\\':
+                    # For backslash, count lines manually
+                    for line in f:
+                        if line.strip():  # Skip empty lines
+                            row_count += 1
+                            if row_count == 1:  # First non-empty line determines column count
+                                column_count = len(line.strip().split('\\'))
+                else:
+                    # Use CSV reader for other delimiters
+                    reader = csv.reader(f, delimiter=best_delim)
+                    for row in reader:
+                        if row:  # Skip empty rows
+                            row_count += 1
+                            if row_count == 1:  # First non-empty row determines column count
+                                column_count = len(row)
+            
+            # Update the delimiter if we found a good one
+            if best_delim:
+                self.delimiter.set(best_delim)
+                delim_name = {'\t': 'Tab', ',': 'Comma', ';': 'Semicolon', '|': 'Pipe', '\\': 'Backslash'}[best_delim]
+                #self.delimiter_label.config(text=f"Detected: {delim_name}")
+                self.delimiter_label.config(text=f"{delim_name}")
+                
+                # Show results
+                message = f"File Analysis Results:\n\n"
+                message += f"1. Delimiter: {delim_name}\n"
+                message += f"2. Number of columns: {column_count}\n"
+                message += f"3. Number of rows: {row_count}\n"
+                
+                messagebox.showinfo("File Analysis", message)
+                logging.info(f"File structure analysis completed. Delimiter: {best_delim}, Columns: {column_count}, Rows: {row_count}")
+            else:
+                messagebox.showwarning("File Analysis", "Could not determine the delimiter. Please try manual selection.")
+                logging.warning("File structure analysis could not determine delimiter")
+                
+        except Exception as e:
+            messagebox.showerror("Analysis Error", f"Error analyzing file structure: {e}")
+            logging.error(f"File structure analysis failed: {e}")
+
     def browse_file(self):
         """Open file dialog to select a CSV file."""
         filetypes = [("CSV files", "*.csv"), ("All files", "*.*")]
@@ -189,7 +339,22 @@ class CSVAnalyzerApp:
         if filename:
             self.filename = filename
             self.file_label.config(text=os.path.basename(filename))
-            self.set_status(f"File loaded: {os.path.basename(filename)}")
+            
+            # Auto-detect delimiter
+            detected_delim = self.auto_detect_delimiter()
+            if detected_delim:
+                self.delimiter.set(detected_delim)
+                delim_name = {'\t': 'Tab', ',': 'Comma', ';': 'Semicolon', '|': 'Pipe', '\\': 'Backslash'}[detected_delim]
+                #self.delimiter_label.config(text=f"Detected: {delim_name}")
+                self.delimiter_label.config(text=f"{delim_name}")
+                #self.set_status(f"File loaded: {os.path.basename(filename)} (Detected: {delim_name})")
+                self.set_status(f"File loaded: {os.path.basename(filename)} (Delimiter: {delim_name})")
+                logging.info(f"Auto-detected delimiter: {detected_delim} ({delim_name})")
+            else:
+                self.delimiter_label.config(text="Unknown")
+                self.set_status(f"File loaded: {os.path.basename(filename)} (Delimiter unknown)")
+                logging.warning("Could not auto-detect delimiter")
+            
             logging.info(f"User selected file: {os.path.basename(filename)}")
         else:
             self.set_status("No file selected.")
@@ -199,6 +364,7 @@ class CSVAnalyzerApp:
         """Clear all results and reset the application state."""
         self.filename = None
         self.file_label.config(text="No file selected")
+        self.delimiter_label.config(text="Auto-detecting...")
         self.set_status("Ready")
         logging.info("User cleared all results and status.")
         # Clear all tabs' results and status
@@ -417,6 +583,10 @@ class CSVAnalyzerApp:
                             return
                         continue
                     
+                    # Handle "Ignore first row" option (after header processing)
+                    if self.ignore_first_row.get() and row_num == 1:
+                        continue  # skip the first row if ignore_first_row is checked
+                    
                     if col_idx is None:
                         if not self.has_header.get():
                             # For files without headers, column must be an integer index
@@ -558,6 +728,10 @@ class CSVAnalyzerApp:
                             return
                         continue
                     
+                    # Handle "Ignore first row" option (after header processing)
+                    if self.ignore_first_row.get() and row_num == 1:
+                        continue  # skip the first row if ignore_first_row is checked
+                    
                     if col_idx is None:
                         if not self.has_header.get():
                             # For files without headers, column must be an integer index
@@ -676,6 +850,10 @@ class CSVAnalyzerApp:
                     elif row_num == 1:
                         expected_cols = len(row)
                         continue  # skip first data row
+                    
+                    # Handle "Ignore first row" option (after header processing)
+                    if self.ignore_first_row.get() and row_num == 1:
+                        continue  # skip the first row if ignore_first_row is checked
                     
                     if expected_cols is None:
                         continue

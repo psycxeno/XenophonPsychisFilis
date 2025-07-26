@@ -1,53 +1,192 @@
-# CSV Analyzer
+# CSV Analyzer v1.2
 
-A user-friendly, multi-tool CSV analysis application with a modern GUI. Designed for both technical and non-technical users to quickly analyze large CSV/TXT files.
+A user-friendly, multi-tool CSV analysis application with a modern GUI (Tkinter). Designed to handle large files efficiently and provide comprehensive CSV analysis capabilities.
 
-## Features
-- **Column Length Checker:** Find rows with column values exceeding a length threshold.
-- **Find Duplicates:** Identify duplicate values in a specified column.
-- **Find Extra Delimiters:** Detect rows with more columns than expected and pinpoint extra delimiter positions.
-- **Handles huge files (multi-GB):** Efficient streaming and threading keep the app responsive.
-- **Export results:** Save analysis results to CSV.
-- **Customizable delimiter and header options.**
-- **Modern, tabbed interface.**
+## 🚀 Features
 
-## How to Run
+### **Core Analysis Tools**
+- **Column Length Checker**: Find rows with column values exceeding a specified length threshold
+- **Find Duplicates**: Identify duplicate values in a specified column with full row export
+- **Find Extra Delimiters**: Detect rows with more columns than expected and pinpoint exact positions
 
-### As a Python Script
-1. Make sure you have Python 3.7+ installed (with Tkinter).
-2. Place your CSV/TXT files and `magni.ico` (icon) in the same folder as `csv_analyzer_gui.py`.
-3. Run:
-   ```sh
-   python csv_analyzer_gui.py
-   ```
+### **Smart File Handling**
+- **Auto-delimiter Detection**: Automatically detects the correct delimiter when loading files
+- **Analyze File**: Shows delimiter, column count, and row count for any CSV file
+- **Backslash Delimiter Support**: Full support for backslash-delimited files
+- **Large File Support**: Handles multi-GB files efficiently using streaming and threading
 
-### As a Standalone Executable
-1. Double-click the `.exe` file (created with PyInstaller) to launch the app.
-2. The log file (`csv_analyzer.log`) will be created in the same folder as the `.exe`.
+### **User Interface**
+- **Modern GUI**: Clean, professional interface with tabbed layout
+- **Progress Indicators**: Non-blocking progress popups for long operations
+- **Export Functionality**: Export results to CSV files
+- **About Dialog**: Application information with GitHub link
 
-## How to Use
-1. **Select your file:** Click **Browse...** and choose a CSV/TXT file.
-2. **Set delimiter:** Choose the correct delimiter from the dropdown (e.g., `,`, `\t`, `;`, etc.).
-3. **Header:** Check or uncheck "File has header" as appropriate.
-4. **Choose a tab:**
-   - **Column Length Checker:** Enter column name/index and length threshold, then click **Check**.
-   - **Find Duplicates:** Enter column name/index, then click **Check**.
-   - **Find Extra Delimiters:** Just click **Check**.
-5. **View results:** Results appear in the table below. Only the first 1000 matches are shown for performance.
-6. **Export results:** Click **Export Results** to save all matches to a CSV file.
-7. **Clear:** Click **Clear** to reset the app and start over.
+### **Advanced Options**
+- **Header Detection**: Option to specify if file has headers
+- **Ignore First Row**: Option to skip the first row of data (independent of header setting)
+- **Customizable Delimiters**: Support for comma, tab, semicolon, pipe, and backslash
 
-## Logging
-- All actions and errors are logged to `csv_analyzer.log` in the app folder.
-- Useful for troubleshooting and support.
+## 📋 Requirements
 
-## Troubleshooting
-- **No icon in taskbar:** Make sure `magni.ico` is present and included with the executable (see PyInstaller `--add-data` flag).
-- **Large files:** The app is optimized for huge files, but exporting or displaying all results may take time.
-- **Tkinter errors:** Ensure Python is installed with Tkinter support. On Windows, this is included by default.
-- **Delimiter issues:** For tab, use `\t` in the dropdown.
-- **Log file not created:** Make sure you have write permissions in the folder where the app is located.
+- Python 3.6+
+- tkinter (usually included with Python)
+- No additional dependencies required
 
-## Credits
-- Developed by Xenofon Psychis - Filis.
-- For support or suggestions, contact: [p.xenophon@gmail.com] 
+## 🛠️ Installation & Usage
+
+### **Option 1: Run as Python Script**
+```bash
+python csv_analyzer_gui.py
+```
+
+### **Option 2: Create Executable (Recommended)**
+```bash
+# Install PyInstaller if not already installed
+pip install pyinstaller
+
+# Create executable with icon
+pyinstaller --onefile --windowed --add-data "magni.ico;." --icon=magni.ico csv_analyzer_gui.py
+
+# The executable will be created in the dist/ folder
+```
+
+## 📖 How to Use
+
+### **1. Loading Files**
+- Click "📂 Browse..." to select a CSV file
+- The app will automatically detect the delimiter
+- The detected delimiter is displayed in the interface
+
+### **2. Column Length Checker**
+- **Column**: Enter column name or index (0-based)
+- **Length threshold**: Enter maximum allowed character length
+- **Options**: 
+  - Check "File has header" if your file has column headers
+  - Check "Ignore first row" to skip the first data row
+- Click "Check" to analyze
+- Results show rows with values exceeding the threshold
+- Export results to CSV
+
+### **3. Find Duplicates**
+- **Column**: Enter column name or index (0-based)
+- **Options**: Same header and ignore first row options
+- Click "Find Duplicates" to analyze
+- Results show all rows with duplicate values in the specified column
+- Export results to CSV
+
+### **4. Find Extra Delimiters**
+- **Options**: Same header and ignore first row options
+- Click "Check for Extra Delimiters" to analyze
+- Results show rows with more columns than expected
+- Displays the exact position of extra delimiters
+- Export problematic rows to CSV
+
+### **5. Analyze File**
+- Click "Analyze File" to get file statistics
+- Shows:
+  - Delimiter used by the file
+  - Number of columns
+  - Number of rows
+
+## 🔧 Supported Delimiters
+
+| Delimiter | Character | Description |
+|-----------|-----------|-------------|
+| Comma | `,` | Standard CSV delimiter |
+| Tab | `\t` | Tab-separated values |
+| Semicolon | `;` | Common European CSV format |
+| Pipe | `\|` | Pipe-separated values |
+| Backslash | `\` | Custom delimiter support |
+
+## 📊 Logging
+
+The application creates a log file `csv_analyzer.log` in the same directory as the executable. This file contains:
+- Application startup/shutdown events
+- File loading and analysis operations
+- Error messages and debugging information
+- User actions and results
+
+## 🚨 Troubleshooting
+
+### **Common Issues**
+
+1. **"tkinter not found"**
+   - Reinstall Python with Tcl/Tk support
+   - For Anaconda: `conda install tk`
+
+2. **Large files are slow**
+   - The app uses streaming for large files
+   - Progress popups show current status
+   - Results are displayed incrementally
+
+3. **Wrong delimiter detected**
+   - Use "Analyze File" to verify the detected delimiter
+   - Check the log file for detailed detection information
+
+4. **Export not working**
+   - Ensure you have write permissions in the target directory
+   - Check that results exist before trying to export
+
+### **Performance Tips**
+
+- For very large files (>1GB), consider splitting the file first
+- Use specific column names instead of indices when possible
+- The app processes files line-by-line to handle large datasets
+
+## 📝 Version History
+
+### **v1.2 (Current)**
+- ✅ Auto-delimiter detection
+- ✅ Analyze File feature
+- ✅ Backslash delimiter support
+- ✅ Ignore first row option
+- ✅ Enhanced UI and logging
+- ✅ Fixed "Ignore first row" + "File has header" logic
+
+### **v1.1**
+- ✅ Enhanced UI with progress popups
+- ✅ Improved error handling
+- ✅ Better export functionality
+
+### **v1.0**
+- ✅ Basic CSV analyzer
+- ✅ Column length checking
+- ✅ Duplicate detection
+- ✅ Extra delimiter detection
+- ✅ Export functionality
+
+## 👨‍💻 Development
+
+### **File Structure**
+```
+TkinterGUI/
+├── csv_analyzer_gui.py      # Main application
+├── README.md               # This documentation
+├── magni.ico              # Application icon
+├── versions/               # Version history
+│   ├── csv_analyzer_gui_v1.0.py
+│   ├── csv_analyzer_gui_v1.1.py
+│   └── csv_analyzer_gui_v1.2.py
+├── dist/                   # PyInstaller output
+└── build/                  # PyInstaller build files
+```
+
+### **Key Classes**
+- `CSVAnalyzerApp`: Main application class
+- Worker methods: `_length_check_worker`, `_dup_check_worker`, `_extra_check_worker`
+- Auto-detection: `auto_detect_delimiter`, `analyze_file_structure`
+
+## 📞 Support
+
+**Developer**: Xenofon Psychis - Filis  
+**Contact**: p.xenophon@gmail.com  
+**GitHub**: [View on GitHub](https://github.com/psycxeno/XenophonPsychisFilis/tree/main/TkinterGUI)
+
+## 📄 License
+
+Please contact the developer for usage permissions.
+
+---
+
+**Last Updated**: July 26, 2025  
+**Version**: 1.2 
