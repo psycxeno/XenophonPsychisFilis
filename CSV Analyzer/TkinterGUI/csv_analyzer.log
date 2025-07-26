@@ -1,0 +1,70 @@
+2025-07-26 14:54:02,170 INFO: Application started
+2025-07-26 14:54:13,214 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 14:54:13,214 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 14:54:21,386 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 14:54:21,386 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 14:54:39,181 INFO: Length status updated: Done. Found 3 rows with value longer than 25.
+2025-07-26 14:54:39,181 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 14:54:39,183 INFO: Progress popup closed safely.
+2025-07-26 14:54:39,184 INFO: Progress popup closed.
+2025-07-26 14:54:47,353 INFO: Status updated: Ready
+2025-07-26 14:54:47,354 INFO: User cleared all results and status.
+2025-07-26 16:11:06,039 INFO: Application started
+2025-07-26 16:11:31,010 INFO: Application started
+2025-07-26 16:12:53,515 INFO: Application started
+2025-07-26 16:15:56,892 INFO: Application started
+2025-07-26 16:20:48,584 INFO: Application started
+2025-07-26 16:21:01,885 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 16:21:01,885 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 16:21:10,292 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 16:21:10,292 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 16:21:10,307 INFO: Length status updated: Column index 5 out of range.
+2025-07-26 16:21:10,307 INFO: Progress popup closed safely.
+2025-07-26 16:21:10,307 WARNING: Column index 5 out of range.
+2025-07-26 16:21:10,309 INFO: Progress popup closed.
+2025-07-26 16:21:13,557 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 16:21:13,557 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 16:21:31,425 INFO: Length status updated: Done. Found 3 rows with value longer than 25.
+2025-07-26 16:21:31,426 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 16:21:31,433 INFO: Progress popup closed safely.
+2025-07-26 16:21:31,440 INFO: Progress popup closed.
+2025-07-26 16:21:36,904 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 16:21:36,904 INFO: User initiated duplicate check for column '0'.
+2025-07-26 16:22:13,432 INFO: Duplicate status updated: Done. Found 8 duplicate rows.
+2025-07-26 16:22:13,432 INFO: Duplicate check for column '0' completed. Found 8 duplicates.
+2025-07-26 16:22:13,433 INFO: Progress popup closed safely.
+2025-07-26 16:22:13,454 INFO: Progress popup closed.
+2025-07-26 16:22:15,921 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 16:22:15,921 INFO: User initiated extra delimiter check.
+2025-07-26 16:22:34,175 INFO: Extra delimiter status updated: Done. Found 5 rows with extra delimiters.
+2025-07-26 16:22:34,176 INFO: Extra delimiter check completed. Found 5 problematic rows.
+2025-07-26 16:22:34,178 INFO: Progress popup closed safely.
+2025-07-26 16:22:34,179 INFO: Progress popup closed.
+2025-07-26 16:29:28,450 INFO: Application started
+2025-07-26 16:29:43,808 INFO: Status updated: File loaded: large_file_1M_150cols.txt
+2025-07-26 16:29:43,808 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 16:29:55,201 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 16:29:55,201 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 16:30:11,035 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 16:30:11,035 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 16:30:11,041 INFO: Progress popup closed safely.
+2025-07-26 16:30:11,043 INFO: Progress popup closed.
+2025-07-26 16:30:26,706 INFO: Status updated: Results exported to results.csv
+2025-07-26 16:30:26,707 INFO: Length results exported to results.csv
+2025-07-26 16:30:30,533 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 16:30:30,533 INFO: User initiated duplicate check for column '0'.
+2025-07-26 16:30:47,153 INFO: Duplicate status updated: Found 4 duplicate values in column '0'.
+2025-07-26 16:30:47,153 INFO: Duplicate check for column '0' completed. Found 4 duplicates.
+2025-07-26 16:30:47,155 INFO: Progress popup closed safely.
+2025-07-26 16:30:47,183 INFO: Progress popup closed.
+2025-07-26 16:31:50,629 INFO: Status updated: Results exported to dupolicates.csv
+2025-07-26 16:31:50,629 INFO: Duplicate results exported to dupolicates.csv
+2025-07-26 16:32:45,277 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 16:32:45,277 INFO: User initiated extra delimiter check.
+2025-07-26 16:33:01,673 INFO: Extra delimiter status updated: Found 5 rows with extra delimiters.
+2025-07-26 16:33:01,673 INFO: Extra delimiter check completed. Found 5 problematic rows.
+2025-07-26 16:33:01,682 INFO: Progress popup closed safely.
+2025-07-26 16:33:01,684 INFO: Progress popup closed.
+2025-07-26 16:33:27,816 INFO: Status updated: Results exported to extra_del.csv
+2025-07-26 16:33:27,816 INFO: Extra delimiter results exported to extra_del.csv
+2025-07-26 16:34:34,382 INFO: Application started
