@@ -838,3 +838,22 @@
 2025-07-26 18:57:50,502 INFO: Extra delimiter check completed. Found 0 problematic rows.
 2025-07-26 18:57:50,503 INFO: Progress popup closed safely.
 2025-07-26 18:57:50,505 INFO: Progress popup closed.
+2025-07-26 19:14:47,899 INFO: Application started
+2025-07-26 19:14:57,562 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Delimiter: Tab)
+2025-07-26 19:14:57,562 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-26 19:15:01,615 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 19:15:24,292 INFO: File structure analysis completed. Delimiter: 	, Columns: 1, Rows: 1000005
+2025-07-26 19:15:45,930 INFO: File structure analysis completed. Delimiter: 	, Columns: 1, Rows: 1000005
+2025-07-26 19:15:50,509 INFO: Status updated: Ready
+2025-07-26 19:15:50,509 INFO: User cleared all results and status.
+2025-07-26 19:15:56,997 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Delimiter: Tab)
+2025-07-26 19:15:56,997 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-26 19:15:58,322 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-26 19:16:04,383 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 19:16:04,383 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-26 19:16:47,889 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 19:16:51,517 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-26 19:16:51,517 INFO: Progress popup closed safely.
+2025-07-26 19:16:51,524 INFO: Progress popup closed.
+2025-07-26 19:17:02,614 INFO: Status updated: Results exported to results.csv
+2025-07-26 19:17:02,614 INFO: Length results exported to results.csv

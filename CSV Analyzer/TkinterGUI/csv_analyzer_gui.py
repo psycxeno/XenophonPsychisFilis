@@ -1,5 +1,5 @@
 """
-CSV Analyzer - EDW Team
+CSV Analyzer
 
 A user-friendly, multi-tool CSV analysis application with a GUI (Tkinter).
 Features:
@@ -45,7 +45,7 @@ class CSVAnalyzerApp:
     """
     def __init__(self, root):
         self.root = root
-        self.root.title("CSV Analyzer - EDW Team")
+        self.root.title("CSV Analyzer")
         
         # Set window icon
         try:
@@ -350,10 +350,24 @@ class CSVAnalyzerApp:
                 #self.set_status(f"File loaded: {os.path.basename(filename)} (Detected: {delim_name})")
                 self.set_status(f"File loaded: {os.path.basename(filename)} (Delimiter: {delim_name})")
                 logging.info(f"Auto-detected delimiter: {detected_delim} ({delim_name})")
+                
+                # Show file loaded popup
+                messagebox.showinfo("File Loaded", 
+                    f"File loaded successfully!\n\n"
+                    f"File: {os.path.basename(filename)}\n"
+                    f"Detected delimiter: {delim_name}\n\n"
+                    f"You can now use any of the analysis tools.")
             else:
                 self.delimiter_label.config(text="Unknown")
                 self.set_status(f"File loaded: {os.path.basename(filename)} (Delimiter unknown)")
                 logging.warning("Could not auto-detect delimiter")
+                
+                # Show warning popup
+                messagebox.showwarning("File Loaded", 
+                    f"File loaded but delimiter could not be detected.\n\n"
+                    f"File: {os.path.basename(filename)}\n"
+                    f"Delimiter: Unknown\n\n"
+                    f"Please use 'Analyze File' to determine the correct delimiter.")
             
             logging.info(f"User selected file: {os.path.basename(filename)}")
         else:
@@ -377,6 +391,11 @@ class CSVAnalyzerApp:
         self.extra_tree.delete(*self.extra_tree.get_children())
         self.extra_status.config(text="")
         self.extra_export_btn.config(state="disabled")
+        
+        # Show clear confirmation popup
+        messagebox.showinfo("Cleared", 
+            "All results and file selection have been cleared.\n\n"
+            "The application is ready for a new analysis.")
 
     def set_status(self, msg):
         """Update the status bar message."""
@@ -618,13 +637,26 @@ class CSVAnalyzerApp:
                 if matches > 0:
                     self._update_length_status(f"Found {matches} rows with values longer than {threshold} characters.")
                     self.length_export_btn.config(state="normal")
+                    # Show completion popup
+                    messagebox.showinfo("Length Check Complete", 
+                        f"Analysis completed successfully!\n\n"
+                        f"Found {matches} values exceeding {threshold} characters in column '{col}'.\n\n"
+                        f"Results are displayed in the table and can be exported to CSV.")
                 else:
                     self._update_length_status(f"No rows found with values longer than {threshold} characters.")
                     self.length_export_btn.config(state="disabled")
+                    # Show completion popup
+                    messagebox.showinfo("Length Check Complete", 
+                        f"Analysis completed successfully!\n\n"
+                        f"No values found exceeding {threshold} characters in column '{col}'.\n\n"
+                        f"The file appears to have consistent column lengths.")
                 logging.info(f"Length check for column '{col}' with threshold {threshold} completed. Found {matches} matches.")
         except Exception as e:
             self._update_length_status(f"Error: {e}")
             logging.error(f"Error during length check worker: {e}")
+            messagebox.showerror("Length Check Error", 
+                f"An error occurred during the length check:\n\n{str(e)}\n\n"
+                f"Please check your file format and try again.")
         self._close_progress_popup_safe()
 
     def _insert_length_result(self, row_num, col_name, value):
@@ -665,6 +697,10 @@ class CSVAnalyzerApp:
                     writer.writerow(row)
             self.set_status(f"Results exported to {os.path.basename(file)}")
             logging.info(f"Length results exported to {os.path.basename(file)}")
+            messagebox.showinfo("Export Successful", 
+                f"Length check results exported successfully!\n\n"
+                f"File: {os.path.basename(file)}\n"
+                f"Records exported: {len(self.length_results)}")
         except Exception as e:
             messagebox.showerror("Export Error", f"Failed to export results: {e}")
             self.set_status("Export failed.")
@@ -767,13 +803,26 @@ class CSVAnalyzerApp:
                 if matches > 0:
                     self._update_dup_status(f"Found {matches} duplicate values in column '{col}'.")
                     self.dup_export_btn.config(state="normal")
+                    # Show completion popup
+                    messagebox.showinfo("Duplicate Check Complete", 
+                        f"Analysis completed successfully!\n\n"
+                        f"Found {matches} duplicate values in column '{col}'.\n\n"
+                        f"Results are displayed in the table and can be exported to CSV.")
                 else:
                     self._update_dup_status(f"No duplicates found in column '{col}'.")
                     self.dup_export_btn.config(state="disabled")
+                    # Show completion popup
+                    messagebox.showinfo("Duplicate Check Complete", 
+                        f"Analysis completed successfully!\n\n"
+                        f"No duplicate values found in column '{col}'.\n\n"
+                        f"The file appears to have unique values in this column.")
                 logging.info(f"Duplicate check for column '{col}' completed. Found {matches} duplicates.")
         except Exception as e:
             self._update_dup_status(f"Error: {e}")
             logging.error(f"Error during duplicate check worker: {e}")
+            messagebox.showerror("Duplicate Check Error", 
+                f"An error occurred during the duplicate check:\n\n{str(e)}\n\n"
+                f"Please check your file format and try again.")
         self._close_progress_popup_safe()
 
     def _insert_dup_result(self, row_num, col_name, value):
@@ -809,6 +858,10 @@ class CSVAnalyzerApp:
                     writer.writerow(row)
             self.set_status(f"Results exported to {os.path.basename(file)}")
             logging.info(f"Duplicate results exported to {os.path.basename(file)}")
+            messagebox.showinfo("Export Successful", 
+                f"Duplicate check results exported successfully!\n\n"
+                f"File: {os.path.basename(file)}\n"
+                f"Records exported: {len(self.dup_results)}")
         except Exception as e:
             messagebox.showerror("Export Error", f"Failed to export results: {e}")
             self.set_status("Export failed.")
@@ -875,13 +928,27 @@ class CSVAnalyzerApp:
                 if matches > 0:
                     self._update_extra_status(f"Found {matches} rows with extra delimiters.")
                     self.extra_export_btn.config(state="normal")
+                    # Show completion popup
+                    messagebox.showinfo("Extra Delimiters Check Complete", 
+                        f"Analysis completed successfully!\n\n"
+                        f"Found {matches} rows with extra delimiters.\n\n"
+                        f"These rows have more columns than expected and may need attention.\n"
+                        f"Results are displayed in the table and can be exported to CSV.")
                 else:
                     self._update_extra_status("No rows with extra delimiters found.")
                     self.extra_export_btn.config(state="disabled")
+                    # Show completion popup
+                    messagebox.showinfo("Extra Delimiters Check Complete", 
+                        f"Analysis completed successfully!\n\n"
+                        f"No rows with extra delimiters found.\n\n"
+                        f"The file appears to have consistent column structure.")
                 logging.info(f"Extra delimiter check completed. Found {matches} problematic rows.")
         except Exception as e:
             self._update_extra_status(f"Error: {e}")
             logging.error(f"Error during extra delimiter check worker: {e}")
+            messagebox.showerror("Extra Delimiters Check Error", 
+                f"An error occurred during the extra delimiters check:\n\n{str(e)}\n\n"
+                f"Please check your file format and try again.")
         self._close_progress_popup_safe()
 
     def _insert_extra_result(self, row_num, extra_cols, row_data):
@@ -918,6 +985,10 @@ class CSVAnalyzerApp:
                     writer.writerow(row)
             self.set_status(f"Results exported to {os.path.basename(file)}")
             logging.info(f"Extra delimiter results exported to {os.path.basename(file)}")
+            messagebox.showinfo("Export Successful", 
+                f"Extra delimiters check results exported successfully!\n\n"
+                f"File: {os.path.basename(file)}\n"
+                f"Records exported: {len(self.extra_results)}")
         except Exception as e:
             messagebox.showerror("Export Error", f"Failed to export results: {e}")
             self.set_status("Export failed.")

@@ -69,3 +69,14 @@
 2025-07-26 17:16:20,766 INFO: Extra delimiter check completed. Found 0 problematic rows.
 2025-07-26 17:16:20,768 INFO: Progress popup closed safely.
 2025-07-26 17:16:20,774 INFO: Progress popup closed.
+2025-07-26 19:10:44,311 INFO: Application started
+2025-07-26 19:10:51,462 INFO: Status updated: File loaded: large_file_500K_50cols.csv (Delimiter: Comma)
+2025-07-26 19:10:51,462 INFO: Auto-detected delimiter: , (Comma)
+2025-07-26 19:10:51,462 INFO: User selected file: large_file_500K_50cols.csv
+2025-07-26 19:11:00,450 INFO: File structure analysis completed. Delimiter: ,, Columns: 50, Rows: 500005
+2025-07-26 19:11:03,980 INFO: Progress popup shown: Processing... Please wait.
+2025-07-26 19:11:03,980 INFO: User initiated length check for column '6' with threshold 25.
+2025-07-26 19:11:15,411 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-26 19:11:15,411 INFO: Length check for column '6' with threshold 25 completed. Found 3 matches.
+2025-07-26 19:11:15,418 INFO: Progress popup closed safely.
+2025-07-26 19:11:15,419 INFO: Progress popup closed.
