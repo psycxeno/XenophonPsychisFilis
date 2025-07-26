@@ -1,4 +1,4 @@
-# CSV Analyzer - EDW Team
+# CSV Analyzer
 
 A user-friendly, multi-tool CSV analysis application with a modern GUI. Designed for both technical and non-technical users to quickly analyze large CSV/TXT files.
 
