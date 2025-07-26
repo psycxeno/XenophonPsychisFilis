@@ -1,4 +1,4 @@
-# CSV Analyzer v1.2
+# CSV Analyzer
 
 A user-friendly, multi-tool CSV analysis application with a modern GUI (Tkinter). Designed to handle large files efficiently and provide comprehensive CSV analysis capabilities.
 
