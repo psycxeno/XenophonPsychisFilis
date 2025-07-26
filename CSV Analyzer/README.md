@@ -184,7 +184,6 @@ TkinterGUI/
 
 ## 📄 License
 
-Please contact the developer for usage permissions.
 
 ---
 
