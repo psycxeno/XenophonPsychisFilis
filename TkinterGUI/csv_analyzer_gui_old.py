@@ -90,6 +90,29 @@ class CSVAnalyzerApp:
         menubar.add_cascade(label="Help", menu=helpmenu)
         self.root.config(menu=menubar)
 
+    def show_about_dialog(self):
+        import webbrowser
+        about = tk.Toplevel(self.root)
+        about.title("About CSV Analyzer")
+        about.resizable(False, False)
+        about.grab_set()
+        tk.Label(about, text="CSV Analyzer", font=("Segoe UI", 14, "bold")).pack(pady=(10, 0))
+        tk.Label(about, text="Version 1.0", font=("Segoe UI", 10)).pack()
+        tk.Label(about, text="A user-friendly, multi-tool CSV analysis application.\n"
+                             "- Column Length Checker\n"
+                             "- Find Duplicates\n"
+                             "- Find Extra Delimiters\n",
+                 justify="left").pack(padx=20, pady=(10, 0))
+        tk.Label(about, text="Developed by Xenofon Psychis - Filis.", font=("Segoe UI", 10, "italic")).pack(pady=(5, 0))
+        tk.Label(about, text="Contact: [Your Contact Email/Info Here]", font=("Segoe UI", 10)).pack(pady=(0, 10))
+
+        def open_github(event=None):
+            webbrowser.open("https://github.com/psycxeno/XenophonPsychisFilis/tree/main/TkinterGUI")
+
+        link = tk.Label(about, text="View README on GitHub", fg="blue", cursor="hand2", font=("Segoe UI", 10, "underline"))
+        link.pack(pady=(0, 10))
+        link.bind("<Button-1>", open_github)
+
         # --- Styles ---
         style = ttk.Style()
         style.theme_use('clam')
@@ -140,30 +163,6 @@ class CSVAnalyzerApp:
         self.status_bar = ttk.Label(self.root, textvariable=self.status_var, relief="sunken", anchor="w", padding="5 2 5 2", style="TLabel")
         self.status_bar.pack(fill="x", side="bottom")
 
-    def show_about_dialog(self):
-        """Show the About dialog with app information and GitHub link."""
-        import webbrowser
-        about = tk.Toplevel(self.root)
-        about.title("About CSV Analyzer")
-        about.resizable(False, False)
-        about.grab_set()
-        tk.Label(about, text="CSV Analyzer", font=("Segoe UI", 14, "bold")).pack(pady=(10, 0))
-        tk.Label(about, text="Version 1.0", font=("Segoe UI", 10)).pack()
-        tk.Label(about, text="A user-friendly, multi-tool CSV analysis application.\n"
-                             "- Column Length Checker\n"
-                             "- Find Duplicates\n"
-                             "- Find Extra Delimiters\n",
-                 justify="left").pack(padx=20, pady=(10, 0))
-        tk.Label(about, text="Developed by Xenofon Psychis - Filis.", font=("Segoe UI", 10, "italic")).pack(pady=(5, 0))
-        tk.Label(about, text="Contact: [Your Contact Email/Info Here]", font=("Segoe UI", 10)).pack(pady=(0, 10))
-
-        def open_github(event=None):
-            webbrowser.open("https://github.com/psycxeno/XenophonPsychisFilis/tree/main/TkinterGUI")
-
-        link = tk.Label(about, text="View README on GitHub", fg="blue", cursor="hand2", font=("Segoe UI", 10, "underline"))
-        link.pack(pady=(0, 10))
-        link.bind("<Button-1>", open_github)
-
     def get_delimiter(self):
         """Convert delimiter input to actual character (e.g., '\\t' -> tab)"""
         delim = self.delimiter.get()
@@ -183,7 +182,6 @@ class CSVAnalyzerApp:
             return delim
 
     def browse_file(self):
-        """Open file dialog to select a CSV file."""
         filetypes = [("CSV files", "*.csv"), ("All files", "*.*")]
         filename = filedialog.askopenfilename(title="Select CSV file", filetypes=filetypes)
         if filename:
@@ -196,7 +194,6 @@ class CSVAnalyzerApp:
             logging.warning("User cancelled file selection.")
 
     def clear_all(self):
-        """Clear all results and reset the application state."""
         self.filename = None
         self.file_label.config(text="No file selected")
         self.set_status("Ready")
@@ -204,160 +201,134 @@ class CSVAnalyzerApp:
         # Clear all tabs' results and status
         self.length_tree.delete(*self.length_tree.get_children())
         self.length_status.config(text="")
+        self.length_results = []
         self.length_export_btn.config(state="disabled")
+        self.length_col_entry.delete(0, tk.END)
+        self.length_thresh_entry.delete(0, tk.END)
+        self.length_thresh_entry.insert(0, '25')
+
         self.dup_tree.delete(*self.dup_tree.get_children())
         self.dup_status.config(text="")
+        self.dup_results = []
         self.dup_export_btn.config(state="disabled")
+        self.dup_col_entry.delete(0, tk.END)
+
         self.extra_tree.delete(*self.extra_tree.get_children())
         self.extra_status.config(text="")
+        self.extra_results = []
         self.extra_export_btn.config(state="disabled")
 
     def set_status(self, msg):
-        """Update the status bar message."""
         self.status_var.set(msg)
         self.status_bar.update_idletasks()
         logging.info(f"Status updated: {msg}")
 
     # --- Progress Popup ---
     def show_progress_popup(self, message="Processing... Please wait."):
-        """Show a modal progress popup during long operations."""
+        if self.progress_popup:
+            return
         self.progress_popup = tk.Toplevel(self.root)
         self.progress_popup.title("Processing")
-        self.progress_popup.geometry("300x100")
-        self.progress_popup.resizable(False, False)
+        self.progress_popup.geometry("350x100")
         self.progress_popup.transient(self.root)
         self.progress_popup.grab_set()
-        
-        # Center the popup
-        self.progress_popup.geometry("+%d+%d" % (self.root.winfo_rootx() + 50, self.root.winfo_rooty() + 50))
-        
-        ttk.Label(self.progress_popup, text=message, font=("Segoe UI", 11)).pack(pady=20)
-        pb = ttk.Progressbar(self.progress_popup, mode='indeterminate')
-        pb.pack(pady=10, padx=20, fill="x")
+        self.progress_popup.resizable(False, False)
+        ttk.Label(self.progress_popup, text=message, style="TLabel").pack(pady=(18, 8))
+        pb = ttk.Progressbar(self.progress_popup, mode="indeterminate")
+        pb.pack(fill="x", padx=30, pady=(0, 10))
         pb.start(10)
         self.progress_popup.protocol("WM_DELETE_WINDOW", lambda: None)  # Disable close
         logging.info(f"Progress popup shown: {message}")
 
     def close_progress_popup(self):
-        """Close the progress popup."""
         if self.progress_popup:
+            self.progress_popup.grab_release()
             self.progress_popup.destroy()
             self.progress_popup = None
             logging.info("Progress popup closed.")
 
     # --- Tab Initializers ---
     def _init_length_tab(self):
-        """Initialize the Column Length Checker tab."""
-        # Controls frame
-        controls_frame = ttk.Frame(self.tab_length, padding="10")
-        controls_frame.pack(fill="x")
-        
-        ttk.Label(controls_frame, text="Column (name or index):", style="TLabel").grid(row=0, column=0, sticky="w", padx=(0, 5))
-        self.length_col_entry = ttk.Entry(controls_frame, width=20)
-        self.length_col_entry.grid(row=0, column=1, sticky="w", padx=(0, 10))
-        
-        ttk.Label(controls_frame, text="Length threshold:", style="TLabel").grid(row=0, column=2, sticky="w", padx=(0, 5))
-        self.length_thresh_entry = ttk.Entry(controls_frame, width=10)
-        self.length_thresh_entry.insert(0, "25")
-        self.length_thresh_entry.grid(row=0, column=3, sticky="w", padx=(0, 10))
-        
-        ttk.Button(controls_frame, text="Check", command=self.run_length_check, width=10).grid(row=0, column=4, padx=(0, 10))
-        self.length_export_btn = ttk.Button(controls_frame, text="Export Results", command=self.export_length_results, width=12, state="disabled")
-        self.length_export_btn.grid(row=0, column=5)
-        
-        # Status label
-        self.length_status = ttk.Label(controls_frame, text="", style="TLabel")
-        self.length_status.grid(row=1, column=0, columnspan=6, sticky="w", pady=(5, 0))
-        
-        # Results tree
-        tree_frame = ttk.Frame(self.tab_length)
-        tree_frame.pack(fill="both", expand=True, padx=10, pady=10)
-        
-        self.length_tree = ttk.Treeview(tree_frame, columns=("row", "column", "value"), show="headings", height=15)
+        frame = self.tab_length
+        # Controls
+        controls = ttk.Frame(frame, padding="10 10 10 10")
+        controls.pack(fill="x")
+        ttk.Label(controls, text="Column (name or index):", style="TLabel").grid(row=0, column=0, sticky="e", padx=5)
+        self.length_col_entry = ttk.Entry(controls, width=15)
+        self.length_col_entry.grid(row=0, column=1, sticky="w", padx=5)
+        ttk.Label(controls, text="Length threshold:", style="TLabel").grid(row=0, column=2, sticky="e", padx=5)
+        self.length_thresh_entry = ttk.Entry(controls, width=7)
+        self.length_thresh_entry.insert(0, '25')
+        self.length_thresh_entry.grid(row=0, column=3, sticky="w", padx=5)
+        self.length_check_btn = ttk.Button(controls, text="Check", command=self.run_length_check)
+        self.length_check_btn.grid(row=0, column=4, padx=10)
+        self.length_export_btn = ttk.Button(controls, text="Export Results", command=self.export_length_results, state="disabled")
+        self.length_export_btn.grid(row=0, column=5, padx=10)
+        # Progress/Status
+        self.length_status = ttk.Label(frame, text="", style="TLabel")
+        self.length_status.pack(fill="x", padx=10, pady=(0, 5))
+        # Results
+        self.length_tree = ttk.Treeview(frame, columns=("row", "column", "value"), show="headings", height=18)
         self.length_tree.heading("row", text="Row")
         self.length_tree.heading("column", text="Column")
         self.length_tree.heading("value", text="Value")
-        self.length_tree.column("row", width=80)
-        self.length_tree.column("column", width=150)
-        self.length_tree.column("value", width=400)
-        
-        scrollbar = ttk.Scrollbar(tree_frame, orient="vertical", command=self.length_tree.yview)
-        self.length_tree.configure(yscrollcommand=scrollbar.set)
-        
-        self.length_tree.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
+        self.length_tree.column("row", width=60, anchor="center")
+        self.length_tree.column("column", width=120, anchor="center")
+        self.length_tree.column("value", width=700, anchor="w")
+        self.length_tree.pack(fill="both", expand=True, padx=10, pady=5)
+        self.length_scroll = ttk.Scrollbar(frame, orient="vertical", command=self.length_tree.yview)
+        self.length_tree.configure(yscrollcommand=self.length_scroll.set)
+        self.length_scroll.pack(side="right", fill="y")
 
     def _init_duplicates_tab(self):
-        """Initialize the Find Duplicates tab."""
-        # Controls frame
-        controls_frame = ttk.Frame(self.tab_duplicates, padding="10")
-        controls_frame.pack(fill="x")
-        
-        ttk.Label(controls_frame, text="Column (name or index):", style="TLabel").grid(row=0, column=0, sticky="w", padx=(0, 5))
-        self.dup_col_entry = ttk.Entry(controls_frame, width=20)
-        self.dup_col_entry.grid(row=0, column=1, sticky="w", padx=(0, 10))
-        
-        ttk.Button(controls_frame, text="Check", command=self.run_dup_check, width=10).grid(row=0, column=2, padx=(0, 10))
-        self.dup_export_btn = ttk.Button(controls_frame, text="Export Results", command=self.export_dup_results, width=12, state="disabled")
-        self.dup_export_btn.grid(row=0, column=3)
-        
-        # Status label
-        self.dup_status = ttk.Label(controls_frame, text="", style="TLabel")
-        self.dup_status.grid(row=1, column=0, columnspan=4, sticky="w", pady=(5, 0))
-        
-        # Results tree
-        tree_frame = ttk.Frame(self.tab_duplicates)
-        tree_frame.pack(fill="both", expand=True, padx=10, pady=10)
-        
-        self.dup_tree = ttk.Treeview(tree_frame, columns=("row", "column", "value"), show="headings", height=15)
+        frame = self.tab_duplicates
+        controls = ttk.Frame(frame, padding="10 10 10 10")
+        controls.pack(fill="x")
+        ttk.Label(controls, text="Column (name or index):", style="TLabel").grid(row=0, column=0, sticky="e", padx=5)
+        self.dup_col_entry = ttk.Entry(controls, width=15)
+        self.dup_col_entry.grid(row=0, column=1, sticky="w", padx=5)
+        self.dup_check_btn = ttk.Button(controls, text="Find Duplicates", command=self.run_dup_check)
+        self.dup_check_btn.grid(row=0, column=2, padx=10)
+        self.dup_export_btn = ttk.Button(controls, text="Export Duplicates", command=self.export_dup_results, state="disabled")
+        self.dup_export_btn.grid(row=0, column=3, padx=10)
+        self.dup_status = ttk.Label(frame, text="", style="TLabel")
+        self.dup_status.pack(fill="x", padx=10, pady=(0, 5))
+        self.dup_tree = ttk.Treeview(frame, columns=("row", "column", "value"), show="headings", height=18)
         self.dup_tree.heading("row", text="Row")
         self.dup_tree.heading("column", text="Column")
         self.dup_tree.heading("value", text="Value")
-        self.dup_tree.column("row", width=80)
-        self.dup_tree.column("column", width=150)
-        self.dup_tree.column("value", width=400)
-        
-        scrollbar = ttk.Scrollbar(tree_frame, orient="vertical", command=self.dup_tree.yview)
-        self.dup_tree.configure(yscrollcommand=scrollbar.set)
-        
-        self.dup_tree.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
+        self.dup_tree.column("row", width=60, anchor="center")
+        self.dup_tree.column("column", width=120, anchor="center")
+        self.dup_tree.column("value", width=700, anchor="w")
+        self.dup_tree.pack(fill="both", expand=True, padx=10, pady=5)
+        self.dup_scroll = ttk.Scrollbar(frame, orient="vertical", command=self.dup_tree.yview)
+        self.dup_tree.configure(yscrollcommand=self.dup_scroll.set)
+        self.dup_scroll.pack(side="right", fill="y")
 
     def _init_extra_tab(self):
-        """Initialize the Find Extra Delimiters tab."""
-        # Controls frame
-        controls_frame = ttk.Frame(self.tab_extra, padding="10")
-        controls_frame.pack(fill="x")
-        
-        ttk.Button(controls_frame, text="Check", command=self.run_extra_check, width=10).grid(row=0, column=0, padx=(0, 10))
-        self.extra_export_btn = ttk.Button(controls_frame, text="Export Results", command=self.export_extra_results, width=12, state="disabled")
-        self.extra_export_btn.grid(row=0, column=1)
-        
-        # Status label
-        self.extra_status = ttk.Label(controls_frame, text="", style="TLabel")
-        self.extra_status.grid(row=1, column=0, columnspan=2, sticky="w", pady=(5, 0))
-        
-        # Results tree
-        tree_frame = ttk.Frame(self.tab_extra)
-        tree_frame.pack(fill="both", expand=True, padx=10, pady=10)
-        
-        self.extra_tree = ttk.Treeview(tree_frame, columns=("row", "extra_cols", "row_data"), show="headings", height=15)
+        frame = self.tab_extra
+        controls = ttk.Frame(frame, padding="10 10 10 10")
+        controls.pack(fill="x")
+        self.extra_check_btn = ttk.Button(controls, text="Check for Extra Delimiters", command=self.run_extra_check)
+        self.extra_check_btn.grid(row=0, column=0, padx=10)
+        self.extra_export_btn = ttk.Button(controls, text="Export Problematic Rows", command=self.export_extra_results, state="disabled")
+        self.extra_export_btn.grid(row=0, column=1, padx=10)
+        self.extra_status = ttk.Label(frame, text="", style="TLabel")
+        self.extra_status.pack(fill="x", padx=10, pady=(0, 5))
+        self.extra_tree = ttk.Treeview(frame, columns=("row", "extra_cols", "data"), show="headings", height=18)
         self.extra_tree.heading("row", text="Row")
         self.extra_tree.heading("extra_cols", text="Extra Columns")
-        self.extra_tree.heading("row_data", text="Row Data")
-        self.extra_tree.column("row", width=80)
-        self.extra_tree.column("extra_cols", width=150)
-        self.extra_tree.column("row_data", width=400)
-        
-        scrollbar = ttk.Scrollbar(tree_frame, orient="vertical", command=self.extra_tree.yview)
-        self.extra_tree.configure(yscrollcommand=scrollbar.set)
-        
-        self.extra_tree.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
+        self.extra_tree.heading("data", text="Row Data")
+        self.extra_tree.column("row", width=60, anchor="center")
+        self.extra_tree.column("extra_cols", width=120, anchor="center")
+        self.extra_tree.column("data", width=700, anchor="w")
+        self.extra_tree.pack(fill="both", expand=True, padx=10, pady=5)
+        self.extra_scroll = ttk.Scrollbar(frame, orient="vertical", command=self.extra_tree.yview)
+        self.extra_tree.configure(yscrollcommand=self.extra_scroll.set)
+        self.extra_scroll.pack(side="right", fill="y")
 
     # --- Column Length Checker Logic ---
     def run_length_check(self):
-        """Start the column length check process."""
         if not self.filename:
             messagebox.showerror("Error", "Please select a CSV file.")
             logging.warning("User attempted to run length check without a file.")
@@ -374,82 +345,77 @@ class CSVAnalyzerApp:
             logging.warning(f"User entered invalid length threshold: {self.length_thresh_entry.get()}")
             return
         self.length_tree.delete(*self.length_tree.get_children())
+        self.length_status.config(text="Processing... (this may take a while for large files)")
+        self.length_export_btn.config(state="disabled")
         self.length_results = []
         self.show_progress_popup()
         logging.info(f"User initiated length check for column '{col}' with threshold {threshold}.")
         # Start background thread
         t = threading.Thread(target=self._length_check_worker, args=(col, threshold), daemon=True)
         t.start()
+        self.processing_thread = t
 
     def _length_check_worker(self, col, threshold):
-        """Background worker for column length checking."""
         try:
-            delim = self.get_delimiter()
-            matches = 0
-            with open(self.filename, 'r', encoding='utf-8', errors='ignore') as f:
-                reader = csv.reader(f, delimiter=delim)
+            with open(self.filename, newline='', encoding='utf-8') as f:
+                reader = csv.reader(f, delimiter=self.get_delimiter())
                 row_num = 0
-                col_idx = None
                 header = None
-                
+                col_idx = None
+                matches = 0
+                display_count = 0
                 for row in reader:
-                    if not row:
-                        continue  # skip empty rows
                     row_num += 1
-                    
                     if row_num == 1 and self.has_header.get():
                         header = row
-                        # Find column index
-                        if col.isdigit():
-                            col_idx = int(col)
-                        else:
+                        # Determine column index
+                        try:
+                            col_idx = header.index(col)
+                        except ValueError:
                             try:
-                                col_idx = header.index(col)
+                                col_idx = int(col)
                             except ValueError:
                                 self._update_length_status(f"Column '{col}' not found in header and is not a valid index.")
                                 self._close_progress_popup_safe()
                                 logging.warning(f"Column '{col}' not found in header and is not a valid index.")
                                 return
-                        if col_idx < 0 or col_idx >= len(header):
-                            self._update_length_status(f"Column index {col_idx} out of range.")
-                            self._close_progress_popup_safe()
-                            logging.warning(f"Column index {col_idx} out of range.")
-                            return
-                        continue
-                    
-                    if col_idx is None:
-                        if not self.has_header.get():
-                            # For files without headers, column must be an integer index
-                            if not col.isdigit():
-                                self._update_length_status("For files without headers, column must be an integer index (starting from 0).")
+                            if col_idx < 0 or col_idx >= len(header):
+                                self._update_length_status(f"Column index {col_idx} out of range.")
                                 self._close_progress_popup_safe()
-                                logging.warning("User attempted to run length check without header for a file without headers.")
+                                logging.warning(f"Column index {col_idx} out of range.")
                                 return
+                        continue
+                    elif row_num == 1:
+                        # No header
+                        try:
                             col_idx = int(col)
+                        except ValueError:
+                            self._update_length_status("For files without headers, column must be an integer index (starting from 0).")
+                            self._close_progress_popup_safe()
+                            logging.warning("User attempted to run length check without header for a file without headers.")
+                            return
                         if col_idx < 0 or col_idx >= len(row):
                             self._update_length_status(f"Column index {col_idx} out of range.")
                             self._close_progress_popup_safe()
                             logging.warning(f"Column index {col_idx} out of range.")
                             return
-                    
                     if col_idx is None or col_idx >= len(row):
                         continue
-                    
                     value = row[col_idx]
-                    if len(value) > threshold:
-                        col_name = header[col_idx] if header else f"Column {col_idx}"
-                        self._insert_length_result(row_num, col_name, value)
-                        self.length_results.append([row_num, col_name, value])
+                    if len(str(value)) > threshold:
                         matches += 1
-                        
-                        if matches % 100 == 0:
+                        # Store for export
+                        self.length_results.append((row_num, (header[col_idx] if header else f"Column {col_idx+1}"), value))
+                        # Display up to max_display
+                        if display_count < self.length_max_display:
+                            self._insert_length_result(row_num, (header[col_idx] if header else f"Column {col_idx+1}"), value)
+                            display_count += 1
+                        if matches % 1000 == 0:
                             self._update_length_status(f"Found {matches} matches so far...")
-                
+                self._update_length_status(f"Done. Found {matches} rows with value longer than {threshold}.")
                 if matches > 0:
-                    self._update_length_status(f"Found {matches} rows with values longer than {threshold} characters.")
                     self.length_export_btn.config(state="normal")
                 else:
-                    self._update_length_status(f"No rows found with values longer than {threshold} characters.")
                     self.length_export_btn.config(state="disabled")
                 logging.info(f"Length check for column '{col}' with threshold {threshold} completed. Found {matches} matches.")
         except Exception as e:
@@ -458,31 +424,27 @@ class CSVAnalyzerApp:
         self._close_progress_popup_safe()
 
     def _insert_length_result(self, row_num, col_name, value):
-        """Insert a length check result into the treeview."""
-        self.root.after(0, lambda: self.length_tree.insert("", "end", values=(row_num, col_name, value)))
+        self.length_tree.insert("", "end", values=(row_num, col_name, value))
 
     def _update_length_status(self, msg):
-        """Update the length checker status label."""
         def update():
             self.length_status.config(text=msg)
         self.root.after(0, update)
         logging.info(f"Length status updated: {msg}")
 
     def _close_progress_popup_safe(self):
-        """Safely close the progress popup from a worker thread."""
         self.root.after(0, self.close_progress_popup)
         logging.info("Progress popup closed safely.")
 
     def export_length_results(self):
-        """Export length check results to CSV."""
         if not self.length_results:
             messagebox.showinfo("Export Results", "There are no results to export.")
             logging.warning("User attempted to export length results, but none were found.")
             return
         file = filedialog.asksaveasfilename(
-            title="Export Length Results",
             defaultextension=".csv",
-            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")]
+            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
+            title="Save Results As"
         )
         if not file:
             logging.warning("User cancelled length results export.")
@@ -502,7 +464,6 @@ class CSVAnalyzerApp:
 
     # --- Find Duplicates Logic ---
     def run_dup_check(self):
-        """Start the duplicate check process."""
         if not self.filename:
             messagebox.showerror("Error", "Please select a CSV file.")
             logging.warning("User attempted to run duplicate check without a file.")
@@ -513,88 +474,117 @@ class CSVAnalyzerApp:
             logging.warning("User attempted to run duplicate check with empty column name.")
             return
         self.dup_tree.delete(*self.dup_tree.get_children())
+        self.dup_status.config(text="Processing... (this may take a while for large files)")
+        self.dup_export_btn.config(state="disabled")
         self.dup_results = []
         self.show_progress_popup()
         logging.info(f"User initiated duplicate check for column '{col}'.")
         t = threading.Thread(target=self._dup_check_worker, args=(col,), daemon=True)
         t.start()
+        self.processing_thread = t
 
     def _dup_check_worker(self, col):
-        """Background worker for duplicate checking."""
         try:
-            delim = self.get_delimiter()
-            matches = 0
-            seen_values = {}
-            duplicate_rows = []
-            
-            with open(self.filename, 'r', encoding='utf-8', errors='ignore') as f:
-                reader = csv.reader(f, delimiter=delim)
+            # First pass: count occurrences
+            value_counts = {}
+            header = None
+            col_idx = None
+            with open(self.filename, newline='', encoding='utf-8') as f:
+                reader = csv.reader(f, delimiter=self.get_delimiter())
                 row_num = 0
-                col_idx = None
-                header = None
-                
                 for row in reader:
-                    if not row:
-                        continue  # skip empty rows
                     row_num += 1
-                    
                     if row_num == 1 and self.has_header.get():
                         header = row
-                        # Find column index
-                        if col.isdigit():
-                            col_idx = int(col)
-                        else:
+                        try:
+                            col_idx = header.index(col)
+                        except ValueError:
                             try:
-                                col_idx = header.index(col)
+                                col_idx = int(col)
                             except ValueError:
                                 self._update_dup_status(f"Column '{col}' not found in header and is not a valid index.")
                                 self._close_progress_popup_safe()
                                 logging.warning(f"Column '{col}' not found in header and is not a valid index.")
                                 return
-                        if col_idx < 0 or col_idx >= len(header):
-                            self._update_dup_status(f"Column index {col_idx} out of range.")
-                            self._close_progress_popup_safe()
-                            logging.warning(f"Column index {col_idx} out of range.")
-                            return
-                        continue
-                    
-                    if col_idx is None:
-                        if not self.has_header.get():
-                            # For files without headers, column must be an integer index
-                            if not col.isdigit():
-                                self._update_dup_status("For files without headers, column must be an integer index (starting from 0).")
+                            if col_idx < 0 or col_idx >= len(header):
+                                self._update_dup_status(f"Column index {col_idx} out of range.")
                                 self._close_progress_popup_safe()
-                                logging.warning("User attempted to run duplicate check without header for a file without headers.")
+                                logging.warning(f"Column index {col_idx} out of range.")
                                 return
+                        continue
+                    elif row_num == 1:
+                        try:
                             col_idx = int(col)
+                        except ValueError:
+                            self._update_dup_status("For files without headers, column must be an integer index (starting from 0).")
+                            self._close_progress_popup_safe()
+                            logging.warning("User attempted to run duplicate check without header for a file without headers.")
+                            return
                         if col_idx < 0 or col_idx >= len(row):
                             self._update_dup_status(f"Column index {col_idx} out of range.")
                             self._close_progress_popup_safe()
                             logging.warning(f"Column index {col_idx} out of range.")
                             return
-                    
                     if col_idx is None or col_idx >= len(row):
                         continue
-                    
                     value = row[col_idx]
-                    if value in seen_values:
-                        # This is a duplicate
-                        col_name = header[col_idx] if header else f"Column {col_idx}"
-                        self._insert_dup_result(row_num, col_name, value)
-                        self.dup_results.append([row_num, col_name, value])
-                        duplicate_rows.append(row_num)
+                    value_counts[value] = value_counts.get(value, 0) + 1
+            # Second pass: collect duplicate rows
+            with open(self.filename, newline='', encoding='utf-8') as f:
+                reader = csv.reader(f, delimiter=self.get_delimiter())
+                row_num = 0
+                header = None
+                col_idx = None
+                matches = 0
+                display_count = 0
+                for row in reader:
+                    row_num += 1
+                    if row_num == 1 and self.has_header.get():
+                        header = row
+                        try:
+                            col_idx = header.index(col)
+                        except ValueError:
+                            try:
+                                col_idx = int(col)
+                            except ValueError:
+                                self._update_dup_status(f"Column '{col}' not found in header and is not a valid index.")
+                                self._close_progress_popup_safe()
+                                logging.warning(f"Column '{col}' not found in header and is not a valid index.")
+                                return
+                            if col_idx < 0 or col_idx >= len(header):
+                                self._update_dup_status(f"Column index {col_idx} out of range.")
+                                self._close_progress_popup_safe()
+                                logging.warning(f"Column index {col_idx} out of range.")
+                                return
+                        continue
+                    elif row_num == 1:
+                        try:
+                            col_idx = int(col)
+                        except ValueError:
+                            self._update_dup_status("For files without headers, column must be an integer index (starting from 0).")
+                            self._close_progress_popup_safe()
+                            logging.warning("User attempted to run duplicate check without header for a file without headers.")
+                            return
+                        if col_idx < 0 or col_idx >= len(row):
+                            self._update_dup_status(f"Column index {col_idx} out of range.")
+                            self._close_progress_popup_safe()
+                            logging.warning(f"Column index {col_idx} out of range.")
+                            return
+                    if col_idx is None or col_idx >= len(row):
+                        continue
+                    value = row[col_idx]
+                    if value_counts.get(value, 0) > 1:
                         matches += 1
-                        
-                        if matches % 100 == 0:
-                            self._update_dup_status(f"Found {matches} duplicates so far...")
-                    else:
-                        seen_values[value] = row_num
-                
+                        self.dup_results.append((row_num, (header[col_idx] if header else f"Column {col_idx+1}"), value))
+                        if display_count < self.dup_max_display:
+                            self._insert_dup_result(row_num, (header[col_idx] if header else f"Column {col_idx+1}"), value)
+                            display_count += 1
+                        if matches % 1000 == 0:
+                            self._update_dup_status(f"Found {matches} duplicate rows so far...")
+                self._update_dup_status(f"Done. Found {matches} duplicate rows.")
                 if matches > 0:
-                    self._update_dup_status(f"Found {matches} duplicate values in column '{col}'.")
                     self.dup_export_btn.config(state="normal")
                 else:
-                    self._update_dup_status(f"No duplicates found in column '{col}'.")
                     self.dup_export_btn.config(state="disabled")
                 logging.info(f"Duplicate check for column '{col}' completed. Found {matches} duplicates.")
         except Exception as e:
@@ -603,26 +593,23 @@ class CSVAnalyzerApp:
         self._close_progress_popup_safe()
 
     def _insert_dup_result(self, row_num, col_name, value):
-        """Insert a duplicate result into the treeview."""
-        self.root.after(0, lambda: self.dup_tree.insert("", "end", values=(row_num, col_name, value)))
+        self.dup_tree.insert("", "end", values=(row_num, col_name, value))
 
     def _update_dup_status(self, msg):
-        """Update the duplicate checker status label."""
         def update():
             self.dup_status.config(text=msg)
         self.root.after(0, update)
         logging.info(f"Duplicate status updated: {msg}")
 
     def export_dup_results(self):
-        """Export duplicate check results to CSV."""
         if not self.dup_results:
             messagebox.showinfo("Export Results", "There are no results to export.")
             logging.warning("User attempted to export duplicate results, but none were found.")
             return
         file = filedialog.asksaveasfilename(
-            title="Export Duplicate Results",
             defaultextension=".csv",
-            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")]
+            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
+            title="Save Results As"
         )
         if not file:
             logging.warning("User cancelled duplicate results export.")
@@ -642,63 +629,55 @@ class CSVAnalyzerApp:
 
     # --- Find Extra Delimiters Logic ---
     def run_extra_check(self):
-        """Start the extra delimiters check process."""
         if not self.filename:
             messagebox.showerror("Error", "Please select a CSV file.")
             logging.warning("User attempted to run extra delimiter check without a file.")
             return
         self.extra_tree.delete(*self.extra_tree.get_children())
+        self.extra_status.config(text="Processing... (this may take a while for large files)")
+        self.extra_export_btn.config(state="disabled")
         self.extra_results = []
         self.show_progress_popup()
         logging.info("User initiated extra delimiter check.")
         t = threading.Thread(target=self._extra_check_worker, daemon=True)
         t.start()
+        self.processing_thread = t
 
     def _extra_check_worker(self):
-        """Background worker for extra delimiters checking."""
         try:
-            delim = self.get_delimiter()
-            matches = 0
-            expected_cols = None
-            
-            with open(self.filename, 'r', encoding='utf-8', errors='ignore') as f:
-                reader = csv.reader(f, delimiter=delim)
+            with open(self.filename, newline='', encoding='utf-8') as f:
+                reader = csv.reader(f, delimiter=self.get_delimiter())
                 row_num = 0
-                
+                header = None
+                expected_cols = None
+                matches = 0
+                display_count = 0
                 for row in reader:
-                    if not row:
-                        continue  # skip empty rows
                     row_num += 1
-                    
                     if row_num == 1 and self.has_header.get():
-                        expected_cols = len(row)
+                        header = row
+                        expected_cols = len(header)
                         continue  # skip header row
                     elif row_num == 1:
                         expected_cols = len(row)
                         continue  # skip first data row
-                    
                     if expected_cols is None:
                         continue
-                    
                     if len(row) > expected_cols:
-                        # Find the extra columns
-                        extra_cols = []
-                        for i in range(expected_cols, len(row)):
-                            extra_cols.append(i + 1)  # 1-based indexing
-                        
-                        row_data = " | ".join(row)
-                        self._insert_extra_result(row_num, extra_cols, row_data)
-                        self.extra_results.append([row_num, extra_cols, row_data])
+                        # Find extra column indices (1-based)
+                        extras = [str(i+1) for i in range(expected_cols, len(row))]
                         matches += 1
-                        
-                        if matches % 100 == 0:
+                        row_data = ', '.join(row)
+                        self.extra_results.append((row_num, ', '.join(extras), row_data))
+                        if display_count < self.extra_max_display:
+                            self._insert_extra_result(row_num, ', '.join(extras), row_data)
+                            display_count += 1
+                        if matches % 1000 == 0:
                             self._update_extra_status(f"Found {matches} problematic rows so far...")
-                
+                self._update_extra_status(f"Done. Found {matches} rows with extra delimiters.")
                 if matches > 0:
-                    self._update_extra_status(f"Found {matches} rows with extra delimiters.")
                     self.extra_export_btn.config(state="normal")
                 else:
-                    self._update_extra_status("No rows with extra delimiters found.")
                     self.extra_export_btn.config(state="disabled")
                 logging.info(f"Extra delimiter check completed. Found {matches} problematic rows.")
         except Exception as e:
@@ -707,27 +686,23 @@ class CSVAnalyzerApp:
         self._close_progress_popup_safe()
 
     def _insert_extra_result(self, row_num, extra_cols, row_data):
-        """Insert an extra delimiter result into the treeview."""
-        extra_cols_str = ", ".join(map(str, extra_cols))
-        self.root.after(0, lambda: self.extra_tree.insert("", "end", values=(row_num, extra_cols_str, row_data)))
+        self.extra_tree.insert("", "end", values=(row_num, extra_cols, row_data))
 
     def _update_extra_status(self, msg):
-        """Update the extra delimiters status label."""
         def update():
             self.extra_status.config(text=msg)
         self.root.after(0, update)
         logging.info(f"Extra delimiter status updated: {msg}")
 
     def export_extra_results(self):
-        """Export extra delimiter results to CSV."""
         if not self.extra_results:
             messagebox.showinfo("Export Results", "There are no results to export.")
             logging.warning("User attempted to export extra delimiter results, but none were found.")
             return
         file = filedialog.asksaveasfilename(
-            title="Export Extra Delimiter Results",
             defaultextension=".csv",
-            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")]
+            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
+            title="Save Results As"
         )
         if not file:
             logging.warning("User cancelled extra delimiter results export.")
@@ -746,7 +721,6 @@ class CSVAnalyzerApp:
             logging.error(f"Failed to export extra delimiter results: {e}")
 
     def _not_implemented(self):
-        """Placeholder for unimplemented features."""
         messagebox.showinfo("Not Implemented", "This functionality will be implemented in the next steps.")
         logging.warning("User attempted to run a not implemented functionality.")
 
