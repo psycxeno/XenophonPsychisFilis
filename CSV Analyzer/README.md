@@ -50,4 +50,4 @@ A user-friendly, multi-tool CSV analysis application with a modern GUI. Designed
 
 ## Credits
 - Developed by Xenofon Psychis - Filis.
-- For support or suggestions, contact: [Your Contact Email/Info Here] 
+- For support or suggestions, contact: [p.xenophon@gmail.com] 
