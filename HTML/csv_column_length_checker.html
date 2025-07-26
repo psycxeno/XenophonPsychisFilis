@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV Analyzer - EDW Team</title>
+  <link rel="icon" href="data:,">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f6f8fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 950px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 32px 24px 24px 24px;
+    }
+    h1 {
+      text-align: center;
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .tab-bar {
+      display: flex;
+      border-bottom: 2px solid #e3eafc;
+      margin-bottom: 24px;
+    }
+    .tab {
+      padding: 12px 32px;
+      cursor: pointer;
+      font-size: 1.1em;
+      color: #1a237e;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      outline: none;
+      transition: border 0.2s, background 0.2s;
+    }
+    .tab.active {
+      border-bottom: 3px solid #1a237e;
+      background: #e3eafc;
+      font-weight: bold;
+    }
+    .shared-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+    .shared-controls label {
+      min-width: 120px;
+      font-weight: 500;
+      color: #333;
+    }
+    .shared-controls input[type="text"],
+    .shared-controls input[type="number"] {
+      padding: 6px 10px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 120px;
+    }
+    .shared-controls input[type="file"] {
+      font-size: 1rem;
+    }
+    .shared-controls input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 6px;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+    .form-row label {
+      min-width: 120px;
+      font-weight: 500;
+      color: #333;
+    }
+    .form-row input[type="text"],
+    .form-row input[type="number"] {
+      padding: 6px 10px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 120px;
+    }
+    .form-row button {
+      background: #1a237e;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-left: 10px;
+    }
+    .form-row button:disabled {
+      background: #bbb;
+      cursor: not-allowed;
+    }
+    .form-row .export-btn {
+      background: #388e3c;
+      margin-left: 0;
+    }
+    .status {
+      margin: 10px 0 18px 0;
+      color: #1976d2;
+      font-size: 1rem;
+      min-height: 1.2em;
+      text-align: center;
+    }
+    .results-table-wrapper {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      margin-top: 18px;
+      border-radius: 6px;
+      box-sizing: border-box;
+      background: #fafbfc;
+    }
+    table {
+      width: 100%;
+      min-width: 800px;
+      border-collapse: collapse;
+      background: #fafbfc;
+    }
+    th, td {
+      border: 1px solid #e0e0e0;
+      padding: 8px 10px;
+      text-align: left;
+      font-size: 1rem;
+    }
+    th {
+      background: #e3eafc;
+      color: #1a237e;
+      font-weight: bold;
+    }
+    tr.duplicate {
+      background: #fff3e0 !important;
+    }
+    tr.extra-delim {
+      background: #ffebee !important;
+    }
+    td.extra-cell {
+      background: #ffe082 !important;
+      font-weight: bold;
+    }
+    tr:nth-child(even):not(.duplicate):not(.extra-delim) {
+      background: #f3f6fa;
+    }
+    .footer {
+      text-align: center;
+      color: #888;
+      margin-top: 40px;
+      font-size: 0.95em;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 10px; }
+      .tab-bar { flex-direction: column; }
+      .shared-controls, .form-row { flex-direction: column; align-items: stretch; }
+      .shared-controls label, .shared-controls input, .form-row label, .form-row input, .form-row button { width: 100%; }
+      table, th, td { font-size: 0.95em; }
+      .results-table-wrapper { min-width: 0; }
+    }
+  </style>
+  <!-- PapaParse for CSV parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>CSV Analyzer</h1>
+    <div class="subtitle">EDW Team &mdash; Analyze your CSV files right in your browser!</div>
+    <div class="tab-bar">
+      <button class="tab active" id="tab-length">Column Length Checker</button>
+      <button class="tab" id="tab-duplicates">Find Duplicates</button>
+      <button class="tab" id="tab-extra">Find Extra Delimiters</button>
+    </div>
+    <div class="shared-controls">
+      <label for="csvFile">CSV File:</label>
+      <input type="file" id="csvFile" accept=".csv,text/csv">
+      <label for="delimiter">Delimiter:</label>
+      <input type="text" id="delimiter" value="," maxlength="2" style="width:40px;">
+      <label for="hasHeader"><input type="checkbox" id="hasHeader" checked>File has header</label>
+    </div>
+    <!-- Column Length Checker Tab -->
+    <div class="tab-content active" id="content-length">
+      <div class="form-row">
+        <label for="column">Column (name or index):</label>
+        <input type="text" id="column" placeholder="e.g. Email or 2">
+        <label for="threshold">Length threshold:</label>
+        <input type="number" id="threshold" value="25" min="1" style="width:70px;">
+        <button id="checkBtn">Check</button>
+        <button id="exportBtn" class="export-btn" disabled>Export Results</button>
+      </div>
+      <div class="status" id="status"></div>
+      <div id="results"></div>
+    </div>
+    <!-- Find Duplicates Tab -->
+    <div class="tab-content" id="content-duplicates">
+      <div class="form-row">
+        <label for="dupColumn">Column (name or index):</label>
+        <input type="text" id="dupColumn" placeholder="e.g. Email or 2">
+        <button id="findDupBtn">Find Duplicates</button>
+        <button id="exportDupBtn" class="export-btn" disabled>Export Duplicates</button>
+      </div>
+      <div class="status" id="dupStatus"></div>
+      <div id="dupResults"></div>
+    </div>
+    <!-- Find Extra Delimiters Tab -->
+    <div class="tab-content" id="content-extra">
+      <div class="form-row">
+        <button id="findExtraBtn">Check for Extra Delimiters</button>
+        <button id="exportExtraBtn" class="export-btn" disabled>Export Problematic Rows</button>
+      </div>
+      <div class="status" id="extraStatus"></div>
+      <div id="extraResults"></div>
+    </div>
+  </div>
+  <div class="footer">
+    &copy; 2024 EDW Team
+  </div>
+  <script>
+    // Shared state
+    let parsedData = [];
+    let header = [];
+    let hasHeader = true;
+
+    // Column Length Checker state
+    let filteredRows = [];
+    // Duplicates state
+    let duplicateRows = [];
+    let duplicateHeader = [];
+    // Extra Delimiters state
+    let extraRows = [];
+    let extraRowNumbers = [];
+    let extraColIndices = [];
+
+    // Tab logic
+    const tabLength = document.getElementById('tab-length');
+    const tabDuplicates = document.getElementById('tab-duplicates');
+    const tabExtra = document.getElementById('tab-extra');
+    const contentLength = document.getElementById('content-length');
+    const contentDuplicates = document.getElementById('content-duplicates');
+    const contentExtra = document.getElementById('content-extra');
+    tabLength.addEventListener('click', function() {
+      tabLength.classList.add('active');
+      tabDuplicates.classList.remove('active');
+      tabExtra.classList.remove('active');
+      contentLength.classList.add('active');
+      contentDuplicates.classList.remove('active');
+      contentExtra.classList.remove('active');
+    });
+    tabDuplicates.addEventListener('click', function() {
+      tabDuplicates.classList.add('active');
+      tabLength.classList.remove('active');
+      tabExtra.classList.remove('active');
+      contentDuplicates.classList.add('active');
+      contentLength.classList.remove('active');
+      contentExtra.classList.remove('active');
+    });
+    tabExtra.addEventListener('click', function() {
+      tabExtra.classList.add('active');
+      tabLength.classList.remove('active');
+      tabDuplicates.classList.remove('active');
+      contentExtra.classList.add('active');
+      contentLength.classList.remove('active');
+      contentDuplicates.classList.remove('active');
+    });
+
+    // Shared controls
+    const csvFile = document.getElementById('csvFile');
+    const delimiterInput = document.getElementById('delimiter');
+    const hasHeaderInput = document.getElementById('hasHeader');
+
+    // Column Length Checker controls
+    const columnInput = document.getElementById('column');
+    const thresholdInput = document.getElementById('threshold');
+    const checkBtn = document.getElementById('checkBtn');
+    const exportBtn = document.getElementById('exportBtn');
+    const statusDiv = document.getElementById('status');
+    const resultsDiv = document.getElementById('results');
+
+    // Duplicates controls
+    const dupColumnInput = document.getElementById('dupColumn');
+    const findDupBtn = document.getElementById('findDupBtn');
+    const exportDupBtn = document.getElementById('exportDupBtn');
+    const dupStatusDiv = document.getElementById('dupStatus');
+    const dupResultsDiv = document.getElementById('dupResults');
+
+    // Extra Delimiters controls
+    const findExtraBtn = document.getElementById('findExtraBtn');
+    const exportExtraBtn = document.getElementById('exportExtraBtn');
+    const extraStatusDiv = document.getElementById('extraStatus');
+    const extraResultsDiv = document.getElementById('extraResults');
+
+    function setStatus(msg, color) {
+      statusDiv.textContent = msg;
+      statusDiv.style.color = color || '#1976d2';
+    }
+    function setDupStatus(msg, color) {
+      dupStatusDiv.textContent = msg;
+      dupStatusDiv.style.color = color || '#1976d2';
+    }
+    function setExtraStatus(msg, color) {
+      extraStatusDiv.textContent = msg;
+      extraStatusDiv.style.color = color || '#1976d2';
+    }
+    function resetResults() {
+      resultsDiv.innerHTML = '';
+      filteredRows = [];
+      exportBtn.disabled = true;
+      setStatus('', '#1976d2');
+    }
+    function resetDupResults() {
+      dupResultsDiv.innerHTML = '';
+      duplicateRows = [];
+      exportDupBtn.disabled = true;
+      setDupStatus('', '#1976d2');
+    }
+    function resetExtraResults() {
+      extraResultsDiv.innerHTML = '';
+      extraRows = [];
+      extraRowNumbers = [];
+      extraColIndices = [];
+      exportExtraBtn.disabled = true;
+      setExtraStatus('', '#1976d2');
+    }
+
+    csvFile.addEventListener('change', function() {
+      resetResults();
+      resetDupResults();
+      resetExtraResults();
+      if (!csvFile.files.length) {
+        setStatus('No file selected.', '#b71c1c');
+        setDupStatus('No file selected.', '#b71c1c');
+        setExtraStatus('No file selected.', '#b71c1c');
+        return;
+      }
+      setStatus('Parsing file...');
+      setDupStatus('Parsing file...');
+      setExtraStatus('Parsing file...');
+      Papa.parse(csvFile.files[0], {
+        delimiter: delimiterInput.value || ',',
+        skipEmptyLines: true,
+        complete: function(results) {
+          parsedData = results.data;
+          hasHeader = hasHeaderInput.checked;
+          if (hasHeader && parsedData.length > 0) {
+            header = parsedData[0];
+          } else {
+            header = parsedData[0] ? parsedData[0].map((_, i) => `Column ${i+1}`) : [];
+          }
+          setStatus('File loaded. Ready to check.');
+          setDupStatus('File loaded. Ready to find duplicates.');
+          setExtraStatus('File loaded. Ready to check for extra delimiters.');
+        },
+        error: function() {
+          setStatus('Failed to parse file.', '#b71c1c');
+          setDupStatus('Failed to parse file.', '#b71c1c');
+          setExtraStatus('Failed to parse file.', '#b71c1c');
+        }
+      });
+    });
+
+    // --- Column Length Checker logic ---
+    checkBtn.addEventListener('click', function() {
+      resetResults();
+      if (!parsedData.length) {
+        setStatus('Please select and load a CSV file first.', '#b71c1c');
+        return;
+      }
+      let col = columnInput.value.trim();
+      let threshold = parseInt(thresholdInput.value, 10);
+      if (!col) {
+        setStatus('Please specify a column name or index.', '#b71c1c');
+        return;
+      }
+      if (isNaN(threshold) || threshold < 1) {
+        setStatus('Please enter a valid length threshold.', '#b71c1c');
+        return;
+      }
+      hasHeader = hasHeaderInput.checked;
+      let colIdx = -1;
+      let tableHeader = [];
+      let dataRows = [];
+      if (hasHeader) {
+        tableHeader = header;
+        colIdx = header.indexOf(col);
+        if (colIdx === -1 && !isNaN(Number(col))) {
+          colIdx = Number(col);
+        }
+        if (colIdx < 0 || colIdx >= header.length) {
+          setStatus('Column not found in header.', '#b71c1c');
+          return;
+        }
+        dataRows = parsedData.slice(1);
+      } else {
+        if (parsedData[0]) {
+          tableHeader = parsedData[0].map((_, i) => `Column ${i+1}`);
+        }
+        if (!isNaN(Number(col))) {
+          colIdx = Number(col);
+        } else {
+          setStatus('For files without header, use column index (starting from 0).', '#b71c1c');
+          return;
+        }
+        if (colIdx < 0 || (parsedData[0] && colIdx >= parsedData[0].length)) {
+          setStatus('Column index out of range.', '#b71c1c');
+          return;
+        }
+        dataRows = parsedData;
+      }
+      // Filter rows
+      filteredRows = [];
+      for (let i = 0; i < dataRows.length; i++) {
+        let value = dataRows[i][colIdx] || '';
+        if (value.length > threshold) {
+          filteredRows.push(dataRows[i]);
+        }
+      }
+      // Show results
+      let wrapper = document.createElement('div');
+      wrapper.className = 'results-table-wrapper';
+      let table = document.createElement('table');
+      let thead = document.createElement('thead');
+      let tr = document.createElement('tr');
+      tableHeader.forEach(h => {
+        let th = document.createElement('th');
+        th.textContent = h;
+        tr.appendChild(th);
+      });
+      thead.appendChild(tr);
+      table.appendChild(thead);
+      let tbody = document.createElement('tbody');
+      filteredRows.forEach(row => {
+        let tr = document.createElement('tr');
+        row.forEach(cell => {
+          let td = document.createElement('td');
+          td.textContent = cell;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      wrapper.appendChild(table);
+      resultsDiv.appendChild(wrapper);
+      setStatus(`Found ${filteredRows.length} rows with value in column '${hasHeader ? tableHeader[colIdx] : colIdx}' longer than ${threshold}.`, '#388e3c');
+      exportBtn.disabled = filteredRows.length === 0;
+    });
+
+    exportBtn.addEventListener('click', function() {
+      if (!filteredRows.length) return;
+      let hasHeader = hasHeaderInput.checked;
+      let tableHeader = hasHeader ? header : (parsedData[0] ? parsedData[0].map((_, i) => `Column ${i+1}`) : []);
+      let csv = Papa.unparse({
+        fields: tableHeader,
+        data: filteredRows
+      });
+      let blob = new Blob([csv], {type: 'text/csv'});
+      let url = URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'filtered_results.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setStatus('Results exported to filtered_results.csv', '#388e3c');
+    });
+
+    // --- Find Duplicates logic ---
+    findDupBtn.addEventListener('click', function() {
+      resetDupResults();
+      if (!parsedData.length) {
+        setDupStatus('Please select and load a CSV file first.', '#b71c1c');
+        return;
+      }
+      let col = dupColumnInput.value.trim();
+      if (!col) {
+        setDupStatus('Please specify a column name or index.', '#b71c1c');
+        return;
+      }
+      hasHeader = hasHeaderInput.checked;
+      let colIdx = -1;
+      let tableHeader = [];
+      let dataRows = [];
+      if (hasHeader) {
+        tableHeader = header;
+        colIdx = header.indexOf(col);
+        if (colIdx === -1 && !isNaN(Number(col))) {
+          colIdx = Number(col);
+        }
+        if (colIdx < 0 || colIdx >= header.length) {
+          setDupStatus('Column not found in header.', '#b71c1c');
+          return;
+        }
+        dataRows = parsedData.slice(1);
+      } else {
+        if (parsedData[0]) {
+          tableHeader = parsedData[0].map((_, i) => `Column ${i+1}`);
+        }
+        if (!isNaN(Number(col))) {
+          colIdx = Number(col);
+        } else {
+          setDupStatus('For files without header, use column index (starting from 0).', '#b71c1c');
+          return;
+        }
+        if (colIdx < 0 || (parsedData[0] && colIdx >= parsedData[0].length)) {
+          setDupStatus('Column index out of range.', '#b71c1c');
+          return;
+        }
+        dataRows = parsedData;
+      }
+      // Find duplicates
+      let valueMap = {};
+      duplicateRows = [];
+      for (let i = 0; i < dataRows.length; i++) {
+        let value = dataRows[i][colIdx] || '';
+        if (!valueMap[value]) {
+          valueMap[value] = [];
+        }
+        valueMap[value].push(dataRows[i]);
+      }
+      // Only keep values with more than one occurrence
+      Object.values(valueMap).forEach(rows => {
+        if (rows.length > 1) {
+          duplicateRows.push(...rows);
+        }
+      });
+      // Show results
+      let wrapper = document.createElement('div');
+      wrapper.className = 'results-table-wrapper';
+      let table = document.createElement('table');
+      let thead = document.createElement('thead');
+      let tr = document.createElement('tr');
+      tableHeader.forEach(h => {
+        let th = document.createElement('th');
+        th.textContent = h;
+        tr.appendChild(th);
+      });
+      thead.appendChild(tr);
+      table.appendChild(thead);
+      let tbody = document.createElement('tbody');
+      // Highlight duplicate rows
+      duplicateRows.forEach(row => {
+        let tr = document.createElement('tr');
+        tr.className = 'duplicate';
+        row.forEach(cell => {
+          let td = document.createElement('td');
+          td.textContent = cell;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      wrapper.appendChild(table);
+      dupResultsDiv.appendChild(wrapper);
+      setDupStatus(`Found ${duplicateRows.length} duplicate rows in column '${hasHeader ? tableHeader[colIdx] : colIdx}'.`, duplicateRows.length ? '#d84315' : '#388e3c');
+      exportDupBtn.disabled = duplicateRows.length === 0;
+    });
+
+    exportDupBtn.addEventListener('click', function() {
+      if (!duplicateRows.length) return;
+      let hasHeader = hasHeaderInput.checked;
+      let tableHeader = hasHeader ? header : (parsedData[0] ? parsedData[0].map((_, i) => `Column ${i+1}`) : []);
+      let csv = Papa.unparse({
+        fields: tableHeader,
+        data: duplicateRows
+      });
+      let blob = new Blob([csv], {type: 'text/csv'});
+      let url = URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'duplicate_rows.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setDupStatus('Duplicate rows exported to duplicate_rows.csv', '#388e3c');
+    });
+
+    // --- Find Extra Delimiters logic ---
+    findExtraBtn.addEventListener('click', function() {
+      resetExtraResults();
+      if (!parsedData.length) {
+        setExtraStatus('Please select and load a CSV file first.', '#b71c1c');
+        return;
+      }
+      hasHeader = hasHeaderInput.checked;
+      let expectedCols = 0;
+      let tableHeader = [];
+      let dataRows = [];
+      if (hasHeader) {
+        tableHeader = header;
+        expectedCols = header.length;
+        dataRows = parsedData.slice(1);
+      } else {
+        if (parsedData[0]) {
+          tableHeader = parsedData[0].map((_, i) => `Column ${i+1}`);
+          expectedCols = parsedData[0].length;
+        }
+        dataRows = parsedData;
+      }
+      extraRows = [];
+      extraRowNumbers = [];
+      extraColIndices = [];
+      let maxCols = tableHeader.length;
+      dataRows.forEach(row => { if (row.length > maxCols) maxCols = row.length; });
+      for (let i = 0; i < dataRows.length; i++) {
+        if (dataRows[i].length > expectedCols) {
+          extraRows.push(dataRows[i]);
+          extraRowNumbers.push(hasHeader ? i + 2 : i + 1); // +2 for header and 1-based index
+          // Find exact extra delimiter positions
+          let extras = [];
+          // Compare with previous row if possible, else with header
+          let refRow = (hasHeader && i > 0) ? dataRows[i - 1] : tableHeader;
+          let minLen = Math.min(refRow.length, dataRows[i].length);
+          // Find the first position where the row diverges in length
+          let found = false;
+          for (let j = 0; j < minLen; j++) {
+            if (dataRows[i][j] !== undefined && refRow[j] === undefined) {
+              extras.push(j + 1);
+              found = true;
+            }
+          }
+          // If not found, fallback to all columns after expectedCols
+          if (!found) {
+            for (let j = expectedCols; j < dataRows[i].length; j++) {
+              extras.push(j + 1);
+            }
+          }
+          extraColIndices.push(extras);
+        }
+      }
+      // Show results
+      let wrapper = document.createElement('div');
+      wrapper.className = 'results-table-wrapper';
+      let table = document.createElement('table');
+      let thead = document.createElement('thead');
+      let tr = document.createElement('tr');
+      let thRow = document.createElement('th');
+      thRow.textContent = 'Row #';
+      tr.appendChild(thRow);
+      tableHeader.forEach(h => {
+        let th = document.createElement('th');
+        th.textContent = h;
+        tr.appendChild(th);
+      });
+      // Add extra columns if needed
+      for (let i = tableHeader.length; i < maxCols; i++) {
+        let th = document.createElement('th');
+        th.textContent = `Extra ${i+1}`;
+        tr.appendChild(th);
+      }
+      // Add extra columns info
+      let thExtra = document.createElement('th');
+      thExtra.textContent = 'Extra Columns';
+      tr.appendChild(thExtra);
+      thead.appendChild(tr);
+      table.appendChild(thead);
+      let tbody = document.createElement('tbody');
+      for (let i = 0; i < extraRows.length; i++) {
+        let tr = document.createElement('tr');
+        tr.className = 'extra-delim';
+        let tdRow = document.createElement('td');
+        tdRow.textContent = extraRowNumbers[i];
+        tr.appendChild(tdRow);
+        for (let j = 0; j < maxCols; j++) {
+          let td = document.createElement('td');
+          // Highlight the exact extra delimiter positions
+          if (extraColIndices[i].includes(j + 1)) {
+            td.className = 'extra-cell';
+          }
+          td.textContent = extraRows[i][j] !== undefined ? extraRows[i][j] : '';
+          tr.appendChild(td);
+        }
+        // Extra columns info
+        let tdExtra = document.createElement('td');
+        tdExtra.textContent = extraColIndices[i].join(', ');
+        tdExtra.style.fontWeight = 'bold';
+        tdExtra.style.color = '#d84315';
+        tr.appendChild(tdExtra);
+        tbody.appendChild(tr);
+      }
+      table.appendChild(tbody);
+      wrapper.appendChild(table);
+      extraResultsDiv.appendChild(wrapper);
+      setExtraStatus(`Found ${extraRows.length} rows with extra delimiters (more columns than expected: ${expectedCols}).`, extraRows.length ? '#d84315' : '#388e3c');
+      exportExtraBtn.disabled = extraRows.length === 0;
+    });
+
+    exportExtraBtn.addEventListener('click', function() {
+      if (!extraRows.length) return;
+      let hasHeader = hasHeaderInput.checked;
+      let tableHeader = hasHeader ? header : (parsedData[0] ? parsedData[0].map((_, i) => `Column ${i+1}`) : []);
+      let maxCols = tableHeader.length;
+      extraRows.forEach(row => { if (row.length > maxCols) maxCols = row.length; });
+      let exportHeader = ['Row #', ...tableHeader];
+      for (let i = tableHeader.length; i < maxCols; i++) {
+        exportHeader.push(`Extra ${i+1}`);
+      }
+      exportHeader.push('Extra Columns');
+      let exportData = extraRows.map((row, idx) => [extraRowNumbers[idx], ...row, ...Array(maxCols - row.length).fill(''), extraColIndices[idx].join(', ')]);
+      let csv = Papa.unparse({
+        fields: exportHeader,
+        data: exportData
+      });
+      let blob = new Blob([csv], {type: 'text/csv'});
+      let url = URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'extra_delimiters_rows.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setExtraStatus('Problematic rows exported to extra_delimiters_rows.csv', '#388e3c');
+    });
+  </script>
+</body>
+</html> 
