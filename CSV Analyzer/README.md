@@ -17,14 +17,17 @@ A user-friendly, multi-tool CSV analysis application with a modern GUI (Tkinter)
 
 ### **User Interface**
 - **Modern GUI**: Clean, professional interface with tabbed layout
-- **Progress Indicators**: Non-blocking progress popups for long operations
+- **Progress Indicators**: Non-blocking progress popups with cancel button
 - **Export Functionality**: Export results to CSV files
 - **About Dialog**: Application information with GitHub link
+- **Icon Support**: Custom application icon in all windows including progress popup
+- **Comprehensive Popup Messages**: Clear feedback for all user actions
 
 ### **Advanced Options**
 - **Header Detection**: Option to specify if file has headers
 - **Ignore First Row**: Option to skip the first row of data (independent of header setting)
 - **Customizable Delimiters**: Support for comma, tab, semicolon, pipe, and backslash
+- **Smart Metadata Handling**: Automatically skips metadata lines in files with unusual structures
 
 ## 📋 Requirements
 
@@ -61,8 +64,8 @@ pyinstaller --onefile --windowed --add-data "magni.ico;." --icon=magni.ico csv_a
 - **Column**: Enter column name or index (0-based)
 - **Length threshold**: Enter maximum allowed character length
 - **Options**: 
-  - Check "File has header" if your file has column headers
-  - Check "Ignore first row" to skip the first data row
+  - Check "File has header" if your file has column headers (unchecked by default)
+  - Check "Ignore first row" to skip the first data row (checked by default)
 - Click "Check" to analyze
 - Results show rows with values exceeding the threshold
 - Export results to CSV
@@ -80,6 +83,7 @@ pyinstaller --onefile --windowed --add-data "magni.ico;." --icon=magni.ico csv_a
 - Results show rows with more columns than expected
 - Displays the exact position of extra delimiters
 - Export problematic rows to CSV
+- **Smart Detection**: Automatically handles files with metadata lines
 
 ### **5. Analyze File**
 - Click "Analyze File" to get file statistics
@@ -87,6 +91,7 @@ pyinstaller --onefile --windowed --add-data "magni.ico;." --icon=magni.ico csv_a
   - Delimiter used by the file
   - Number of columns
   - Number of rows
+- **Smart Analysis**: Skips metadata lines for accurate counts
 
 ## 🔧 Supported Delimiters
 
@@ -135,7 +140,17 @@ The application creates a log file `csv_analyzer.log` in the same directory as t
 
 ## 📝 Version History
 
-### **v1.2 (Current)**
+### **v1.3 (Current)**
+- ✅ **Enhanced metadata handling** for files with unusual structures
+- ✅ **Improved Find Extra Delimiters** detection logic
+- ✅ **Updated default settings**: "Ignore first row" checked, "File has header" unchecked
+- ✅ **Cancel button** in processing popup for all operations
+- ✅ **Icon support** for all windows including progress popup
+- ✅ **Comprehensive popup messages** for user feedback
+- ✅ **Smart auto-delimiter detection** with metadata filtering
+- ✅ **All previous features** from v1.0-v1.2
+
+### **v1.2**
 - ✅ Auto-delimiter detection
 - ✅ Analyze File feature
 - ✅ Backslash delimiter support
@@ -166,7 +181,8 @@ TkinterGUI/
 ├── versions/               # Version history
 │   ├── csv_analyzer_gui_v1.0.py
 │   ├── csv_analyzer_gui_v1.1.py
-│   └── csv_analyzer_gui_v1.2.py
+│   ├── csv_analyzer_gui_v1.2.py
+│   └── csv_analyzer_gui_v1.3.py
 ├── dist/                   # PyInstaller output
 └── build/                  # PyInstaller build files
 ```
@@ -188,4 +204,4 @@ TkinterGUI/
 ---
 
 **Last Updated**: July 26, 2025  
-**Version**: 1.2 
+**Version**: 1.3 
