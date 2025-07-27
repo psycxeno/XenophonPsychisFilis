@@ -1522,3 +1522,169 @@
 2025-07-27 11:05:50,840 INFO: Progress popup closed safely.
 2025-07-27 11:05:50,873 INFO: Progress popup closed.
 2025-07-27 11:14:43,591 INFO: Application started
+2025-07-27 18:16:46,421 INFO: Application started
+2025-07-27 18:16:50,924 INFO: Status updated: File loaded: large_file_300K.csv (Delimiter: Comma)
+2025-07-27 18:16:50,924 INFO: Auto-detected delimiter: , (Comma)
+2025-07-27 18:16:52,062 INFO: User selected file: large_file_300K.csv
+2025-07-27 18:16:55,785 INFO: File structure analysis completed. Delimiter: ,, Columns: 77, Rows: 300002
+2025-07-27 18:16:59,586 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:16:59,586 INFO: User initiated length check for column '65' with threshold 25.
+2025-07-27 18:16:59,599 INFO: Length status updated: Column index 65 out of range.
+2025-07-27 18:16:59,599 INFO: Progress popup closed safely.
+2025-07-27 18:16:59,599 WARNING: Column index 65 out of range.
+2025-07-27 18:16:59,601 INFO: Progress popup closed.
+2025-07-27 18:17:05,130 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:05,130 INFO: User initiated duplicate check for column '1'.
+2025-07-27 18:17:05,755 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-27 18:17:06,133 INFO: User cancelled processing operation
+2025-07-27 18:17:06,144 INFO: Duplicate status updated: Processing cancelled by user.
+2025-07-27 18:17:06,144 INFO: Duplicate check cancelled by user
+2025-07-27 18:17:12,174 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:12,174 INFO: User initiated duplicate check for column '7'.
+2025-07-27 18:17:12,567 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-27 18:17:13,053 INFO: Duplicate status updated: Found 200 duplicates so far...
+2025-07-27 18:17:13,286 INFO: User cancelled processing operation
+2025-07-27 18:17:13,291 INFO: Duplicate status updated: Processing cancelled by user.
+2025-07-27 18:17:13,291 INFO: Duplicate check cancelled by user
+2025-07-27 18:17:19,037 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:19,037 INFO: User initiated length check for column '65' with threshold 25.
+2025-07-27 18:17:19,050 INFO: Length status updated: Column index 65 out of range.
+2025-07-27 18:17:19,050 INFO: Progress popup closed safely.
+2025-07-27 18:17:19,050 WARNING: Column index 65 out of range.
+2025-07-27 18:17:19,052 INFO: Progress popup closed.
+2025-07-27 18:17:28,379 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:28,379 INFO: User initiated length check for column '85' with threshold 25.
+2025-07-27 18:17:28,392 INFO: Length status updated: Column index 85 out of range.
+2025-07-27 18:17:28,392 INFO: Progress popup closed safely.
+2025-07-27 18:17:28,392 WARNING: Column index 85 out of range.
+2025-07-27 18:17:28,394 INFO: Progress popup closed.
+2025-07-27 18:17:32,704 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:32,704 INFO: User initiated length check for column '40' with threshold 25.
+2025-07-27 18:17:32,717 INFO: Length status updated: Column index 40 out of range.
+2025-07-27 18:17:32,718 INFO: Progress popup closed safely.
+2025-07-27 18:17:32,718 WARNING: Column index 40 out of range.
+2025-07-27 18:17:32,720 INFO: Progress popup closed.
+2025-07-27 18:17:34,742 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:34,742 INFO: User initiated length check for column '2' with threshold 25.
+2025-07-27 18:17:35,708 INFO: User cancelled processing operation
+2025-07-27 18:17:35,710 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:17:35,710 INFO: Length check cancelled by user
+2025-07-27 18:17:40,414 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:40,414 INFO: User initiated length check for column '9' with threshold 25.
+2025-07-27 18:17:41,224 INFO: User cancelled processing operation
+2025-07-27 18:17:41,226 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:17:41,226 INFO: Length check cancelled by user
+2025-07-27 18:17:45,266 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:45,266 INFO: User initiated length check for column '10' with threshold 25.
+2025-07-27 18:17:46,309 INFO: User cancelled processing operation
+2025-07-27 18:17:46,313 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:17:46,313 INFO: Length check cancelled by user
+2025-07-27 18:17:53,853 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:53,853 INFO: User initiated length check for column '20' with threshold 25.
+2025-07-27 18:17:55,045 INFO: User cancelled processing operation
+2025-07-27 18:17:55,049 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:17:55,049 INFO: Length check cancelled by user
+2025-07-27 18:17:59,274 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:17:59,274 INFO: User initiated length check for column '30' with threshold 25.
+2025-07-27 18:17:59,286 INFO: Length status updated: Column index 30 out of range.
+2025-07-27 18:17:59,286 INFO: Progress popup closed safely.
+2025-07-27 18:17:59,286 WARNING: Column index 30 out of range.
+2025-07-27 18:17:59,289 INFO: Progress popup closed.
+2025-07-27 18:18:27,464 INFO: File structure analysis completed. Delimiter: ,, Columns: 77, Rows: 300002
+2025-07-27 18:21:03,265 INFO: Application started
+2025-07-27 18:21:08,128 INFO: Status updated: File loaded: large_file_300K.csv (Delimiter: Comma)
+2025-07-27 18:21:08,128 INFO: Auto-detected delimiter: , (Comma)
+2025-07-27 18:21:09,302 INFO: User selected file: large_file_300K.csv
+2025-07-27 18:21:12,202 INFO: File structure analysis completed. Delimiter: ,, Columns: 77, Rows: 300002
+2025-07-27 18:21:15,551 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:21:15,551 INFO: User initiated length check for column '65' with threshold 25.
+2025-07-27 18:21:15,564 INFO: Length status updated: Column index 65 out of range. This row has 25 columns (0-based indexing: 0-24).
+2025-07-27 18:21:15,564 INFO: Progress popup closed safely.
+2025-07-27 18:21:15,564 WARNING: Column index 65 out of range for row with 25 columns.
+2025-07-27 18:21:15,566 INFO: Progress popup closed.
+2025-07-27 18:24:25,348 INFO: Application started
+2025-07-27 18:24:28,598 INFO: Status updated: File loaded: large_file_300K.csv (Delimiter: Comma)
+2025-07-27 18:24:28,598 INFO: Auto-detected delimiter: , (Comma)
+2025-07-27 18:24:29,725 INFO: User selected file: large_file_300K.csv
+2025-07-27 18:24:32,568 INFO: File structure analysis completed. Delimiter: ,, Columns: 77, Rows: 300002
+2025-07-27 18:24:38,517 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:24:38,517 INFO: User initiated length check for column '65' with threshold 25.
+2025-07-27 18:24:38,530 INFO: Length status updated: Column index 65 out of range. This row has 25 columns (0-based indexing: 0-24).
+2025-07-27 18:24:38,530 INFO: Progress popup closed safely.
+2025-07-27 18:24:38,530 WARNING: Column index 65 out of range for row with 25 columns.
+2025-07-27 18:24:38,532 INFO: Progress popup closed.
+2025-07-27 18:30:05,545 INFO: Application started
+2025-07-27 18:30:08,634 INFO: Status updated: File loaded: large_file_300K.csv (Delimiter: Comma)
+2025-07-27 18:30:08,634 INFO: Auto-detected delimiter: , (Comma)
+2025-07-27 18:30:09,906 INFO: User selected file: large_file_300K.csv
+2025-07-27 18:30:14,097 INFO: File structure analysis completed. Delimiter: ,, Columns: 77, Rows: 300002
+2025-07-27 18:30:19,627 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:30:19,627 INFO: User initiated length check for column '70' with threshold 25.
+2025-07-27 18:30:19,641 INFO: Length status updated: Column index 70 out of range. This row has 25 columns (0-based indexing: 0-24).
+2025-07-27 18:30:19,641 INFO: Progress popup closed safely.
+2025-07-27 18:30:19,641 WARNING: Column index 70 out of range for row with 25 columns.
+2025-07-27 18:30:19,643 INFO: Progress popup closed.
+2025-07-27 18:32:29,094 INFO: Application started
+2025-07-27 18:32:32,632 INFO: Status updated: File loaded: large_file_300K.csv (Delimiter: Comma)
+2025-07-27 18:32:32,632 INFO: Auto-detected delimiter: , (Comma)
+2025-07-27 18:32:33,743 INFO: User selected file: large_file_300K.csv
+2025-07-27 18:32:37,099 INFO: File structure analysis completed. Delimiter: ,, Columns: 77, Rows: 300001
+2025-07-27 18:32:43,826 INFO: Application started
+2025-07-27 18:32:47,678 INFO: Status updated: File loaded: large_file_300K.csv (Delimiter: Comma)
+2025-07-27 18:32:47,678 INFO: Auto-detected delimiter: , (Comma)
+2025-07-27 18:32:48,697 INFO: User selected file: large_file_300K.csv
+2025-07-27 18:32:51,693 INFO: File structure analysis completed. Delimiter: ,, Columns: 77, Rows: 300001
+2025-07-27 18:34:34,845 INFO: Application started
+2025-07-27 18:34:38,303 INFO: Status updated: File loaded: large_file_300K.csv (Delimiter: Comma)
+2025-07-27 18:34:38,303 INFO: Auto-detected delimiter: , (Comma)
+2025-07-27 18:34:39,559 INFO: User selected file: large_file_300K.csv
+2025-07-27 18:34:43,550 INFO: File structure analysis completed. Delimiter: ,, Columns: 25, Rows: 300000
+2025-07-27 18:34:46,623 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:34:46,623 INFO: User initiated length check for column '24' with threshold 25.
+2025-07-27 18:34:53,637 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-27 18:34:54,891 INFO: Length check for column '24' with threshold 25 completed. Found 0 matches.
+2025-07-27 18:34:54,892 INFO: Progress popup closed safely.
+2025-07-27 18:34:54,898 INFO: Progress popup closed.
+2025-07-27 18:34:58,636 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:34:58,636 INFO: User initiated duplicate check for column '24'.
+2025-07-27 18:34:59,288 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-27 18:34:59,754 INFO: Duplicate status updated: Found 200 duplicates so far...
+2025-07-27 18:34:59,831 INFO: Duplicate status updated: Found 300 duplicates so far...
+2025-07-27 18:35:00,042 INFO: Duplicate status updated: Found 400 duplicates so far...
+2025-07-27 18:35:00,287 INFO: Duplicate status updated: Found 500 duplicates so far...
+2025-07-27 18:35:00,694 INFO: Duplicate status updated: Found 600 duplicates so far...
+2025-07-27 18:35:01,222 INFO: Duplicate status updated: Found 700 duplicates so far...
+2025-07-27 18:35:02,165 INFO: Duplicate status updated: Found 800 duplicates so far...
+2025-07-27 18:35:03,099 INFO: Duplicate status updated: Found 900 duplicates so far...
+2025-07-27 18:35:03,995 INFO: Duplicate status updated: Found 1000 duplicates so far...
+2025-07-27 18:35:04,988 INFO: Duplicate status updated: Found 1100 duplicates so far...
+2025-07-27 18:35:05,932 INFO: Duplicate status updated: Found 1200 duplicates so far...
+2025-07-27 18:35:06,885 INFO: Duplicate status updated: Found 1300 duplicates so far...
+2025-07-27 18:35:07,889 INFO: Duplicate status updated: Found 1400 duplicates so far...
+2025-07-27 18:35:09,014 INFO: Duplicate status updated: Found 1500 duplicates so far...
+2025-07-27 18:35:10,087 INFO: Duplicate status updated: Found 1600 duplicates so far...
+2025-07-27 18:35:10,947 INFO: Duplicate status updated: Found 1700 duplicates so far...
+2025-07-27 18:35:12,013 INFO: Duplicate status updated: Found 1800 duplicates so far...
+2025-07-27 18:35:12,943 INFO: Duplicate status updated: Found 1900 duplicates so far...
+2025-07-27 18:35:13,738 INFO: Duplicate status updated: Found 2000 duplicates so far...
+2025-07-27 18:35:14,626 INFO: User cancelled processing operation
+2025-07-27 18:35:14,638 INFO: Duplicate status updated: Processing cancelled by user.
+2025-07-27 18:35:14,638 INFO: Duplicate check cancelled by user
+2025-07-27 18:35:19,447 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:35:19,447 INFO: User initiated duplicate check for column '25'.
+2025-07-27 18:35:19,467 INFO: Duplicate status updated: Column index 25 out of range. This row has 25 columns (0-based indexing: 0-24).
+2025-07-27 18:35:19,467 INFO: Progress popup closed safely.
+2025-07-27 18:35:19,467 WARNING: Column index 25 out of range for row with 25 columns.
+2025-07-27 18:35:19,469 INFO: Progress popup closed.
+2025-07-27 18:35:35,991 INFO: File structure analysis completed. Delimiter: ,, Columns: 25, Rows: 300001
+2025-07-27 18:35:37,022 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:35:37,022 INFO: User initiated length check for column '24' with threshold 25.
+2025-07-27 18:35:38,491 INFO: User cancelled processing operation
+2025-07-27 18:35:38,492 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:35:38,492 INFO: Length check cancelled by user
+2025-07-27 18:35:42,559 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:35:42,559 INFO: User initiated length check for column '1' with threshold 25.
+2025-07-27 18:35:44,156 INFO: User cancelled processing operation
+2025-07-27 18:35:44,158 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:35:44,158 INFO: Length check cancelled by user
+2025-07-27 18:35:49,675 INFO: File structure analysis completed. Delimiter: ,, Columns: 25, Rows: 300000

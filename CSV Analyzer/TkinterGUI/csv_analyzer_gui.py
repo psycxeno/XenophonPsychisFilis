@@ -330,6 +330,7 @@ class CSVAnalyzerApp:
             # Count rows and determine column count
             row_count = 0
             column_count = 0
+            first_data_row_found = False
             
             with open(self.filename, 'r', encoding='utf-8', errors='ignore') as f:
                 if best_delim == '\\':
@@ -337,18 +338,36 @@ class CSVAnalyzerApp:
                     for line in f:
                         if line.strip():  # Skip empty lines
                             parts = line.strip().split('\\')
-                            if len(parts) > 3:  # Only count lines that look like actual data
-                                row_count += 1
-                                if row_count == 1:  # First data line determines column count
-                                    column_count = len(parts)
+                            # Skip metadata lines (lines with few columns or mostly empty columns)
+                            if len(parts) <= 3 or (len(parts) > 10 and sum(1 for cell in parts if cell.strip() != '') <= 2):
+                                continue
+                            
+                            # This is an actual data row
+                            if not first_data_row_found:
+                                first_data_row_found = True
+                                column_count = len(parts)
+                                # Skip first row if "Ignore first row" is checked
+                                if self.ignore_first_row.get():
+                                    continue
+                            
+                            row_count += 1
                 else:
                     # Use CSV reader for other delimiters
                     reader = csv.reader(f, delimiter=best_delim)
                     for row in reader:
-                        if row and len(row) > 3:  # Only count rows that look like actual data
-                            row_count += 1
-                            if row_count == 1:  # First data row determines column count
-                                column_count = len(row)
+                        # Skip metadata lines (lines with few columns or mostly empty columns)
+                        if len(row) <= 3 or (len(row) > 10 and sum(1 for cell in row if cell.strip() != '') <= 2):
+                            continue
+                        
+                        # This is an actual data row
+                        if not first_data_row_found:
+                            first_data_row_found = True
+                            column_count = len(row)
+                            # Skip first row if "Ignore first row" is checked
+                            if self.ignore_first_row.get():
+                                continue
+                        
+                        row_count += 1
             
             # Update the delimiter if we found a good one
             if best_delim:
@@ -666,32 +685,28 @@ class CSVAnalyzerApp:
                         continue  # skip empty rows
                     row_num += 1
                     
-                    if row_num == 1 and self.has_header.get():
-                        header = row
-                        # Find column index
-                        if col.isdigit():
-                            col_idx = int(col)
-                        else:
-                            try:
-                                col_idx = header.index(col)
-                            except ValueError:
-                                self._update_length_status(f"Column '{col}' not found in header and is not a valid index.")
-                                self._close_progress_popup_safe()
-                                logging.warning(f"Column '{col}' not found in header and is not a valid index.")
-                                return
-                        if col_idx < 0 or col_idx >= len(header):
-                            self._update_length_status(f"Column index {col_idx} out of range.")
-                            self._close_progress_popup_safe()
-                            logging.warning(f"Column index {col_idx} out of range.")
-                            return
+                    # Skip metadata lines (lines with few columns or mostly empty columns)
+                    if len(row) <= 3 or (len(row) > 10 and all(cell.strip() == '' for cell in row[1:])):
                         continue
                     
-                    # Handle "Ignore first row" option (after header processing)
-                    if self.ignore_first_row.get() and row_num == 1:
-                        continue  # skip the first row if ignore_first_row is checked
-                    
+                    # Now we have an actual data row - handle header and column index
                     if col_idx is None:
-                        if not self.has_header.get():
+                        if self.has_header.get():
+                            # Treat this as header row
+                            header = row
+                            # Find column index
+                            if col.isdigit():
+                                col_idx = int(col)
+                            else:
+                                try:
+                                    col_idx = header.index(col)
+                                except ValueError:
+                                    self._update_length_status(f"Column '{col}' not found in header and is not a valid index.")
+                                    self._close_progress_popup_safe()
+                                    logging.warning(f"Column '{col}' not found in header and is not a valid index.")
+                                    return
+                            continue  # skip header row
+                        else:
                             # For files without headers, column must be an integer index
                             if not col.isdigit():
                                 self._update_length_status("For files without headers, column must be an integer index (starting from 0).")
@@ -699,14 +714,17 @@ class CSVAnalyzerApp:
                                 logging.warning("User attempted to run length check without header for a file without headers.")
                                 return
                             col_idx = int(col)
-                        if col_idx < 0 or col_idx >= len(row):
-                            self._update_length_status(f"Column index {col_idx} out of range.")
-                            self._close_progress_popup_safe()
-                            logging.warning(f"Column index {col_idx} out of range.")
-                            return
                     
-                    if col_idx is None or col_idx >= len(row):
-                        continue
+                    # Handle "Ignore first row" option (after establishing column index)
+                    if self.ignore_first_row.get() and row_num == 1:
+                        continue  # skip the first row if ignore_first_row is checked
+                    
+                    # Now check if column index is valid for this data row
+                    if col_idx < 0 or col_idx >= len(row):
+                        self._update_length_status(f"Column index {col_idx} out of range. This row has {len(row)} columns (0-based indexing: 0-{len(row)-1}).")
+                        self._close_progress_popup_safe()
+                        logging.warning(f"Column index {col_idx} out of range for row with {len(row)} columns.")
+                        return
                     
                     value = row[col_idx]
                     if len(value) > threshold:
@@ -843,32 +861,28 @@ class CSVAnalyzerApp:
                         continue  # skip empty rows
                     row_num += 1
                     
-                    if row_num == 1 and self.has_header.get():
-                        header = row
-                        # Find column index
-                        if col.isdigit():
-                            col_idx = int(col)
-                        else:
-                            try:
-                                col_idx = header.index(col)
-                            except ValueError:
-                                self._update_dup_status(f"Column '{col}' not found in header and is not a valid index.")
-                                self._close_progress_popup_safe()
-                                logging.warning(f"Column '{col}' not found in header and is not a valid index.")
-                                return
-                        if col_idx < 0 or col_idx >= len(header):
-                            self._update_dup_status(f"Column index {col_idx} out of range.")
-                            self._close_progress_popup_safe()
-                            logging.warning(f"Column index {col_idx} out of range.")
-                            return
+                    # Skip metadata lines (lines with few columns or mostly empty columns)
+                    if len(row) <= 3 or (len(row) > 10 and all(cell.strip() == '' for cell in row[1:])):
                         continue
                     
-                    # Handle "Ignore first row" option (after header processing)
-                    if self.ignore_first_row.get() and row_num == 1:
-                        continue  # skip the first row if ignore_first_row is checked
-                    
+                    # Now we have an actual data row - handle header and column index
                     if col_idx is None:
-                        if not self.has_header.get():
+                        if self.has_header.get():
+                            # Treat this as header row
+                            header = row
+                            # Find column index
+                            if col.isdigit():
+                                col_idx = int(col)
+                            else:
+                                try:
+                                    col_idx = header.index(col)
+                                except ValueError:
+                                    self._update_dup_status(f"Column '{col}' not found in header and is not a valid index.")
+                                    self._close_progress_popup_safe()
+                                    logging.warning(f"Column '{col}' not found in header and is not a valid index.")
+                                    return
+                            continue  # skip header row
+                        else:
                             # For files without headers, column must be an integer index
                             if not col.isdigit():
                                 self._update_dup_status("For files without headers, column must be an integer index (starting from 0).")
@@ -876,14 +890,17 @@ class CSVAnalyzerApp:
                                 logging.warning("User attempted to run duplicate check without header for a file without headers.")
                                 return
                             col_idx = int(col)
-                        if col_idx < 0 or col_idx >= len(row):
-                            self._update_dup_status(f"Column index {col_idx} out of range.")
-                            self._close_progress_popup_safe()
-                            logging.warning(f"Column index {col_idx} out of range.")
-                            return
                     
-                    if col_idx is None or col_idx >= len(row):
-                        continue
+                    # Handle "Ignore first row" option (after establishing column index)
+                    if self.ignore_first_row.get() and row_num == 1:
+                        continue  # skip the first row if ignore_first_row is checked
+                    
+                    # Now check if column index is valid for this data row
+                    if col_idx < 0 or col_idx >= len(row):
+                        self._update_dup_status(f"Column index {col_idx} out of range. This row has {len(row)} columns (0-based indexing: 0-{len(row)-1}).")
+                        self._close_progress_popup_safe()
+                        logging.warning(f"Column index {col_idx} out of range for row with {len(row)} columns.")
+                        return
                     
                     value = row[col_idx]
                     if value in seen_values:
@@ -1011,8 +1028,8 @@ class CSVAnalyzerApp:
                         continue  # skip empty rows
                     row_num += 1
                     
-                    # Skip metadata lines (lines with few columns that don't look like actual data)
-                    if len(row) <= 3:
+                    # Skip metadata lines (lines with few columns or mostly empty columns)
+                    if len(row) <= 3 or (len(row) > 10 and all(cell.strip() == '' for cell in row[1:])):
                         continue
                     
                     # Find the first actual data row to establish expected column count
