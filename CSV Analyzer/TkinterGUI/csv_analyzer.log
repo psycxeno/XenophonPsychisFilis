@@ -1688,3 +1688,115 @@
 2025-07-27 18:35:44,158 INFO: Length status updated: Processing cancelled by user.
 2025-07-27 18:35:44,158 INFO: Length check cancelled by user
 2025-07-27 18:35:49,675 INFO: File structure analysis completed. Delimiter: ,, Columns: 25, Rows: 300000
+2025-07-27 18:51:53,544 INFO: Application started
+2025-07-27 18:51:59,430 INFO: Status updated: File loaded: large_file_500K_50cols.csv (Delimiter: Comma)
+2025-07-27 18:51:59,430 INFO: Auto-detected delimiter: , (Comma)
+2025-07-27 18:52:00,842 INFO: User selected file: large_file_500K_50cols.csv
+2025-07-27 18:52:07,471 INFO: File structure analysis completed. Delimiter: ,, Columns: 50, Rows: 500003
+2025-07-27 18:52:16,989 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:52:16,989 INFO: User initiated length check for column '6' with threshold 25.
+2025-07-27 18:52:32,328 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-27 18:52:34,795 INFO: Length check for column '6' with threshold 25 completed. Found 3 matches.
+2025-07-27 18:52:34,795 INFO: Progress popup closed safely.
+2025-07-27 18:52:34,803 INFO: Progress popup closed.
+2025-07-27 18:53:34,904 INFO: Status updated: Ready
+2025-07-27 18:53:34,904 INFO: User cleared all results and status.
+2025-07-27 18:53:40,592 INFO: Status updated: File loaded: large_file_500rows_150cols_semicolon.txt (Delimiter: Semicolon)
+2025-07-27 18:53:40,592 INFO: Auto-detected delimiter: ; (Semicolon)
+2025-07-27 18:53:41,980 INFO: User selected file: large_file_500rows_150cols_semicolon.txt
+2025-07-27 18:53:45,339 INFO: File structure analysis completed. Delimiter: ;, Columns: 150, Rows: 501
+2025-07-27 18:54:39,895 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:54:39,895 INFO: User initiated length check for column '138' with threshold 10.
+2025-07-27 18:54:39,936 INFO: Length status updated: Found 1 rows with values longer than 10 characters.
+2025-07-27 18:54:41,661 INFO: Length check for column '138' with threshold 10 completed. Found 1 matches.
+2025-07-27 18:54:41,662 INFO: Progress popup closed safely.
+2025-07-27 18:54:41,668 INFO: Progress popup closed.
+2025-07-27 18:54:48,158 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:54:48,158 INFO: User initiated length check for column '138' with threshold 5.
+2025-07-27 18:54:48,204 INFO: Length status updated: Found 2 rows with values longer than 5 characters.
+2025-07-27 18:54:49,447 INFO: Length check for column '138' with threshold 5 completed. Found 2 matches.
+2025-07-27 18:54:49,447 INFO: Progress popup closed safely.
+2025-07-27 18:54:49,454 INFO: Progress popup closed.
+2025-07-27 18:54:56,198 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:54:56,198 INFO: User initiated length check for column '138' with threshold 5.
+2025-07-27 18:54:56,241 INFO: Length status updated: Found 1 rows with values longer than 5 characters.
+2025-07-27 18:54:58,156 INFO: Length check for column '138' with threshold 5 completed. Found 1 matches.
+2025-07-27 18:54:58,156 INFO: Progress popup closed safely.
+2025-07-27 18:54:58,163 INFO: Progress popup closed.
+2025-07-27 18:55:01,124 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:55:01,124 INFO: User initiated length check for column '138' with threshold 3.
+2025-07-27 18:55:02,336 INFO: Length status updated: Found 100 matches so far...
+2025-07-27 18:55:03,028 INFO: Length status updated: Found 200 matches so far...
+2025-07-27 18:55:03,755 INFO: User cancelled processing operation
+2025-07-27 18:55:03,775 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:55:03,775 INFO: Length check cancelled by user
+2025-07-27 18:55:06,053 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:55:06,053 INFO: User initiated length check for column '138' with threshold 4.
+2025-07-27 18:55:07,266 INFO: Length status updated: Found 100 matches so far...
+2025-07-27 18:55:08,304 INFO: Length status updated: Found 200 matches so far...
+2025-07-27 18:55:08,382 INFO: User cancelled processing operation
+2025-07-27 18:55:08,414 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:55:08,414 INFO: Length check cancelled by user
+2025-07-27 18:55:10,949 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:55:10,950 INFO: User initiated length check for column '138' with threshold 5.
+2025-07-27 18:55:10,993 INFO: Length status updated: Found 1 rows with values longer than 5 characters.
+2025-07-27 18:55:12,091 INFO: Length check for column '138' with threshold 5 completed. Found 1 matches.
+2025-07-27 18:55:12,091 INFO: Progress popup closed safely.
+2025-07-27 18:55:12,099 INFO: Progress popup closed.
+2025-07-27 19:02:36,880 INFO: Application started
+2025-07-27 19:02:44,091 INFO: Status updated: File loaded: large_file_500rows_150cols_semicolon.txt (Delimiter: Semicolon)
+2025-07-27 19:02:44,091 INFO: Auto-detected delimiter: ; (Semicolon)
+2025-07-27 19:02:45,292 INFO: User selected file: large_file_500rows_150cols_semicolon.txt
+2025-07-27 19:03:11,765 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 19:03:11,765 INFO: User initiated length check for column '139' with threshold 25.
+2025-07-27 19:03:11,803 INFO: Length status updated: No rows found with values longer than 25 characters.
+2025-07-27 19:03:13,387 INFO: Length check for column '139' with threshold 25 completed. Found 0 matches.
+2025-07-27 19:03:13,387 INFO: Progress popup closed safely.
+2025-07-27 19:03:13,394 INFO: Progress popup closed.
+2025-07-27 19:03:17,492 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 19:03:17,493 INFO: User initiated length check for column '139' with threshold 10.
+2025-07-27 19:03:17,530 INFO: Length status updated: No rows found with values longer than 10 characters.
+2025-07-27 19:03:19,105 INFO: Length check for column '139' with threshold 10 completed. Found 0 matches.
+2025-07-27 19:03:19,106 INFO: Progress popup closed safely.
+2025-07-27 19:03:19,113 INFO: Progress popup closed.
+2025-07-27 19:03:24,228 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 19:03:24,228 INFO: User initiated length check for column '138' with threshold 10.
+2025-07-27 19:03:24,270 INFO: Length status updated: Found 1 rows with values longer than 10 characters.
+2025-07-27 19:03:25,523 INFO: Length check for column '138' with threshold 10 completed. Found 1 matches.
+2025-07-27 19:03:25,523 INFO: Progress popup closed safely.
+2025-07-27 19:03:25,531 INFO: Progress popup closed.
+2025-07-27 19:03:37,781 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 19:03:37,782 INFO: User initiated length check for column '138' with threshold 10.
+2025-07-27 19:03:37,823 INFO: Length status updated: Found 1 rows with values longer than 10 characters.
+2025-07-27 19:03:40,527 INFO: Length check for column '138' with threshold 10 completed. Found 1 matches.
+2025-07-27 19:03:40,527 INFO: Progress popup closed safely.
+2025-07-27 19:03:40,534 INFO: Progress popup closed.
+2025-07-27 19:04:09,190 INFO: Application started
+2025-07-27 19:04:16,501 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Delimiter: Tab)
+2025-07-27 19:04:16,502 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-27 19:04:17,910 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-27 19:05:08,525 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Delimiter: Tab)
+2025-07-27 19:05:08,525 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-27 19:05:09,482 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-27 19:05:14,221 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 19:05:14,221 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-27 19:05:16,088 INFO: User cancelled processing operation
+2025-07-27 19:05:16,093 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 19:05:16,093 INFO: Length check cancelled by user
+2025-07-27 19:05:20,532 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 19:05:20,532 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-27 19:06:04,353 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-27 19:06:05,966 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-27 19:06:05,967 INFO: Progress popup closed safely.
+2025-07-27 19:06:05,975 INFO: Progress popup closed.
+2025-07-27 19:08:00,174 INFO: Status updated: Ready
+2025-07-27 19:08:00,174 INFO: User cleared all results and status.
+2025-07-27 19:08:03,502 INFO: Status updated: File loaded: large_file_1M_150cols.txt (Delimiter: Tab)
+2025-07-27 19:08:03,502 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-27 19:08:04,530 INFO: User selected file: large_file_1M_150cols.txt
+2025-07-27 19:08:05,719 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 19:08:05,720 INFO: User initiated length check for column '5' with threshold 25.
+2025-07-27 19:08:50,086 INFO: Length status updated: Found 3 rows with values longer than 25 characters.
+2025-07-27 19:08:51,691 INFO: Length check for column '5' with threshold 25 completed. Found 3 matches.
+2025-07-27 19:08:51,692 INFO: Progress popup closed safely.
+2025-07-27 19:08:51,700 INFO: Progress popup closed.
