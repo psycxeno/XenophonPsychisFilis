@@ -92,3 +92,152 @@
 2025-07-27 11:11:09,682 INFO: Extra delimiter check cancelled by user
 2025-07-27 11:16:21,269 INFO: Application started
 2025-07-27 11:18:33,785 INFO: Application started
+2025-07-27 17:54:39,336 INFO: Application started
+2025-07-27 17:56:24,426 INFO: Status updated: File loaded: IAPP_APPL_X_CST_D_20250721.TXT (Delimiter: Tab)
+2025-07-27 17:56:24,426 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-27 17:56:26,732 INFO: User selected file: IAPP_APPL_X_CST_D_20250721.TXT
+2025-07-27 17:58:08,047 INFO: File structure analysis completed. Delimiter: 	, Columns: 146, Rows: 2873276
+2025-07-27 17:58:28,489 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 17:58:28,489 INFO: User initiated duplicate check for column '0'.
+2025-07-27 17:58:29,523 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-27 17:58:30,744 INFO: User cancelled processing operation
+2025-07-27 17:58:30,759 INFO: Duplicate status updated: Processing cancelled by user.
+2025-07-27 17:58:30,759 INFO: Duplicate check cancelled by user
+2025-07-27 17:58:36,866 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 17:58:36,866 INFO: User initiated duplicate check for column '1'.
+2025-07-27 17:58:36,901 INFO: Duplicate status updated: Column index 1 out of range.
+2025-07-27 17:58:36,902 INFO: Progress popup closed safely.
+2025-07-27 17:58:36,902 WARNING: Column index 1 out of range.
+2025-07-27 17:58:36,905 INFO: Progress popup closed.
+2025-07-27 17:58:45,795 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 17:58:45,795 INFO: User initiated duplicate check for column '2'.
+2025-07-27 17:58:45,813 INFO: Duplicate status updated: Column index 2 out of range.
+2025-07-27 17:58:45,814 INFO: Progress popup closed safely.
+2025-07-27 17:58:45,814 WARNING: Column index 2 out of range.
+2025-07-27 17:58:45,817 INFO: Progress popup closed.
+2025-07-27 17:58:59,793 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 17:58:59,793 INFO: User initiated duplicate check for column '1'.
+2025-07-27 17:58:59,813 INFO: Duplicate status updated: Column index 1 out of range.
+2025-07-27 17:58:59,814 INFO: Progress popup closed safely.
+2025-07-27 17:58:59,814 WARNING: Column index 1 out of range.
+2025-07-27 17:58:59,817 INFO: Progress popup closed.
+2025-07-27 17:59:04,455 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 17:59:04,455 INFO: User initiated duplicate check for column '1'.
+2025-07-27 17:59:04,471 INFO: Duplicate status updated: Column index 1 out of range.
+2025-07-27 17:59:04,473 INFO: Progress popup closed safely.
+2025-07-27 17:59:04,473 WARNING: Column index 1 out of range.
+2025-07-27 17:59:04,477 INFO: Progress popup closed.
+2025-07-27 17:59:12,546 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 17:59:12,547 INFO: User initiated duplicate check for column '0'.
+2025-07-27 17:59:14,135 INFO: Duplicate status updated: Found 100 duplicates so far...
+2025-07-27 17:59:15,681 INFO: User cancelled processing operation
+2025-07-27 17:59:15,702 INFO: Duplicate status updated: Processing cancelled by user.
+2025-07-27 17:59:15,702 INFO: Duplicate check cancelled by user
+2025-07-27 17:59:24,860 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 17:59:24,860 INFO: User initiated extra delimiter check.
+2025-07-27 18:01:36,994 INFO: User cancelled processing operation
+2025-07-27 18:01:37,001 INFO: Extra delimiter status updated: Processing cancelled by user.
+2025-07-27 18:01:37,002 INFO: Extra delimiter check cancelled by user
+2025-07-27 18:07:45,377 INFO: Status updated: Ready
+2025-07-27 18:07:45,378 INFO: User cleared all results and status.
+2025-07-27 18:07:59,713 INFO: Status updated: File loaded: QLC_RETAIL_COLL_D_20250725.TXT (Delimiter unknown)
+2025-07-27 18:07:59,713 WARNING: Could not auto-detect delimiter
+2025-07-27 18:08:11,302 INFO: User selected file: QLC_RETAIL_COLL_D_20250725.TXT
+2025-07-27 18:08:16,895 WARNING: File structure analysis could not determine delimiter
+2025-07-27 18:08:25,009 INFO: Status updated: Ready
+2025-07-27 18:08:25,009 INFO: User cleared all results and status.
+2025-07-27 18:10:22,475 INFO: Status updated: File loaded: IAPP_APPL_X_CST_D_20250721.TXT (Delimiter: Tab)
+2025-07-27 18:10:22,475 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-27 18:10:26,243 INFO: User selected file: IAPP_APPL_X_CST_D_20250721.TXT
+2025-07-27 18:10:44,378 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:10:44,378 INFO: User initiated length check for column '84' with threshold 20.
+2025-07-27 18:10:44,393 INFO: Length status updated: Column index 84 out of range.
+2025-07-27 18:10:44,394 INFO: Progress popup closed safely.
+2025-07-27 18:10:44,394 WARNING: Column index 84 out of range.
+2025-07-27 18:10:44,397 INFO: Progress popup closed.
+2025-07-27 18:13:40,960 INFO: File structure analysis completed. Delimiter: 	, Columns: 146, Rows: 2873276
+2025-07-27 18:13:43,079 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:13:43,079 INFO: User initiated length check for column '84' with threshold 20.
+2025-07-27 18:13:43,095 INFO: Length status updated: Column index 84 out of range.
+2025-07-27 18:13:43,095 INFO: Progress popup closed safely.
+2025-07-27 18:13:43,096 WARNING: Column index 84 out of range.
+2025-07-27 18:13:43,099 INFO: Progress popup closed.
+2025-07-27 18:14:21,240 INFO: Status updated: Ready
+2025-07-27 18:14:21,240 INFO: User cleared all results and status.
+2025-07-27 18:38:14,326 INFO: Application started
+2025-07-27 18:38:32,109 INFO: Status updated: File loaded: QLC_RETAIL_COLL_D_20250725.TXT (Delimiter unknown)
+2025-07-27 18:38:32,109 WARNING: Could not auto-detect delimiter
+2025-07-27 18:38:34,264 INFO: User selected file: QLC_RETAIL_COLL_D_20250725.TXT
+2025-07-27 18:38:37,241 WARNING: File structure analysis could not determine delimiter
+2025-07-27 18:38:39,279 INFO: Status updated: Ready
+2025-07-27 18:38:39,279 INFO: User cleared all results and status.
+2025-07-27 18:38:50,763 INFO: Status updated: File loaded: IAPP_APPL_X_CST_D_20250721.TXT (Delimiter: Tab)
+2025-07-27 18:38:50,763 INFO: Auto-detected delimiter: 	 (Tab)
+2025-07-27 18:38:53,558 INFO: User selected file: IAPP_APPL_X_CST_D_20250721.TXT
+2025-07-27 18:41:04,245 INFO: File structure analysis completed. Delimiter: 	, Columns: 146, Rows: 2873275
+2025-07-27 18:41:13,594 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:41:13,594 INFO: User initiated length check for column '84' with threshold 18.
+2025-07-27 18:41:14,805 INFO: Length status updated: Found 100 matches so far...
+2025-07-27 18:41:16,024 INFO: Length status updated: Found 200 matches so far...
+2025-07-27 18:41:16,697 INFO: User cancelled processing operation
+2025-07-27 18:41:16,703 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:41:16,704 INFO: Length check cancelled by user
+2025-07-27 18:41:25,946 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:41:25,946 INFO: User initiated length check for column '85' with threshold 18.
+2025-07-27 18:42:31,959 INFO: User cancelled processing operation
+2025-07-27 18:42:31,963 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:42:31,964 INFO: Length check cancelled by user
+2025-07-27 18:44:13,043 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:44:13,044 INFO: User initiated length check for column '85' with threshold 18.
+2025-07-27 18:44:45,130 INFO: User cancelled processing operation
+2025-07-27 18:44:45,137 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:44:45,137 INFO: Length check cancelled by user
+2025-07-27 18:44:49,794 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:44:49,794 INFO: User initiated length check for column '85' with threshold 19.
+2025-07-27 18:48:24,544 INFO: Length status updated: No rows found with values longer than 19 characters.
+2025-07-27 18:48:31,720 INFO: Length check for column '85' with threshold 19 completed. Found 0 matches.
+2025-07-27 18:48:31,721 INFO: Progress popup closed safely.
+2025-07-27 18:48:31,735 INFO: Progress popup closed.
+2025-07-27 18:48:41,235 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:48:41,235 INFO: User initiated length check for column '85' with threshold 18.
+2025-07-27 18:48:53,660 INFO: User cancelled processing operation
+2025-07-27 18:48:53,667 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:48:53,668 INFO: Length check cancelled by user
+2025-07-27 18:49:02,700 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:49:02,700 INFO: User initiated length check for column '84' with threshold 19.
+2025-07-27 18:49:04,173 INFO: Length status updated: Found 100 matches so far...
+2025-07-27 18:49:05,668 INFO: Length status updated: Found 200 matches so far...
+2025-07-27 18:49:07,098 INFO: Length status updated: Found 300 matches so far...
+2025-07-27 18:49:08,494 INFO: Length status updated: Found 400 matches so far...
+2025-07-27 18:49:09,900 INFO: Length status updated: Found 500 matches so far...
+2025-07-27 18:49:11,377 INFO: Length status updated: Found 600 matches so far...
+2025-07-27 18:49:12,796 INFO: Length status updated: Found 700 matches so far...
+2025-07-27 18:49:14,220 INFO: Length status updated: Found 800 matches so far...
+2025-07-27 18:49:15,627 INFO: Length status updated: Found 900 matches so far...
+2025-07-27 18:49:17,028 INFO: Length status updated: Found 1000 matches so far...
+2025-07-27 18:49:18,442 INFO: Length status updated: Found 1100 matches so far...
+2025-07-27 18:49:19,822 INFO: Length status updated: Found 1200 matches so far...
+2025-07-27 18:49:21,284 INFO: Length status updated: Found 1300 matches so far...
+2025-07-27 18:49:22,745 INFO: Length status updated: Found 1400 matches so far...
+2025-07-27 18:49:24,231 INFO: Length status updated: Found 1500 matches so far...
+2025-07-27 18:49:25,722 INFO: Length status updated: Found 1600 matches so far...
+2025-07-27 18:49:27,154 INFO: Length status updated: Found 1700 matches so far...
+2025-07-27 18:49:28,604 INFO: Length status updated: Found 1800 matches so far...
+2025-07-27 18:49:30,006 INFO: Length status updated: Found 1900 matches so far...
+2025-07-27 18:49:31,397 INFO: Length status updated: Found 2000 matches so far...
+2025-07-27 18:49:32,783 INFO: Length status updated: Found 2100 matches so far...
+2025-07-27 18:49:34,232 INFO: Length status updated: Found 2200 matches so far...
+2025-07-27 18:49:35,638 INFO: Length status updated: Found 2300 matches so far...
+2025-07-27 18:49:37,075 INFO: Length status updated: Found 2400 matches so far...
+2025-07-27 18:49:38,158 INFO: User cancelled processing operation
+2025-07-27 18:49:38,160 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:49:38,160 INFO: Length check cancelled by user
+2025-07-27 18:50:39,984 INFO: Progress popup shown: Processing... Please wait.
+2025-07-27 18:50:39,984 INFO: User initiated length check for column '84' with threshold 20.
+2025-07-27 18:50:41,391 INFO: Length status updated: Found 100 matches so far...
+2025-07-27 18:50:42,843 INFO: Length status updated: Found 200 matches so far...
+2025-07-27 18:50:42,855 INFO: User cancelled processing operation
+2025-07-27 18:50:42,868 INFO: Length status updated: Processing cancelled by user.
+2025-07-27 18:50:42,869 INFO: Length check cancelled by user
+2025-07-27 19:01:37,575 INFO: Status updated: Ready
+2025-07-27 19:01:37,576 INFO: User cleared all results and status.
